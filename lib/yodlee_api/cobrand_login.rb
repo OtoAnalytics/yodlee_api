@@ -9,7 +9,7 @@ module YodleeApi
       @endpoint = endpoint
       
       @client = Savon::Client.new do
-        wsdl.document = "#{Rails.root}/lib/wsdl/CobrandLogin.wsdl"
+        wsdl.document = "yodlee_api/wsdl/CobrandLogin.wsdl"
         wsdl.endpoint = "#{@endpoint}/CobrandLoginService"
       end        
     end

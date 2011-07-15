@@ -7,9 +7,9 @@ Gem::Specification.new do |s|
   s.version     = YodleeApi::VERSION
   s.authors     = ["David Kariuki"]
   s.email       = ["david@otoanalytics.com"]
-  s.homepage    = ""
+  s.homepage    = "https://github.com/OtoAnalytics/yodlee_api"
   s.summary     = %q{Soap client for the Yodlee API}
-  s.description = %q{Soap client for the Yodlee API}
+  s.description = %q{Ruby Soap client for the Yodlee API}
 
   s.rubyforge_project = "yodlee_api"
   s.add_dependency "savon", '>= 0.9.2'
