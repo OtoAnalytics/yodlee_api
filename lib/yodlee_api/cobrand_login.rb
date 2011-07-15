@@ -7,9 +7,10 @@ module YodleeApi
     
     def initialize(credentials, endpoint)
       @endpoint = endpoint
+      @credentials = credentials
       
       @client = Savon::Client.new do
-        wsdl.document = "yodlee_api/wsdl/CobrandLogin.wsdl"
+        wsdl.document = "#{File.dirname(__FILE__)}/wsdl/CobrandLogin.wsdl"
         wsdl.endpoint = "#{@endpoint}/CobrandLoginService"
       end        
     end
