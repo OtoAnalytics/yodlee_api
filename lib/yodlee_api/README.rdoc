@@ -1,0 +1,35 @@
+= yodlee_api
+
+Future url here
+
+== Description:
+
+Soap client for the Yodlee API.
+
+== Installation:
+
+ #Gemfile
+ gem 'yodlee_api', :git => "git@github.com:OtoAnalytics/yodlee_api.git"
+
+== Usage:
+ 
+ # Login with cobrand credentials
+ credentials = YodleeApi::CobrandCredentials.new(
+   :cobrand_id => "YOUR_COBRAND_ID",
+   :application_id => "YOUR_APPLICATION_ID",
+   :cobrand_login => "YOUR_COBRAND_USERNAME",
+   :cobrand_password => "YOUR_COBRAND_PASSWORD"
+  )
+
+ endpoint = "https://some/endpoint/here"
+ session = YodleeApi::CobrandLogin.new(:endpoint => endpoint, :credentials => credentials)
+ #get the cobrand context
+ cobrand_context = session.get_cobrand_context
+
+== Dependencies:
+savon
+
+
+== LICENSE:
+
+Coming Soon.
