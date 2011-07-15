@@ -1,6 +1,7 @@
 
 # endpoint: https://64.41.182.230/yodsoap/services/
 # service: CobrandLoginService
+require 'savon'
 
 module YodleeApi
   class CobrandLogin

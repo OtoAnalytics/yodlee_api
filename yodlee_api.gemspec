@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.description = %q{Soap client for the Yodlee API}
 
   s.rubyforge_project = "yodlee_api"
-  s.add_development_dependency "savon"
+  s.add_dependency "savon"
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
