@@ -1,0 +1,10 @@
+.buildpath
+.project
+.bundle
+.DS_Store
+db/*.sqlite3
+log/*.log
+tmp/
+.sass-cache
+\#*#
+\.#*
