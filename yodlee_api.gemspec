@@ -6,10 +6,10 @@ Gem::Specification.new do |s|
   s.name        = "yodlee_api"
   s.version     = YodleeApi::VERSION
   s.authors     = ["David Kariuki"]
-  s.email       = ["dkariuki@gmail.com"]
+  s.email       = ["david@otoanalytics.com"]
   s.homepage    = ""
-  s.summary     = %q{TODO: Write a gem summary}
-  s.description = %q{TODO: Write a gem description}
+  s.summary     = %q{Soap client for the Yodlee API}
+  s.description = %q{Soap client for the Yodlee API}
 
   s.rubyforge_project = "yodlee_api"
   s.add_development_dependency "savon"
