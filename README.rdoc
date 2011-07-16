@@ -24,7 +24,7 @@ Soap client for the Yodlee API.
   )
 
  endpoint = "https://some/endpoint/here"
- session = YodleeApi::CobrandLogin.new(endpoint, :credentials)
+ session = YodleeApi::CobrandLogin.new(:endpoint => endpoint, :credentials => credentials)
 
  #get the cobrand context
 
