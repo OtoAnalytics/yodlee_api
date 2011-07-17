@@ -1,8 +1,6 @@
 module YodleeApi
   class CobrandCredentials 
     attr_writer :cobrand_id, :application_id, :cobrand_login, :cobrand_password, :tnc_version
-    
-    
     Credentials = [:cobrand_id, :application_id, :cobrand_login, :cobrand_password, :tnc_version, :locale]
     
     def initialize args
