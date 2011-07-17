@@ -20,7 +20,7 @@ module YodleeApi
                       :variant => v[:variant] || YodleeApi.locale[:variant], 
                       :order! => [:country, :language, :variant] }
           end
-          
+          @locale = v
         else
           instance_variable_set("@#{k}", v) unless v.nil?
         end
@@ -30,6 +30,23 @@ module YodleeApi
     # gets the locale, defaults to global locale
     def locale
       @locale || YodleeApi.locale
+    end
+    
+    # sets the locale
+    def locale=(loc)
+        expected_keys = [:country, :language, :variant]
+        begin
+          loc.keys.each do |k|
+            raise ArgumentError, "Invalid locale parameter: #{k}" unless expected_keys.include? k
+          end
+        rescue => e
+          raise e, e.message
+        else
+          @locale = { :country => loc[:country] || YodleeApi.locale[:country], 
+                    :language => loc[:language] || YodleeApi.locale[:language], 
+                    :variant => loc[:variant] || YodleeApi.locale[:variant], 
+                    :order! => [:country, :language, :variant] }
+        end
     end
     
     # gets the cobrand_id, defaults to global cobrand_id
