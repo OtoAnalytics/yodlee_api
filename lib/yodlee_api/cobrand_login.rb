@@ -4,23 +4,8 @@ module YodleeApi
   class CobrandLogin
     
     attr_writer :endpoint
-    attr_accessor :client, :cobrand_context, :credentials, :document, :soap_service
+    attr_accessor :client, :cobrand_context, :credentials, :soap_service
     
-    def initialize(endpt = nil, creds = {})
-      raise "Invalid credentials, expected an instance of Yodlee:CobrandCredentials" unless creds.class == "Yodlee::CobrandCredentials"
-      @soap_service = "CobrandLoginService"
-      @credentials = creds || YodleeApi::CobrandCredentials.new
-      @endpoint = endpt
-      
-      Savon.configure do |config| 
-        config.env_namespace= :soapenv 
-      end
-      
-      @client = Savon::Client.new do
-         wsdl.endpoint = File.join(endpoint, soap_service)
-         wsdl.namespace = "http://cobrandlogin.login.core.soap.yodlee.com"
-      end
-    end
     
     # Returns the endpoint. Defaults to global endpoint.
     def endpoint
@@ -28,9 +13,9 @@ module YodleeApi
     end
       
 
-    # Logs in to the CobrandLoginService and sets cobrand_context from the returned response
+    # Attempts authentication of a cobrand in the Yodlee software platform and returns a valid CobrandContext if the authentication is successful.
     def login    
-        @response = self.client.request :cob, :login_cobrand do
+        @response = client.request :cob, :login_cobrand do
           soap.element_form_default = :unqualified     
           soap.namespaces["xmlns:login"] = 'http://login.ext.soap.yodlee.com'
           soap.namespaces["xmlns:common"] = "http://common.soap.yodlee.com"
@@ -45,27 +30,60 @@ module YodleeApi
           }
       end
       
-      parse_response
+      hash_response = @response.to_hash
+      context = hash_response[:login_cobrand_response][:login_cobrand_return]
+      parse_response(context)
     end
 
 
-    # logs out of the CobrandLoginService
+    # Logs out a cobrand from the Yodlee software platform.
     def logout
-      raise "Cannot log out with out a context." if cobrand_context.nil?
-      @client.request :cob, :logout do
+      raise "Cannot log out without a context." if cobrand_context.nil?
+      client.request :cob, :logout do
         soap.namespaces["xmlns:common"] = "http://common.soap.yodlee.com"
         soap.namespaces["xmlns:login"] = 'http://login.ext.soap.yodlee.com'
-        
         soap.element_form_default = :unqualified          
-         soap.body = cobrand_context
-       end
+        soap.body = cobrand_context
+      end
+      @cobrand_context = nil
+    end
+    
+    
+    # Renews the absolute timeout validity of the com.yodlee.soap.common.ConversationCredentials encpasulated in the CobrandContext.
+    def renew_conversation
+      raise "Cannot renew conversation without a context." if cobrand_context.nil?
+      @response = client.request :cob, :renew_conversation do
+        soap.namespaces["xmlns:common"] = "http://common.soap.yodlee.com"
+        soap.namespaces["xmlns:login"] = 'http://login.ext.soap.yodlee.com'
+        soap.element_form_default = :unqualified          
+        soap.body = cobrand_context
+      end
+      
+      hash_response = @response.to_hash
+      context = hash_response[:renew_conversation_response][:renew_conversation_return]
+      parse_response(context)
     end
     
     private
     
-    def parse_response
-      hash_response = @response.to_hash
-      context = hash_response[:login_cobrand_response][:login_cobrand_return]    
+    def initialize(endpt = nil, creds = {})
+      @soap_service = "CobrandLoginService"
+      @credentials = creds.empty? ? YodleeApi::CobrandCredentials.new : creds
+      @endpoint = endpt
+      
+      Savon.configure do |config| 
+        config.env_namespace= :soapenv 
+      end
+      
+      @client = Savon::Client.new do
+         wsdl.endpoint = File.join(endpoint, soap_service)
+         wsdl.namespace = "http://cobrandlogin.login.core.soap.yodlee.com"
+      end
+    end
+    
+    # extracts cobrand_context in hash format from login and renew_conversation responses
+    def parse_response(context)
+       
       @cobrand_context = {
         :cobrand_context => {
           :cobrand_id => context[:cobrand_id],

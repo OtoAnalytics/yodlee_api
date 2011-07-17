@@ -15,7 +15,7 @@ Soap client for the Yodlee API. Supports version 10.2.
 == Usage:
 
 
- 1) # config/environment.rb
+ # 1) create a global config and put it somewhere like config/environment.rb
 
  YodleeApi.configure do |config| 
    config.application_id = "APP_ID" 
@@ -27,11 +27,11 @@ Soap client for the Yodlee API. Supports version 10.2.
    config.endpoint = "https://some/endpoint/here"
  end
  
- 2) # Create a client 
+ # 2) Create a client 
  client = YodleeApi::CobrandLogin.new
 
- # Login to the CobrandLoginService
- 3) client.login
+ # 3)  Login to the CobrandLoginService
+ client.login
 
 
  # If you don't have a global config, then you need to specify credentials and your endpoint
