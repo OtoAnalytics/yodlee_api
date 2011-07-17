@@ -3,7 +3,7 @@ module YodleeApi
     attr_writer :cobrand_id, :application_id, :cobrand_login, :cobrand_password, :tnc_version
     Credentials = [:cobrand_id, :application_id, :cobrand_login, :cobrand_password, :tnc_version, :locale]
     
-    def initialize args
+    def initialize args = {}
       args.each do |k,v|
         raise ArgumentError, "Invalid Credential specified: #{k}" unless Credentials.include? k
         if k == :locale

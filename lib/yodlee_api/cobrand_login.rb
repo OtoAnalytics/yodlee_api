@@ -6,9 +6,11 @@ module YodleeApi
     attr_writer :endpoint
     attr_accessor :client, :cobrand_context, :credentials, :document, :soap_service
     
-    def initialize(endpoint, credentials)
+    def initialize(endpt = nil, creds = {})
+      raise "Invalid credentials, expected an instance of Yodlee:CobrandCredentials" unless creds.class == "Yodlee::CobrandCredentials"
       @soap_service = "CobrandLoginService"
-      @credentials = credentials
+      @credentials = creds || YodleeApi::CobrandCredentials.new
+      @endpoint = endpt
       
       Savon.configure do |config| 
         config.env_namespace= :soapenv 
@@ -26,8 +28,8 @@ module YodleeApi
     end
       
 
-    # Logs in to the . Defaults to global endpoint.
-    def get_context    
+    # Logs in to the CobrandLoginService and sets cobrand_context from the returned response
+    def login    
         @response = self.client.request :cob, :login_cobrand do
           soap.element_form_default = :unqualified     
           soap.namespaces["xmlns:login"] = 'http://login.ext.soap.yodlee.com'
@@ -47,6 +49,20 @@ module YodleeApi
     end
 
 
+    # logs out of the CobrandLoginService
+    def logout
+      raise "Cannot log out with out a context." if cobrand_context.nil?
+      @client.request :cob, :logout do
+        soap.namespaces["xmlns:common"] = "http://common.soap.yodlee.com"
+        soap.namespaces["xmlns:login"] = 'http://login.ext.soap.yodlee.com'
+        
+        soap.element_form_default = :unqualified          
+         soap.body = cobrand_context
+       end
+    end
+    
+    private
+    
     def parse_response
       hash_response = @response.to_hash
       context = hash_response[:login_cobrand_response][:login_cobrand_return]    
@@ -76,16 +92,7 @@ module YodleeApi
       }       
       "done"      
     end
-
-    def logout
-      @client.request :cob, :logout do
-        soap.namespaces["xmlns:common"] = "http://common.soap.yodlee.com"
-        soap.namespaces["xmlns:login"] = 'http://login.ext.soap.yodlee.com'
-        
-        soap.element_form_default = :unqualified          
-         soap.body = cobrand_context
-       end
-    end
+    
     
   end
 end
