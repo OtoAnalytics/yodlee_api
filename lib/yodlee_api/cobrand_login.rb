@@ -3,10 +3,11 @@ require 'savon'
 module YodleeApi
   class CobrandLogin
     
-    attr_accessor :client, :cobrand_context, :endpoint, :credentials, :document
+    attr_writer :endpoint
+    attr_accessor :client, :cobrand_context, :credentials, :document, :soap_service
     
     def initialize(endpoint, credentials)
-      @endpoint = File.join(endpoint, "CobrandLoginService")
+      @soap_service = "CobrandLoginService"
       @credentials = credentials
       
       Savon.configure do |config| 
@@ -14,14 +15,18 @@ module YodleeApi
       end
       
       @client = Savon::Client.new do
-         wsdl.endpoint = self.endpoint
+         wsdl.endpoint = File.join(endpoint, soap_service)
          wsdl.namespace = "http://cobrandlogin.login.core.soap.yodlee.com"
       end
     end
     
-  
+    # Returns the endpoint. Defaults to global endpoint.
+    def endpoint
+      @endpoint ||= YodleeApi.endpoint
+    end
+      
 
-
+    # Logs in to the . Defaults to global endpoint.
     def get_context    
         @response = self.client.request :cob, :login_cobrand do
           soap.element_form_default = :unqualified     
@@ -44,7 +49,31 @@ module YodleeApi
 
     def parse_response
       hash_response = @response.to_hash
-      @cobrand_context = hash_response[:login_cobrand_response][:login_cobrand_return]           
+      context = hash_response[:login_cobrand_response][:login_cobrand_return]    
+      @cobrand_context = {
+        :cobrand_context => {
+          :cobrand_id => context[:cobrand_id],
+          :channel_id => context[:channel_id],
+          :tnc_version => context[:tnc_version],
+          :application_id => context[:application_id],
+          :cobrand_conversation_credentials => {:session_token => context[:cobrand_conversation_credentials][:session_token] },
+            :attributes! => { :cobrand_conversation_credentials => { "xsi:type" => "login:SessionCredentials"} },
+          :preference_info => {
+           :currency_code => context[:preference_info][:currency_code],
+           :time_zone => context[:preference_info][:time_zone],
+           :date_format => context[:preference_info][:date_format],
+           :currency_notation_type => context[:preference_info][:currency_notation_type],
+           :number_format => {
+             :decimal_separator => context[:preference_info][:number_format][:decimal_separator],
+             :grouping_separator => context[:preference_info][:number_format][:grouping_separator],
+             :group_pattern => context[:preference_info][:number_format][:group_pattern],
+             :order! => [:decimal_separator, :grouping_separator, :group_pattern]
+           },
+           :order! => [:currency_code, :time_zone, :date_format, :currency_notation_type, :number_format] 
+          },
+          :order! => [:cobrand_id, :channel_id, :tnc_version, :application_id, :cobrand_conversation_credentials, :preference_info]
+        }
+      }       
       "done"      
     end
 
@@ -54,30 +83,7 @@ module YodleeApi
         soap.namespaces["xmlns:login"] = 'http://login.ext.soap.yodlee.com'
         
         soap.element_form_default = :unqualified          
-         soap.body = {
-           :cobrand_context => {
-             :cobrand_id => cobrand_context[:cobrand_id],
-             :channel_id => cobrand_context[:channel_id],
-             :tnc_version => cobrand_context[:tnc_version],
-             :application_id => cobrand_context[:application_id],
-             :cobrand_conversation_credentials => {:session_token => cobrand_context[:cobrand_conversation_credentials][:session_token] },
-                :attributes! => { :cobrand_conversation_credentials => { "xsi:type" => "login:SessionCredentials"} },
-             :preference_info => {
-               :currency_code => cobrand_context[:preference_info][:currency_code],
-               :time_zone => cobrand_context[:preference_info][:time_zone],
-               :date_format => cobrand_context[:preference_info][:date_format],
-               :currency_notation_type => cobrand_context[:preference_info][:currency_notation_type],
-               :number_format => {
-                 :decimal_separator => cobrand_context[:preference_info][:number_format][:decimal_separator],
-                 :grouping_separator => cobrand_context[:preference_info][:number_format][:grouping_separator],
-                 :group_pattern => cobrand_context[:preference_info][:number_format][:group_pattern],
-                 :order! => [:decimal_separator, :grouping_separator, :group_pattern]
-               },
-               :order! => [:currency_code, :time_zone, :date_format, :currency_notation_type, :number_format] 
-             },
-             :order! => [:cobrand_id, :channel_id, :tnc_version, :application_id, :cobrand_conversation_credentials, :preference_info]
-           }
-         }
+         soap.body = cobrand_context
        end
     end
     
