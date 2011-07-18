@@ -18,15 +18,15 @@ module YodleeApi
         @response = client.request :cob, :login_cobrand do
           soap.element_form_default = :unqualified     
           soap.namespaces["xmlns:login"] = 'http://login.ext.soap.yodlee.com'
-          soap.namespaces["xmlns:common"] = "http://common.soap.yodlee.com"
                
           soap.body = {
            :cobrand_id => credentials.cobrand_id,
            :application_id => credentials.application_id,
+           :locale => credentials.locale,
            :tnc_version => 1,             
            :cobrand_credentials => {:login_name => credentials.cobrand_login, :password => credentials.cobrand_password, :order! => [:login_name, :password] },
                                    :attributes! => { :cobrand_credentials => { "xsi:type" => "login:CobrandPasswordCredentials"  } },
-           :order! => [:cobrand_id, :application_id, :tnc_version, :cobrand_credentials] 
+           :order! => [:cobrand_id, :application_id, :locale, :tnc_version, :cobrand_credentials] 
           }
       end
       
@@ -40,10 +40,9 @@ module YodleeApi
     def logout
       raise "Cannot log out without a context." if cobrand_context.nil?
       client.request :cob, :logout do
-        soap.namespaces["xmlns:common"] = "http://common.soap.yodlee.com"
         soap.namespaces["xmlns:login"] = 'http://login.ext.soap.yodlee.com'
         soap.element_form_default = :unqualified          
-        soap.body = cobrand_context
+        soap.body = { :cobrand_context => cobrand_context }
       end
       @cobrand_context = nil
     end
@@ -53,10 +52,9 @@ module YodleeApi
     def renew_conversation
       raise "Cannot renew conversation without a context." if cobrand_context.nil?
       @response = client.request :cob, :renew_conversation do
-        soap.namespaces["xmlns:common"] = "http://common.soap.yodlee.com"
         soap.namespaces["xmlns:login"] = 'http://login.ext.soap.yodlee.com'
         soap.element_form_default = :unqualified          
-        soap.body = cobrand_context
+        soap.body = { :cobrand_context => cobrand_context }
       end
       
       hash_response = @response.to_hash
@@ -84,10 +82,12 @@ module YodleeApi
     # extracts cobrand_context in hash format from login and renew_conversation responses
     def parse_response(context)
        
-      @cobrand_context = {
-        :cobrand_context => {
+      @cobrand_context = 
+        {
           :cobrand_id => context[:cobrand_id],
           :channel_id => context[:channel_id],
+          :locale => { :country => context[:locale][:country], :language => context[:locale][:language], :variant => context[:locale][:variant], 
+                    :order! => [:country, :language, :variant] },
           :tnc_version => context[:tnc_version],
           :application_id => context[:application_id],
           :cobrand_conversation_credentials => {:session_token => context[:cobrand_conversation_credentials][:session_token] },
@@ -105,12 +105,12 @@ module YodleeApi
            },
            :order! => [:currency_code, :time_zone, :date_format, :currency_notation_type, :number_format] 
           },
-          :order! => [:cobrand_id, :channel_id, :tnc_version, :application_id, :cobrand_conversation_credentials, :preference_info]
+          :order! => [:cobrand_id, :channel_id, :locale, :tnc_version, :application_id, :cobrand_conversation_credentials, :preference_info]
         }
-      }       
-      "done"      
+            
     end
-    
     
   end
 end
+
+

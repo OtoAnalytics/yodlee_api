@@ -17,10 +17,9 @@ module YodleeApi
           else
             @locale = { :country => v[:country] || YodleeApi.locale[:country], 
                       :language => v[:language] || YodleeApi.locale[:language], 
-                      :variant => v[:variant] || YodleeApi.locale[:variant], 
+                      :variant => v[:variant]   || YodleeApi.locale[:variant], 
                       :order! => [:country, :language, :variant] }
           end
-          @locale = v
         else
           instance_variable_set("@#{k}", v) unless v.nil?
         end
