@@ -7,8 +7,7 @@ module YodleeApi
       { 
         :login_name => login_name, 
         :password => password, 
-        :attributes! => {:login_name => {"xsi:type" => "xsd:string"}, :password => {"xsi:type" => "xsd:string"}},
-        :order! => [:login_name, :password] 
+        :attributes! => {:login_name => {"xsi:type" => "xsd:string"}, :password => {"xsi:type" => "xsd:string"} }
       }
     end
     
@@ -19,8 +18,11 @@ module YodleeApi
           :table => {
             :key => 'EMAIL_ADDRESS', 
             :value => email, 
-            :attributes! => {:key => {"xsi:type" => "xsd:string"}, :value => {"xsi:type" => "xsd:string"}},
-            :order! => [:key, :value]} 
+            :attributes! => { 
+              :key => {"xsi:type" => "xsd:string"}, 
+              :value => {"xsi:type" => "xsd:string"} 
+            }
+          } 
         } 
       }
     end

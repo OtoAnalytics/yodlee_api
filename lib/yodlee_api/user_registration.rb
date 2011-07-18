@@ -19,8 +19,7 @@ module YodleeApi
         soap.body = {
          :cobrand_context => cobrand_context,
          :user_credentials => credentials.credentials_hash, :attributes! => {:user_credentials => {"xsi:type" => "login:PasswordCredentials"}},
-         :user_profile => credentials.profile_hash,       
-         :order! => [:cobrand_context, :user_credentials, :user_profile] 
+         :user_profile => credentials.profile_hash       
         }
       end
     end
@@ -34,6 +33,7 @@ module YodleeApi
       @cobrand_context = context
 
       @client = Savon::Client.new do
+         http.auth.ssl.verify_mode = :none              
          wsdl.endpoint = File.join(endpoint, soap_service)
          wsdl.namespace = "http://userregistration.usermanagement.core.soap.yodlee.com"
       end

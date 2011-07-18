@@ -16,9 +16,9 @@ module YodleeApi
             raise e, e.message
           else
             @locale = { :country => v[:country] || YodleeApi.locale[:country], 
-                      :language => v[:language] || YodleeApi.locale[:language], 
-                      :variant => v[:variant]   || YodleeApi.locale[:variant], 
-                      :order! => [:country, :language, :variant] }
+                        :language => v[:language] || YodleeApi.locale[:language], 
+                        :variant => v[:variant]   || YodleeApi.locale[:variant] 
+                      }
           end
         else
           instance_variable_set("@#{k}", v) unless v.nil?
@@ -42,9 +42,9 @@ module YodleeApi
           raise e, e.message
         else
           @locale = { :country => loc[:country] || YodleeApi.locale[:country], 
-                    :language => loc[:language] || YodleeApi.locale[:language], 
-                    :variant => loc[:variant] || YodleeApi.locale[:variant], 
-                    :order! => [:country, :language, :variant] }
+                      :language => loc[:language] || YodleeApi.locale[:language], 
+                      :variant => loc[:variant] || YodleeApi.locale[:variant] 
+                    }
         end
     end
     

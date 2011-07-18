@@ -4,7 +4,7 @@ module YodleeApi
   class CobrandLogin
     
     attr_writer :endpoint
-    attr_accessor :client, :cobrand_context, :credentials, :soap_service
+    attr_reader :client, :cobrand_context, :credentials, :soap_service
     
     
     # Returns the endpoint. Defaults to global endpoint.
@@ -18,15 +18,13 @@ module YodleeApi
         @response = client.request :cob, :login_cobrand do
           soap.element_form_default = :unqualified     
           soap.namespaces["xmlns:login"] = 'http://login.ext.soap.yodlee.com'
-               
           soap.body = {
            :cobrand_id => credentials.cobrand_id,
            :application_id => credentials.application_id,
            :locale => credentials.locale,
            :tnc_version => 1,             
-           :cobrand_credentials => {:login_name => credentials.cobrand_login, :password => credentials.cobrand_password, :order! => [:login_name, :password] },
-                                   :attributes! => { :cobrand_credentials => { "xsi:type" => "login:CobrandPasswordCredentials"  } },
-           :order! => [:cobrand_id, :application_id, :locale, :tnc_version, :cobrand_credentials] 
+           :cobrand_credentials => {:login_name => credentials.cobrand_login, :password => credentials.cobrand_password },
+                                   :attributes! => { :cobrand_credentials => { "xsi:type" => "login:CobrandPasswordCredentials"  } }
           }
       end
       
@@ -74,39 +72,40 @@ module YodleeApi
       end
       
       @client = Savon::Client.new do
+         http.auth.ssl.verify_mode = :none              
          wsdl.endpoint = File.join(endpoint, soap_service)
          wsdl.namespace = "http://cobrandlogin.login.core.soap.yodlee.com"
       end
     end
     
     # extracts cobrand_context in hash format from login and renew_conversation responses
-    def parse_response(context)
-       
-      @cobrand_context = 
-        {
-          :cobrand_id => context[:cobrand_id],
-          :channel_id => context[:channel_id],
-          :locale => { :country => context[:locale][:country], :language => context[:locale][:language], :variant => context[:locale][:variant], 
-                    :order! => [:country, :language, :variant] },
-          :tnc_version => context[:tnc_version],
-          :application_id => context[:application_id],
-          :cobrand_conversation_credentials => {:session_token => context[:cobrand_conversation_credentials][:session_token] },
-            :attributes! => { :cobrand_conversation_credentials => { "xsi:type" => "login:SessionCredentials"} },
-          :preference_info => {
-           :currency_code => context[:preference_info][:currency_code],
-           :time_zone => context[:preference_info][:time_zone],
-           :date_format => context[:preference_info][:date_format],
-           :currency_notation_type => context[:preference_info][:currency_notation_type],
-           :number_format => {
-             :decimal_separator => context[:preference_info][:number_format][:decimal_separator],
-             :grouping_separator => context[:preference_info][:number_format][:grouping_separator],
-             :group_pattern => context[:preference_info][:number_format][:group_pattern],
-             :order! => [:decimal_separator, :grouping_separator, :group_pattern]
-           },
-           :order! => [:currency_code, :time_zone, :date_format, :currency_notation_type, :number_format] 
-          },
-          :order! => [:cobrand_id, :channel_id, :locale, :tnc_version, :application_id, :cobrand_conversation_credentials, :preference_info]
+    def parse_response(context)       
+      @cobrand_context = {
+        :cobrand_id => context[:cobrand_id],
+        :channel_id => context[:channel_id],
+        :locale => { 
+          :country => context[:locale][:country], 
+          :language => context[:locale][:language], 
+          :variant => context[:locale][:variant] 
+        },
+        :tnc_version => context[:tnc_version],
+        :application_id => context[:application_id],
+        :cobrand_conversation_credentials => {
+          :session_token => context[:cobrand_conversation_credentials][:session_token],
+          :attributes! => { :cobrand_conversation_credentials => { "xsi:type" => "login:SessionCredentials"} } 
+        },
+        :preference_info => {
+          :currency_code => context[:preference_info][:currency_code],
+          :time_zone => context[:preference_info][:time_zone],
+          :date_format => context[:preference_info][:date_format],
+          :currency_notation_type => context[:preference_info][:currency_notation_type],
+          :number_format => {
+            :decimal_separator => context[:preference_info][:number_format][:decimal_separator],
+            :grouping_separator => context[:preference_info][:number_format][:grouping_separator],
+            :group_pattern => context[:preference_info][:number_format][:group_pattern]
+          }
         }
+      }
             
     end
     

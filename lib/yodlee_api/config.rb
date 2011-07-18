@@ -11,7 +11,7 @@ module YodleeApi
     
     # returns the locale hash
     def locale
-      @locale || { :country => "US", :language => "en", :variant => nil, :order! => [:country, :language, :variant] }
+      @locale || { :country => "US", :language => "en", :variant => nil }
     end
     
     # sets the locale hash
@@ -26,8 +26,7 @@ module YodleeApi
       else
         @locale = { :country => loc[:country] || locale[:country], 
                   :language => loc[:language] || locale[:language], 
-                  :variant => loc[:variant] || locale[:variant], 
-                  :order! => [:country, :language, :variant] 
+                  :variant => loc[:variant] || locale[:variant]
                   }
       end
     end
