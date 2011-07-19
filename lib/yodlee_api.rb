@@ -5,7 +5,7 @@ require "yodlee_api/cobrand_login"
 require "yodlee_api/user_registration"
 require "yodlee_api/user_credentials"
 require "yodlee_api/content_services"
-
+require "yodlee_api/item_management"
 
 module YodleeApi
   extend Config

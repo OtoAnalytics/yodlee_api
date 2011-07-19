@@ -8,14 +8,13 @@ Soap client for the Yodlee API. Supports version 10.2.
 
 == Installation:
 
- #Gemfile
-
+Gemfile
  gem 'yodlee_api', :git => "git@github.com:OtoAnalytics/yodlee_api.git"
 
 == QuickStart Guide:
 
 
- # 1) create a global config and put it somewhere like config/environment.rb
+1) create a global config and put it somewhere like config/environment.rb
 
  YodleeApi.configure do |config| 
    config.application_id = "APP_ID" 
@@ -27,7 +26,7 @@ Soap client for the Yodlee API. Supports version 10.2.
    config.endpoint = "https://some/endpoint/here"
  end
  
- # 2) Create a client 
+2) Create a client 
  > client = YodleeApi::CobrandLogin.new
 
  # 3)  Login to the CobrandLoginService
@@ -83,8 +82,8 @@ Soap client for the Yodlee API. Supports version 10.2.
 	
 == Dependencies:
 
-savon, '>= 0.9.6'
-ruby 1.9.2 (hashes in 1.8.7 don't store element order and that will cause all sorts of havoc)
+ savon, '>= 0.9.6'
+ ruby 1.9.2 (hashes in 1.8.7 don't store element order and that will cause all sorts of havoc)
 
 
 == LICENSE:
