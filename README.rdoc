@@ -28,15 +28,14 @@ Soap client for the Yodlee API. Supports version 10.2.
  end
  
  # 2) Create a client 
- client = YodleeApi::CobrandLogin.new
+ > client = YodleeApi::CobrandLogin.new
 
  # 3)  Login to the CobrandLoginService
- client.login
+ > client.login
 
 
- # If you don't have a global config, then you need to specify credentials and your endpoint
-
- credentials = YodleeApi::CobrandCredentials.new(
+ # If you don't have a global config, then you need to specify credentials and your endpoint. All fields are required unless commented as optional
+ > credentials = YodleeApi::CobrandCredentials.new(
    :cobrand_id => "YOUR_COBRAND_ID",
    :application_id => "YOUR_APPLICATION_ID",
    :cobrand_login => "YOUR_COBRAND_USERNAME",
@@ -45,31 +44,47 @@ Soap client for the Yodlee API. Supports version 10.2.
    :tnc_version => 1 # optional
  )
 
- endpoint = "https://some/endpoint/here"
+ > endpoint = "https://some/endpoint/here"
 
  # create a client
- client = YodleeApi::CobrandLogin.new(endpoint, credentials)
+ > client = YodleeApi::CobrandLogin.new(endpoint, credentials)
 
  # Login to the CobrandLoginService
- client.login
+ > client.login
 
 
  # 4) Create user credentials
-  user_creds = YodleeApi::UserCredentials.new(:email => "foo@bar.com", :login_name => "foobarone", :password => "foobartwo1")
+ > user_creds = YodleeApi::UserCredentials.new(:email => "foo@bar.com", :login_name => "foobarone", :password => "foobartwo1")
 
  # 5) Register the user
-  user = YodleeApi::UserRegistration.new(client.cobrand_context, user_creds)
-  user.register
+ > user = YodleeApi::UserRegistration.new(client.cobrand_context, user_creds)
+ > user.register
 
+ # 6) Create a content service request to get the list of supported sites 
+ > service = YodleeApi::ContentServices.new(:cobrand_context => client.cobrand_context, :container_types => "bank")
+ # you can also specify an array of container_types, see YodleeApi::ContentServices::SupportedContainerTypes for a list of valid types
+ > services = YodleeApi::ContentServices.new(:cobrand_context => client.cobrand_context, :container_types => ["bank", "credit_card"])
 
+ # Fetch the sites list
+ > service.get_content_services
 
+ # 7) Access the sites list
+ > service.sites
 
-  
-
-
+ # The sites will be stored an array of hashes with keys :content_service_id and :site_name
+ [{:content_service_id=>"566", :site_name=>"1st Advantage Federal Credit Union"}, 
+  {:content_service_id=>"3190", :site_name=>"1st Bank - Loan"}, 
+  {:content_service_id=>"14938", :site_name=>"1st Bank (MT)"}, 
+  {:content_service_id=>"15824", :site_name=>"1st Century Bank"}, 
+  {:content_service_id=>"15586", :site_name=>"1st Choice Community FCU"}, 
+  {:content_service_id=>"13006", :site_name=>"1st Choice Credit Union"},
+  ...
+  {:content_service_id=>"14293", :site_name=>"Zions Bank - Business"}] 
+	
 == Dependencies:
 
-savon
+savon, '>= 0.9.6'
+ruby 1.9.2 (hashes in 1.8.7 don't store element order and that will cause all sorts of havoc)
 
 
 == LICENSE:
