@@ -9,6 +9,11 @@ module YodleeApi
       @tnc_version || 1
     end
     
+    # for deep copying hashes
+    def deep_copy(object)
+      Marshal.load(Marshal.dump(object))
+    end
+    
     # returns the locale hash
     def locale
       @locale || { :country => "US", :language => "en", :variant => nil }

@@ -12,7 +12,7 @@ Soap client for the Yodlee API. Supports version 10.2.
 
  gem 'yodlee_api', :git => "git@github.com:OtoAnalytics/yodlee_api.git"
 
-== Usage:
+== QuickStart Guide:
 
 
  # 1) create a global config and put it somewhere like config/environment.rb
@@ -53,6 +53,18 @@ Soap client for the Yodlee API. Supports version 10.2.
  # Login to the CobrandLoginService
  client.login
 
+
+ # 4) Create user credentials
+  user_creds = YodleeApi::UserCredentials.new(:email => "foo@bar.com", :login_name => "foobarone", :password => "foobartwo1")
+
+ # 5) Register the user
+  user = YodleeApi::UserRegistration.new(client.cobrand_context, user_creds)
+  user.register
+
+
+
+
+  
 
 
 == Dependencies:

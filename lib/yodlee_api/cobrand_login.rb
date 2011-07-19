@@ -4,15 +4,19 @@ module YodleeApi
   class CobrandLogin
     
     attr_writer :endpoint
-    attr_reader :client, :cobrand_context, :credentials, :soap_service
+    attr_reader :client, :credentials, :soap_service
     
     
     # Returns the endpoint. Defaults to global endpoint.
     def endpoint
       @endpoint ||= YodleeApi.endpoint
     end
-      
-
+    
+    # Returns a deep copy of the cobrand context
+    def cobrand_context
+      YodleeApi.deep_copy(@cobrand_context)
+    end
+    
     # Attempts authentication of a cobrand in the Yodlee software platform and returns a valid CobrandContext if the authentication is successful.
     def login    
         @response = client.request :cob, :login_cobrand do
@@ -62,9 +66,9 @@ module YodleeApi
     
     private
     
-    def initialize(endpt = nil, creds = {})
+    def initialize(endpt = nil, creds = nil)
       @soap_service = "CobrandLoginService"
-      @credentials = creds.empty? ? YodleeApi::CobrandCredentials.new : creds
+      @credentials = creds || YodleeApi::CobrandCredentials.new 
       @endpoint = endpt
       
       Savon.configure do |config| 
@@ -92,8 +96,8 @@ module YodleeApi
         :application_id => context[:application_id],
         :cobrand_conversation_credentials => {
           :session_token => context[:cobrand_conversation_credentials][:session_token],
-          :attributes! => { :cobrand_conversation_credentials => { "xsi:type" => "login:SessionCredentials"} } 
-        },
+        }, :attributes! => { :cobrand_conversation_credentials => { "xsi:type" => "login:SessionCredentials"} }, 
+        
         :preference_info => {
           :currency_code => context[:preference_info][:currency_code],
           :time_zone => context[:preference_info][:time_zone],

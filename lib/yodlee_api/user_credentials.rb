@@ -4,11 +4,11 @@ module YodleeApi
     
     # returns credentials hash
     def credentials_hash
-      { 
+      YodleeApi.deep_copy({ 
         :login_name => login_name, 
         :password => password, 
         :attributes! => {:login_name => {"xsi:type" => "xsd:string"}, :password => {"xsi:type" => "xsd:string"} }
-      }
+      })
     end
     
     # returns profile hash
