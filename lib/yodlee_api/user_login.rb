@@ -46,7 +46,7 @@ module YodleeApi
     def logout
       raise "Cannot logout without a user context." if user_context.nil?
       
-      @response = client.request :user, :unregister do
+      @response = client.request :user, :logout do
         soap.element_form_default = :unqualified     
         soap.namespaces["xmlns:login"] = 'http://login.ext.soap.yodlee.com'
 
