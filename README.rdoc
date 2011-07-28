@@ -27,14 +27,14 @@ Gemfile
  end
  
 2) Create a client 
- $ client = YodleeApi::CobrandLogin.new
+  client = YodleeApi::CobrandLogin.new
 
 3)  Login to the CobrandLoginService
- $ client.login
+  client.login
 
 
 If you don't have a global config, then you need to specify credentials and your endpoint. All fields are required unless commented as optional
- $ credentials = YodleeApi::CobrandCredentials.new(
+  credentials = YodleeApi::CobrandCredentials.new(
    :cobrand_id => "YOUR_COBRAND_ID",
    :application_id => "YOUR_APPLICATION_ID",
    :cobrand_login => "YOUR_COBRAND_USERNAME",
@@ -43,29 +43,33 @@ If you don't have a global config, then you need to specify credentials and your
    :tnc_version => 1 # optional
  )
 
- $ endpoint = "https://some/endpoint/here"
- $ client = YodleeApi::CobrandLogin.new(endpoint, credentials)
- $ client.login
+  endpoint = "https://some/endpoint/here"
+  client = YodleeApi::CobrandLogin.new(endpoint, credentials)
+  client.login
 
 
 4) Create user credentials
- $ user_creds = YodleeApi::UserCredentials.new(:email => "foo@bar.com", :login_name => "foobarone", :password => "foobartwo1")
+  user_creds = YodleeApi::UserCredentials.new(:email => "foo@bar.com", :login_name => "foobarone", :password => "foobartwo1")
 
-5) Register the user
- $ user = YodleeApi::UserRegistration.new(client.cobrand_context, user_creds)
- $ user.register
+5a) Register the user
+  registration_manager = YodleeApi::UserRegistration.new(client.cobrand_context, user_creds)
+  registration_manager.register
+
+5b) If you already have a user, log in instead
+  login_manager = YodleeApi::UserLogin.new(client.cobrand_context, user_creds) # you don't have to pass in email to user credentials for login
+  login_manager.login
 
 6) Create a content service request to get the list of supported sites and their login forms
- $ service = YodleeApi::ContentServices.new(:cobrand_context => client.cobrand_context, :container_types => "bank")
+  service = YodleeApi::ContentServices.new(:cobrand_context => client.cobrand_context, :container_types => "bank")
  # you can also specify an array of container_types, see YodleeApi::ContentServices::SupportedContainerTypes for a list of valid types
- $ services = YodleeApi::ContentServices.new(:cobrand_context => client.cobrand_context, :container_types => ["bank", "credit_card"])
+  services = YodleeApi::ContentServices.new(:cobrand_context => client.cobrand_context, :container_types => ["bank", "credit_card"])
 
  # Fetch the sites list
- $ service.get_content_services
+  service.get_content_services
 
 7) Access the sites list. The sites will be stored an array of hashes with keys :content_service_id, :site_name, :organization_name and :login_form
  
- $ service.sites[2882]
+  service.sites[2882]
  => { 
       :content_service_id=>"13356", 
       :site_name=>"WT Direct", 
