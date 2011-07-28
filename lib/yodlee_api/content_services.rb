@@ -46,7 +46,7 @@ module YodleeApi
       parse_response(response_xml)
     end
     
-    #private
+    private
     
     Arguments = [:cobrand_context, :container_types]
 
@@ -72,7 +72,7 @@ module YodleeApi
         @sites = doc.search('getContentServicesByContainerType5Return/table/value/elements').map {|c| {
             :content_service_id => c.elements[0].text, 
             :site_name => c.elements[2].text, 
-            :organiztion_name => c.elements[4].text,
+            :organization_name => c.elements[4].text,
             :login_form  => c.search('loginForm/componentList/elements').map { |field| 
               field.elements.inject({}) { |h, c| 
                 if ['validValues', 'displayValidValues'].include?(c.name)

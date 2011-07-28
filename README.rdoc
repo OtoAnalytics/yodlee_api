@@ -69,7 +69,7 @@ If you don't have a global config, then you need to specify credentials and your
  => { 
       :content_service_id=>"13356", 
       :site_name=>"WT Direct", 
-      :organiztion_name=>"Wilmington Trust", 
+      :organization_name=>"Wilmington Trust", 
       :login_form =>
         [
           {:name=>"PASSWORD", :displayName=>"Password", :isEditable=>"true", ... :fieldErrorCode=>""}, # each hash is a form field
