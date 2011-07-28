@@ -69,13 +69,17 @@ module YodleeApi
     # parses the get_content_services_by_container_type5 response, extracting site name and content_service_id 
     def parse_response(response_xml)
         doc = Nokogiri::XML(response_xml)
-        @sites = doc.at("value").children.map {|c| {
+        @sites = doc.search('getContentServicesByContainerType5Return/table/value/elements').map {|c| {
             :content_service_id => c.elements[0].text, 
             :site_name => c.elements[2].text, 
             :organiztion_name => c.elements[4].text,
-            :login_form  => c.elements.at("loginForm").search("elements").map { |field| 
+            :login_form  => c.search('loginForm/componentList/elements').map { |field| 
               field.elements.inject({}) { |h, c| 
-                h[c.name] = c.text 
+                if ['validValues', 'displayValidValues'].include?(c.name)
+                  h[c.name.to_sym] = c.elements.map { |c| c.text }
+                else
+                  h[c.name.to_sym] = c.text 
+                end
                 h 
               } 
             }
