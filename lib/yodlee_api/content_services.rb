@@ -10,7 +10,7 @@ module YodleeApi
   
     attr_accessor :container_types
     attr_writer :endpoint
-    attr_reader :client, :sites, :cobrand_context, :container_types, :soap_service
+    attr_reader :client, :sites, :cobrand_context, :container_types, :soap_service, :response
     
     # list of supported container types, see Yodlee 10.2 API docs for ContainerTypes
     SupportedContainerTypes = ["bank", "credits"]
@@ -42,11 +42,11 @@ module YodleeApi
       end; nil
       
       @sites = @response.to_xml; true
-      # response_xml = @response.to_xml; nil
-      # parse_response(response_xml)
+      response_xml = @response.to_xml
+      parse_response(response_xml)
     end
     
-    private
+    #private
     
     Arguments = [:cobrand_context, :container_types]
 
@@ -73,7 +73,12 @@ module YodleeApi
             :content_service_id => c.elements[0].text, 
             :site_name => c.elements[2].text, 
             :organiztion_name => c.elements[4].text,
-            :login_form  => c.elements.at("loginForm").search("elements").map { |field| field.children.map {|c| {c.name => c.text} } }          
+            :login_form  => c.elements.at("loginForm").search("elements").map { |field| 
+              field.elements.inject({}) { |h, c| 
+                h[c.name] = c.text 
+                h 
+              } 
+            }
           }
         }; true     
     end
