@@ -63,23 +63,30 @@ If you don't have a global config, then you need to specify credentials and your
  # Fetch the sites list
  $ service.get_content_services
 
-7) Access the sites list. The sites will be stored an array of hashes with keys :content_service_id, :site_name, :organization_name & :login_form
+7) Access the sites list. The sites will be stored an array of hashes with keys :content_service_id, :site_name, :organization_name and :login_form
  
- service.sites.first
-  => {
-        :content_service_id=>"566", 
-        :site_name=>"1st Advantage Federal Credit Union", 
-        :organiztion_name=>"1st Advantage FCU - Member Portfolio View", 
-        :login_form => [
-          [{"name"=>"LOGIN"}, {"displayName"=>"User ID"}, {"isEditable"=>"true"}, {"isOptional"=>"false"}, {"isEscaped"=>"false"}, {"isOptionalMFA"=>"false"}, {"isMFA"=>"false"}, {"valueIdentifier"=>"LOGIN"}, {"valueMask"=>"LOGIN_FIELD"}, {"fieldType"=>"LOGIN"}, {"size"=>"20"}, {"maxlength"=>"40"}, {"fieldErrorCode"=>""}],
-          [{"name"=>"PASSWORD"}, {"displayName"=>"Password"}, {"isEditable"=>"true"}, {"isOptional"=>"false"}, {"isEscaped"=>"false"}, {"isOptionalMFA"=>"false"}, {"isMFA"=>"false"}, {"valueIdentifier"=>"PASSWORD"}, {"valueMask"=>"LOGIN_FIELD"}, {"fieldType"=>"PASSWORD"}, {"size"=>"20"}, {"maxlength"=>"40"}, {"fieldErrorCode"=>""}]
-        ]
-      }
+ $ service.sites[2882]
+ => { 
+      :content_service_id=>"13356", 
+      :site_name=>"WT Direct", 
+      :organiztion_name=>"Wilmington Trust", 
+      :login_form =>
+        [
+          {:name=>"PASSWORD", :displayName=>"Password", :isEditable=>"true", ... :fieldErrorCode=>""}, # each hash is a form field
+          {:name=>"LOGIN", :displayName=>"User ID", :isEditable=>"true",... :fieldErrorCode=>""}, 
+          {:name=>"OP_OPTIONS", :displayName=>"Question1", :isEditable=>"true", :isOptional=>"true", :isEscaped=>"false", :isOptionalMFA=>"false", :isMFA=>"false", 
+            :validValues=>["city were you born in", "first name of the best man at your wedding", ... "name of your first pet"], 
+            :displayValidValues=>["What city were you born in?", ... "What was the name of your first pet?"], 
+            :valueIdentifier=>"OP_OPTIONS", :valueMask=>"LOGIN_FIELD", :fieldType=>"OPTIONS", :size=>"20", :maxlength=>"40", :fieldErrorCode=>""}, 
+          {:name=>"OP_LOGIN3", :displayName=>"Answer1", :isEditable=>"true", ... :fieldErrorCode=>""}, 
+        ]    
+    }
  
 	
 == Dependencies:
 
  savon, '>= 0.9.6'
+ nokogiri
  ruby 1.9.2 (hashes in 1.8.7 don't store element order and that will cause all sorts of havoc)
 
 
