@@ -13,7 +13,7 @@ module YodleeApi
     attr_reader :client, :sites, :cobrand_context, :container_types, :soap_service
     
     # list of supported container types, see Yodlee 10.2 API docs for ContainerTypes
-    SupportedContainerTypes = ["bank", "credit_card"]
+    SupportedContainerTypes = ["bank", "credits"]
     # gets the endpoint, defaults to globally defined endpoint
     def endpoint
       @endpoint || YodleeApi.endpoint
@@ -40,9 +40,9 @@ module YodleeApi
         }
       end
       
-      hash_response = @response.to_hash
-      sites_list = hash_response[:get_content_services_by_container_type4_response][:get_content_services_by_container_type4_return][:table][:value][:elements]
-      parse_response(sites_list)
+      
+      response_xml = @response.to_xml
+      parse_response(response_xml)
     end
     
     private
@@ -66,10 +66,9 @@ module YodleeApi
     end
     
     # parses the get_content_services_by_container_type4 response, extracting site name and content_service_id 
-    def parse_response(sites_list)
-      sites_list.each do |site|
-        @sites << { :content_service_id => site[:content_service_id], :site_name => site[:site_display_name] }
-      end
+    def parse_response(response_xml)
+        doc = Nokogiri::XML(response_xml)
+        @sites = doc.at("value").children.map {|c| {:content_service_id => c.elements[0].text, :site_name => c.elements[2].text}}      
     end
     
   end
