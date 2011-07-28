@@ -8,7 +8,7 @@ module YodleeApi
     
     attr_accessor :soap_service
     attr_writer :endpoint
-    attr_reader :client
+    attr_reader :client, :forms
   
     # gets the endpoint, defaults to globally defined endpoint
     def endpoint
@@ -20,22 +20,23 @@ module YodleeApi
       YodleeApi.deep_copy(@cobrand_context)
     end
     
-    # Return all the credential fields that are required for adding a Member Item corresponding to the 
-    # ContentService specified by the contentServiceId. It returns null if the ContentService is shared. eg:news
-    def get_login_form(cs_id)
-      @response = client.request :item, :get_login_form_for_content_service do
+    # Return A map keyed by specified content service IDs and values are credential fields that are required for 
+    # adding a Member Item to the content service encapsulated in a Form object. Map Values will be null for shared ContentServices. 
+    # eg:news It returns null if the ContentService is shared. eg:news
+    def get_login_forms(cs_ids)
+      @response = client.request :item, :get_login_forms_for_content_services do
         soap.element_form_default = :unqualified     
         soap.namespaces["xmlns:login"] = 'http://login.ext.soap.yodlee.com'
                    
         soap.body = {
          :cobrand_context => cobrand_context,
-         :content_service_id => cs_id
+         :content_service_ids => {:elements => cs_ids}
         }
         
       end
-      
-      hash_response = @response.to_hash
-      
+      @forms = @response.to_xml
+      # response_xml = @response.to_xml
+      # parse_response(response_xml)      
     end
     
     private
@@ -43,12 +44,25 @@ module YodleeApi
     def initialize(ctxt)
       @cobrand_context = ctxt   
       @soap_service = "ItemManagementService"
+      @forms = []
 
       @client = Savon::Client.new do
          http.auth.ssl.verify_mode = :none              
          wsdl.endpoint = File.join(endpoint, soap_service)
-         wsdl.namespace = "http://userregistration.usermanagement.core.soap.yodlee.com"
+         wsdl.namespace = "http://itemmanagement.accountmanagement.core.soap.yodlee.com"
       end   
+    end
+    
+    
+    def parse_response
+      doc = Nokogiri::XML(response_xml)
+      tables = doc.search("table")
+      
+      tables.each do |form| 
+        elements = form.search("elements").map { |field| field.children.map {|c| {c.name => c.text} } }          
+      end
+      
+      @forms = doc.at("value").children.map {|c| {:content_service_id => c.elements[0].text, :site_name => c.elements[2].text}}
     end
     
   end

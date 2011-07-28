@@ -28,7 +28,7 @@ module YodleeApi
     
     # Returns a Map of content services keyed by the container types.
     def get_content_services
-      @response = client.request :con, :get_content_services_by_container_type4 do
+      @response = client.request :con, :get_content_services_by_container_type5 do
         soap.element_form_default = :unqualified     
         soap.namespaces["xmlns:login"] = 'http://login.ext.soap.yodlee.com'
                    
@@ -36,13 +36,14 @@ module YodleeApi
          :cobrand_context => cobrand_context,
          :container_types => {
            :elements => container_types
-         }
+         },
+         :req_specifier => 16
         }
-      end
+      end; nil
       
-      
-      response_xml = @response.to_xml
-      parse_response(response_xml)
+      @sites = @response.to_xml; true
+      # response_xml = @response.to_xml; nil
+      # parse_response(response_xml)
     end
     
     private
@@ -65,10 +66,16 @@ module YodleeApi
       end
     end
     
-    # parses the get_content_services_by_container_type4 response, extracting site name and content_service_id 
+    # parses the get_content_services_by_container_type5 response, extracting site name and content_service_id 
     def parse_response(response_xml)
         doc = Nokogiri::XML(response_xml)
-        @sites = doc.at("value").children.map {|c| {:content_service_id => c.elements[0].text, :site_name => c.elements[2].text}}      
+        @sites = doc.at("value").children.map {|c| {
+            :content_service_id => c.elements[0].text, 
+            :site_name => c.elements[2].text, 
+            :organiztion_name => c.elements[4].text,
+            :login_form  => c.elements.at("loginForm").search("elements").map { |field| field.children.map {|c| {c.name => c.text} } }          
+          }
+        }; true     
     end
     
   end
