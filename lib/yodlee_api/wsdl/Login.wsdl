@@ -1,0 +1,1830 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://login.login.core.soap.yodlee.com" xmlns:intf="http://login.login.core.soap.yodlee.com" xmlns:tns1="http://common.soap.yodlee.com" xmlns:tns10="http://sso.ext.soap.yodlee.com" xmlns:tns11="http://client.ycache.system.util.soap.yodlee.com" xmlns:tns12="http://ycache.system.util.soap.yodlee.com" xmlns:tns13="http://searchmanagement.permissioning.core.soap.yodlee.com" xmlns:tns14="http://permissioning.core.soap.yodlee.com" xmlns:tns15="http://common.collections.soap.yodlee.com" xmlns:tns16="http://saml.ext.soap.yodlee.com" xmlns:tns17="http://batch.core.soap.yodlee.com" xmlns:tns18="http://settings.config.system.core.soap.yodlee.com" xmlns:tns19="http://tncmanagement.core.soap.yodlee.com" xmlns:tns2="http://collections.soap.yodlee.com" xmlns:tns20="http://ccw.ext.soap.yodlee.com" xmlns:tns3="http://login.ext.soap.yodlee.com" xmlns:tns4="http://usermanagement.core.soap.yodlee.com" xmlns:tns5="http://login.core.soap.yodlee.com" xmlns:tns6="http://core.soap.yodlee.com" xmlns:tns7="http://exceptions.acl.admin.core.soap.yodlee.com" xmlns:tns8="http://usermanagement.base.appext.soap.yodlee.com" xmlns:tns9="http://admin.core.soap.yodlee.com" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://login.login.core.soap.yodlee.com">
+    <!--WSDL created by Apache Axis version: 1.4Built on Apr 22, 2006 (06:55:48 PDT)-->
+    <wsdl:types>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="http://login.login.core.soap.yodlee.com">
+            <import namespace="http://searchmanagement.permissioning.core.soap.yodlee.com" />
+            <import namespace="http://settings.config.system.core.soap.yodlee.com" />
+            <import namespace="http://usermanagement.core.soap.yodlee.com" />
+            <import namespace="http://ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://exceptions.acl.admin.core.soap.yodlee.com" />
+            <import namespace="http://core.soap.yodlee.com" />
+            <import namespace="http://ccw.ext.soap.yodlee.com" />
+            <import namespace="http://saml.ext.soap.yodlee.com" />
+            <import namespace="http://login.ext.soap.yodlee.com" />
+            <import namespace="http://permissioning.core.soap.yodlee.com" />
+            <import namespace="http://login.core.soap.yodlee.com" />
+            <import namespace="http://admin.core.soap.yodlee.com" />
+            <import namespace="http://sso.ext.soap.yodlee.com" />
+            <import namespace="http://usermanagement.base.appext.soap.yodlee.com" />
+            <import namespace="http://tncmanagement.core.soap.yodlee.com" />
+            <import namespace="http://collections.soap.yodlee.com" />
+            <import namespace="http://batch.core.soap.yodlee.com" />
+            <import namespace="http://client.ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://common.collections.soap.yodlee.com" />
+            <import namespace="http://common.soap.yodlee.com" />
+            <element name="getUserInfo">
+                <complexType>
+                    <sequence>
+                        <element name="userContext" type="tns1:UserContext" nillable="true" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="getUserInfoResponse">
+                <complexType>
+                    <sequence>
+                        <element name="getUserInfoReturn" type="tns5:UserInfo" nillable="true" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="changeCredentials">
+                <complexType>
+                    <sequence>
+                        <element name="userContext" type="tns1:UserContext" nillable="true" minOccurs="0" />
+                        <element name="oldUserCredentials" type="tns1:UserCredentials" nillable="true" minOccurs="0" />
+                        <element name="newUserCredentials" type="tns1:UserCredentials" nillable="true" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="changeCredentialsResponse">
+                <complexType />
+            </element>
+            <element name="cloneConversation">
+                <complexType>
+                    <sequence>
+                        <element name="userContext" type="tns1:UserContext" nillable="true" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="cloneConversationResponse">
+                <complexType>
+                    <sequence>
+                        <element name="cloneConversationReturn" type="tns1:UserContext" nillable="true" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="login2">
+                <complexType>
+                    <sequence>
+                        <element name="cobrandContext" type="tns1:CobrandContext" nillable="true" minOccurs="0" />
+                        <element name="userCredentials" type="tns1:UserCredentials" nillable="true" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="login2Response">
+                <complexType>
+                    <sequence>
+                        <element name="login2Return" type="tns5:UserInfo" nillable="true" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="login1">
+                <complexType>
+                    <sequence>
+                        <element name="cobrandContext" type="tns1:CobrandContext" nillable="true" minOccurs="0" />
+                        <element name="userCredentials" type="tns1:UserCredentials" nillable="true" minOccurs="0" />
+                        <element name="userType" type="tns1:UserType" nillable="true" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="login1Response">
+                <complexType>
+                    <sequence>
+                        <element name="login1Return" type="tns5:UserInfo" nillable="true" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="logout">
+                <complexType>
+                    <sequence>
+                        <element name="userContext" type="tns1:UserContext" nillable="true" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="logoutResponse">
+                <complexType />
+            </element>
+            <element name="logoutAll">
+                <complexType>
+                    <sequence>
+                        <element name="userContext" type="tns1:UserContext" nillable="true" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="logoutAllResponse">
+                <complexType />
+            </element>
+            <element name="renewConversation">
+                <complexType>
+                    <sequence>
+                        <element name="userContext" type="tns1:UserContext" nillable="true" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="renewConversationResponse">
+                <complexType>
+                    <sequence>
+                        <element name="renewConversationReturn" type="tns1:UserContext" nillable="true" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="revalidateCredentials">
+                <complexType>
+                    <sequence>
+                        <element name="userContext" type="tns1:UserContext" nillable="true" minOccurs="0" />
+                        <element name="userCredentials" type="tns1:UserCredentials" nillable="true" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="revalidateCredentialsResponse">
+                <complexType />
+            </element>
+            <element name="revalidateSession">
+                <complexType>
+                    <sequence>
+                        <element name="userContext" type="tns1:UserContext" nillable="true" minOccurs="0" />
+                        <element name="externalAuthCredentials" type="tns3:ExternalAuthenticationCredentials" nillable="true" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="revalidateSessionResponse">
+                <complexType>
+                    <sequence>
+                        <element name="revalidateSessionReturn" type="tns5:SSOUserInfo" nillable="true" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="touchConversationCredentials">
+                <complexType>
+                    <sequence>
+                        <element name="userContext" type="tns1:UserContext" nillable="true" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="touchConversationCredentialsResponse">
+                <complexType />
+            </element>
+            <element name="validateUser">
+                <complexType>
+                    <sequence>
+                        <element name="cobrandContext" type="tns1:CobrandContext" nillable="true" minOccurs="0" />
+                        <element name="userName" type="xsd:string" nillable="true" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="validateUserResponse">
+                <complexType>
+                    <sequence>
+                        <element name="validateUserReturn" type="xsd:boolean" nillable="true" />
+                    </sequence>
+                </complexType>
+            </element>
+        </schema>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="http://common.soap.yodlee.com">
+            <import namespace="http://searchmanagement.permissioning.core.soap.yodlee.com" />
+            <import namespace="http://settings.config.system.core.soap.yodlee.com" />
+            <import namespace="http://usermanagement.core.soap.yodlee.com" />
+            <import namespace="http://ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://exceptions.acl.admin.core.soap.yodlee.com" />
+            <import namespace="http://core.soap.yodlee.com" />
+            <import namespace="http://ccw.ext.soap.yodlee.com" />
+            <import namespace="http://saml.ext.soap.yodlee.com" />
+            <import namespace="http://login.ext.soap.yodlee.com" />
+            <import namespace="http://permissioning.core.soap.yodlee.com" />
+            <import namespace="http://login.core.soap.yodlee.com" />
+            <import namespace="http://admin.core.soap.yodlee.com" />
+            <import namespace="http://sso.ext.soap.yodlee.com" />
+            <import namespace="http://usermanagement.base.appext.soap.yodlee.com" />
+            <import namespace="http://tncmanagement.core.soap.yodlee.com" />
+            <import namespace="http://login.login.core.soap.yodlee.com" />
+            <import namespace="http://collections.soap.yodlee.com" />
+            <import namespace="http://batch.core.soap.yodlee.com" />
+            <import namespace="http://client.ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://common.collections.soap.yodlee.com" />
+            <complexType abstract="true" name="CCobrandContext">
+                <sequence />
+            </complexType>
+            <complexType name="ConversationCredentials">
+                <sequence />
+            </complexType>
+            <simpleType name="CurrencyNotation">
+                <restriction base="xsd:string">
+                    <enumeration value="TEXT_NOTATION" />
+                    <enumeration value="SYMBOL_NOTATION" />
+                    <enumeration value="TEXT_SYMBOL_NOTATION" />
+                </restriction>
+            </simpleType>
+            <complexType name="NumberFormat">
+                <sequence>
+                    <element name="decimalSeparator" nillable="true" type="xsd:string" minOccurs="0" />
+                    <element name="groupingSeparator" nillable="true" type="xsd:string" minOccurs="0" />
+                    <element name="groupPattern" nillable="true" type="xsd:string" minOccurs="0" />
+                </sequence>
+            </complexType>
+            <complexType name="PreferenceInfo">
+                <sequence>
+                    <element name="currencyCode" nillable="true" type="xsd:string" minOccurs="0" />
+                    <element name="timeZone" nillable="true" type="xsd:string" minOccurs="0" />
+                    <element name="dateFormat" nillable="true" type="xsd:string" minOccurs="0" />
+                    <element name="currencyNotationType" nillable="true" type="tns1:CurrencyNotation" minOccurs="0" />
+                    <element name="numberFormat" nillable="true" type="tns1:NumberFormat" minOccurs="0" />
+                </sequence>
+            </complexType>
+            <complexType name="CobrandContext">
+                <complexContent>
+                    <extension base="tns1:CCobrandContext">
+                        <sequence>
+                            <element name="cobrandId" type="xsd:long" minOccurs="0" />
+                            <element name="channelId" type="xsd:long" minOccurs="0" />
+                            <element name="locale" nillable="true" type="tns2:Locale" minOccurs="0" />
+                            <element name="tncVersion" type="xsd:long" minOccurs="0" />
+                            <element name="applicationId" nillable="true" type="xsd:string" minOccurs="0" />
+                            <element name="cobrandConversationCredentials" nillable="true" type="tns1:ConversationCredentials" minOccurs="0" />
+                            <element name="validationHandler" nillable="true" type="xsd:string" minOccurs="0" />
+                            <element name="ipAddress" nillable="true" type="xsd:string" minOccurs="0" />
+                            <element name="preferenceInfo" nillable="true" type="tns1:PreferenceInfo" minOccurs="0" />
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <complexType name="UserCredentials">
+                <complexContent>
+                    <extension base="tns1:ConversationCredentials">
+                        <sequence />
+                    </extension>
+                </complexContent>
+            </complexType>
+            <complexType name="UserContext">
+                <complexContent>
+                    <extension base="tns1:CobrandContext">
+                        <sequence>
+                            <element name="conversationCredentials" nillable="true" type="tns1:ConversationCredentials" minOccurs="0" />
+                            <element name="valid" type="xsd:boolean" />
+                            <element name="isPasswordExpired" type="xsd:boolean" />
+                            <element name="oauthAccessCredentials" nillable="true" type="tns3:OAuthAccessCredentials" minOccurs="0" />
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <simpleType name="UserType">
+                <restriction base="xsd:string">
+                    <enumeration value="NORMAL_USER" />
+                    <enumeration value="SUPPORT_USER" />
+                </restriction>
+            </simpleType>
+            <complexType name="NVPair">
+                <sequence>
+                    <element name="type" type="xsd:int" minOccurs="0" />
+                    <element name="name" nillable="true" type="xsd:string" minOccurs="0" />
+                    <element name="values" nillable="true" type="tns2:List" minOccurs="0" />
+                    <element name="status" type="xsd:int" minOccurs="0" />
+                </sequence>
+            </complexType>
+            <complexType name="CobrandCredentials">
+                <complexContent>
+                    <extension base="tns1:ConversationCredentials">
+                        <sequence />
+                    </extension>
+                </complexContent>
+            </complexType>
+            <complexType name="SharedUserContext">
+                <complexContent>
+                    <extension base="tns1:UserContext">
+                        <sequence>
+                            <element name="grantorInfo" nillable="true" type="tns14:GrantorInfo" minOccurs="0" />
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <complexType name="AppSharedUserContext">
+                <complexContent>
+                    <extension base="tns1:SharedUserContext">
+                        <sequence>
+                            <element name="clientCacheContext" nillable="true" type="tns11:ClientCacheContext" minOccurs="0" />
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <complexType abstract="true" name="ICobrandContext">
+                <sequence />
+            </complexType>
+            <complexType name="TempUserContext">
+                <complexContent>
+                    <extension base="tns1:UserContext">
+                        <sequence />
+                    </extension>
+                </complexContent>
+            </complexType>
+        </schema>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="http://collections.soap.yodlee.com">
+            <import namespace="http://searchmanagement.permissioning.core.soap.yodlee.com" />
+            <import namespace="http://settings.config.system.core.soap.yodlee.com" />
+            <import namespace="http://usermanagement.core.soap.yodlee.com" />
+            <import namespace="http://ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://exceptions.acl.admin.core.soap.yodlee.com" />
+            <import namespace="http://core.soap.yodlee.com" />
+            <import namespace="http://ccw.ext.soap.yodlee.com" />
+            <import namespace="http://saml.ext.soap.yodlee.com" />
+            <import namespace="http://login.ext.soap.yodlee.com" />
+            <import namespace="http://permissioning.core.soap.yodlee.com" />
+            <import namespace="http://login.core.soap.yodlee.com" />
+            <import namespace="http://admin.core.soap.yodlee.com" />
+            <import namespace="http://sso.ext.soap.yodlee.com" />
+            <import namespace="http://usermanagement.base.appext.soap.yodlee.com" />
+            <import namespace="http://tncmanagement.core.soap.yodlee.com" />
+            <import namespace="http://login.login.core.soap.yodlee.com" />
+            <import namespace="http://batch.core.soap.yodlee.com" />
+            <import namespace="http://client.ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://common.collections.soap.yodlee.com" />
+            <import namespace="http://common.soap.yodlee.com" />
+            <complexType name="Locale">
+                <sequence>
+                    <element name="country" nillable="true" type="xsd:string" minOccurs="0" />
+                    <element name="language" nillable="true" type="xsd:string" minOccurs="0" />
+                    <element name="variant" nillable="true" type="xsd:string" minOccurs="0" />
+                </sequence>
+            </complexType>
+            <complexType name="Entry">
+                <sequence>
+                    <element name="key" nillable="true" type="xsd:anyType" minOccurs="0" />
+                    <element name="value" nillable="true" type="xsd:anyType" minOccurs="0" />
+                </sequence>
+            </complexType>
+            <complexType name="Map">
+                <sequence>
+                    <element name="table" nillable="true" type="tns2:Entry" maxOccurs="unbounded" minOccurs="0" />
+                </sequence>
+            </complexType>
+            <complexType name="List">
+                <sequence>
+                    <element name="elements" nillable="true" type="xsd:anyType" maxOccurs="unbounded" minOccurs="0" />
+                </sequence>
+            </complexType>
+        </schema>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="http://usermanagement.core.soap.yodlee.com">
+            <import namespace="http://searchmanagement.permissioning.core.soap.yodlee.com" />
+            <import namespace="http://settings.config.system.core.soap.yodlee.com" />
+            <import namespace="http://ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://exceptions.acl.admin.core.soap.yodlee.com" />
+            <import namespace="http://core.soap.yodlee.com" />
+            <import namespace="http://ccw.ext.soap.yodlee.com" />
+            <import namespace="http://saml.ext.soap.yodlee.com" />
+            <import namespace="http://login.ext.soap.yodlee.com" />
+            <import namespace="http://permissioning.core.soap.yodlee.com" />
+            <import namespace="http://login.core.soap.yodlee.com" />
+            <import namespace="http://admin.core.soap.yodlee.com" />
+            <import namespace="http://sso.ext.soap.yodlee.com" />
+            <import namespace="http://usermanagement.base.appext.soap.yodlee.com" />
+            <import namespace="http://tncmanagement.core.soap.yodlee.com" />
+            <import namespace="http://login.login.core.soap.yodlee.com" />
+            <import namespace="http://collections.soap.yodlee.com" />
+            <import namespace="http://batch.core.soap.yodlee.com" />
+            <import namespace="http://client.ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://common.collections.soap.yodlee.com" />
+            <import namespace="http://common.soap.yodlee.com" />
+            <complexType name="ExternalUserCredentials">
+                <sequence>
+                    <element name="externalUserName" nillable="true" type="xsd:string" minOccurs="0" />
+                    <element name="externalUserPassword" nillable="true" type="xsd:string" minOccurs="0" />
+                </sequence>
+            </complexType>
+            <element  name="InvalidRegisterArgumentValueExceptionFault">
+                <complexType>
+                    <sequence>
+                        <element name="faultText" nillable="true" type="xsd:string" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element  name="UserUnregisteredExceptionFault">
+                <complexType>
+                    <sequence>
+                        <element name="faultText" nillable="true" type="xsd:string" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element  name="UserUncertifiedExceptionFault">
+                <complexType>
+                    <sequence>
+                        <element name="faultText" nillable="true" type="xsd:string" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+        </schema>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="http://login.ext.soap.yodlee.com">
+            <import namespace="http://searchmanagement.permissioning.core.soap.yodlee.com" />
+            <import namespace="http://settings.config.system.core.soap.yodlee.com" />
+            <import namespace="http://usermanagement.core.soap.yodlee.com" />
+            <import namespace="http://ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://exceptions.acl.admin.core.soap.yodlee.com" />
+            <import namespace="http://core.soap.yodlee.com" />
+            <import namespace="http://ccw.ext.soap.yodlee.com" />
+            <import namespace="http://saml.ext.soap.yodlee.com" />
+            <import namespace="http://permissioning.core.soap.yodlee.com" />
+            <import namespace="http://login.core.soap.yodlee.com" />
+            <import namespace="http://admin.core.soap.yodlee.com" />
+            <import namespace="http://sso.ext.soap.yodlee.com" />
+            <import namespace="http://usermanagement.base.appext.soap.yodlee.com" />
+            <import namespace="http://tncmanagement.core.soap.yodlee.com" />
+            <import namespace="http://login.login.core.soap.yodlee.com" />
+            <import namespace="http://collections.soap.yodlee.com" />
+            <import namespace="http://batch.core.soap.yodlee.com" />
+            <import namespace="http://client.ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://common.collections.soap.yodlee.com" />
+            <import namespace="http://common.soap.yodlee.com" />
+            <complexType name="OAuthAccessCredentials">
+                <complexContent>
+                    <extension base="tns1:UserCredentials">
+                        <sequence>
+                            <element name="applicationIdentifier" nillable="true" type="xsd:string" minOccurs="0" />
+                            <element name="token" nillable="true" type="xsd:string" minOccurs="0" />
+                            <element name="tokenSecret" nillable="true" type="xsd:string" minOccurs="0" />
+                            <element name="signatureMethod" nillable="true" type="xsd:string" minOccurs="0" />
+                            <element name="signedToken" nillable="true" type="xsd:string" minOccurs="0" />
+                            <element name="memId" type="xsd:long" minOccurs="0" />
+                            <element name="externalUserCredentials" nillable="true" type="tns4:ExternalUserCredentials" minOccurs="0" />
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <complexType name="ExternalAuthenticationCredentials">
+                <complexContent>
+                    <extension base="tns1:UserCredentials">
+                        <sequence />
+                    </extension>
+                </complexContent>
+            </complexType>
+            <complexType name="CobrandPasswordCredentials">
+                <complexContent>
+                    <extension base="tns1:CobrandCredentials">
+                        <sequence>
+                            <element name="loginName" nillable="true" type="xsd:string" minOccurs="0" />
+                            <element name="password" nillable="true" type="xsd:string" minOccurs="0" />
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <complexType name="SMSCredentials">
+                <complexContent>
+                    <extension base="tns1:UserCredentials">
+                        <sequence>
+                            <element name="smsNumber" nillable="true" type="xsd:string" minOccurs="0" />
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <complexType name="UncertifiedSessionCredentials">
+                <complexContent>
+                    <extension base="tns1:ConversationCredentials">
+                        <sequence>
+                            <element name="sessionToken" nillable="true" type="xsd:string" minOccurs="0" />
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <complexType name="SessionCredentials">
+                <complexContent>
+                    <extension base="tns1:ConversationCredentials">
+                        <sequence>
+                            <element name="sessionToken" nillable="true" type="xsd:string" minOccurs="0" />
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <complexType name="YSSOCredentials">
+                <complexContent>
+                    <extension base="tns1:UserCredentials">
+                        <sequence>
+                            <element name="yssoLoginName" nillable="true" type="xsd:string" minOccurs="0" />
+                            <element name="yssoPassword" nillable="true" type="xsd:string" minOccurs="0" />
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <complexType name="PWSSessionCredentials">
+                <complexContent>
+                    <extension base="tns1:ConversationCredentials">
+                        <sequence>
+                            <element name="sessionToken" nillable="true" type="xsd:string" minOccurs="0" />
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <complexType name="TokenizedCredentials">
+                <complexContent>
+                    <extension base="tns1:UserCredentials">
+                        <sequence>
+                            <element name="token" nillable="true" type="xsd:string" minOccurs="0" />
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <complexType name="PasswordCredentials">
+                <complexContent>
+                    <extension base="tns1:UserCredentials">
+                        <sequence>
+                            <element name="loginName" nillable="true" type="xsd:string" minOccurs="0" />
+                            <element name="password" nillable="true" type="xsd:string" minOccurs="0" />
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <complexType name="PWSCredentials">
+                <complexContent>
+                    <extension base="tns1:UserCredentials">
+                        <sequence>
+                            <element name="loginName" nillable="true" type="xsd:string" minOccurs="0" />
+                            <element name="password" nillable="true" type="xsd:string" minOccurs="0" />
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <complexType name="SharedLoginCredentials">
+                <complexContent>
+                    <extension base="tns3:SessionCredentials">
+                        <sequence>
+                            <element name="sharerToken" nillable="true" type="xsd:string" minOccurs="0" />
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+        </schema>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="http://login.core.soap.yodlee.com">
+            <import namespace="http://searchmanagement.permissioning.core.soap.yodlee.com" />
+            <import namespace="http://settings.config.system.core.soap.yodlee.com" />
+            <import namespace="http://usermanagement.core.soap.yodlee.com" />
+            <import namespace="http://ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://exceptions.acl.admin.core.soap.yodlee.com" />
+            <import namespace="http://core.soap.yodlee.com" />
+            <import namespace="http://ccw.ext.soap.yodlee.com" />
+            <import namespace="http://saml.ext.soap.yodlee.com" />
+            <import namespace="http://login.ext.soap.yodlee.com" />
+            <import namespace="http://permissioning.core.soap.yodlee.com" />
+            <import namespace="http://admin.core.soap.yodlee.com" />
+            <import namespace="http://sso.ext.soap.yodlee.com" />
+            <import namespace="http://usermanagement.base.appext.soap.yodlee.com" />
+            <import namespace="http://tncmanagement.core.soap.yodlee.com" />
+            <import namespace="http://login.login.core.soap.yodlee.com" />
+            <import namespace="http://collections.soap.yodlee.com" />
+            <import namespace="http://batch.core.soap.yodlee.com" />
+            <import namespace="http://client.ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://common.collections.soap.yodlee.com" />
+            <import namespace="http://common.soap.yodlee.com" />
+            <complexType name="UserInfo">
+                <sequence>
+                    <element name="userContext" nillable="true" type="tns1:UserContext" minOccurs="0" />
+                    <element name="lastLoginTime" type="xsd:long" minOccurs="0" />
+                    <element name="loginCount" type="xsd:long" minOccurs="0" />
+                    <element name="passwordRecovered" type="xsd:boolean" />
+                    <element name="emailAddress" nillable="true" type="xsd:string" minOccurs="0" />
+                    <element name="loginName" nillable="true" type="xsd:string" minOccurs="0" />
+                    <element name="userId" type="xsd:long" minOccurs="0" />
+                    <element name="userType" nillable="true" type="tns1:UserType" minOccurs="0" />
+                    <element name="pwdChangedOn" nillable="true" type="xsd:dateTime" minOccurs="0" />
+                    <element name="pwdExpiryNotificationDays" nillable="true" type="xsd:int" minOccurs="0" />
+                    <element name="pwdExpiryDays" nillable="true" type="xsd:int" minOccurs="0" />
+                </sequence>
+            </complexType>
+            <complexType name="SSOUserInfo">
+                <complexContent>
+                    <extension base="tns5:UserInfo">
+                        <sequence>
+                            <element name="mapExternalAttributes" nillable="true" type="tns2:Map" minOccurs="0" />
+                            <element name="attributes" nillable="true" type="tns10:ExternalAttributes" minOccurs="0" />
+                            <element name="sessionIndex" nillable="true" type="xsd:string" minOccurs="0" />
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <element  name="AuthenticationAttemptsExceededExceptionFault">
+                <complexType>
+                    <sequence>
+                        <element name="faultText" nillable="true" type="xsd:string" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element  name="InvalidUserCredentialsExceptionFault">
+                <complexType>
+                    <sequence>
+                        <element name="faultText" nillable="true" type="xsd:string" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element  name="UserAccountLockedExceptionFault">
+                <complexType>
+                    <sequence>
+                        <element name="faultText" nillable="true" type="xsd:string" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+        </schema>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="http://core.soap.yodlee.com">
+            <import namespace="http://searchmanagement.permissioning.core.soap.yodlee.com" />
+            <import namespace="http://settings.config.system.core.soap.yodlee.com" />
+            <import namespace="http://usermanagement.core.soap.yodlee.com" />
+            <import namespace="http://ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://exceptions.acl.admin.core.soap.yodlee.com" />
+            <import namespace="http://ccw.ext.soap.yodlee.com" />
+            <import namespace="http://saml.ext.soap.yodlee.com" />
+            <import namespace="http://login.ext.soap.yodlee.com" />
+            <import namespace="http://permissioning.core.soap.yodlee.com" />
+            <import namespace="http://login.core.soap.yodlee.com" />
+            <import namespace="http://admin.core.soap.yodlee.com" />
+            <import namespace="http://sso.ext.soap.yodlee.com" />
+            <import namespace="http://usermanagement.base.appext.soap.yodlee.com" />
+            <import namespace="http://tncmanagement.core.soap.yodlee.com" />
+            <import namespace="http://login.login.core.soap.yodlee.com" />
+            <import namespace="http://collections.soap.yodlee.com" />
+            <import namespace="http://batch.core.soap.yodlee.com" />
+            <import namespace="http://client.ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://common.collections.soap.yodlee.com" />
+            <import namespace="http://common.soap.yodlee.com" />
+            <element  name="CoreExceptionFault">
+                <complexType>
+                    <sequence>
+                        <element name="faultText" nillable="true" type="xsd:string" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element  name="InvalidUserContextExceptionFault">
+                <complexType>
+                    <sequence>
+                        <element name="faultText" nillable="true" type="xsd:string" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element  name="IllegalArgumentValueExceptionFault">
+                <complexType>
+                    <sequence>
+                        <element name="faultText" nillable="true" type="xsd:string" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element  name="InvalidConversationCredentialsExceptionFault">
+                <complexType>
+                    <sequence>
+                        <element name="faultText" nillable="true" type="xsd:string" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element  name="StaleConversationCredentialsExceptionFault">
+                <complexType>
+                    <sequence>
+                        <element name="faultText" nillable="true" type="xsd:string" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element  name="InvalidCobrandConversationCredentialsExceptionFault">
+                <complexType>
+                    <sequence>
+                        <element name="faultText" nillable="true" type="xsd:string" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element  name="InvalidCobrandContextExceptionFault">
+                <complexType>
+                    <sequence>
+                        <element name="faultText" nillable="true" type="xsd:string" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element  name="InvalidExternalAuthenticationCredentialsExceptionFault">
+                <complexType>
+                    <sequence>
+                        <element name="faultText" nillable="true" type="xsd:string" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+        </schema>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="http://exceptions.acl.admin.core.soap.yodlee.com">
+            <import namespace="http://searchmanagement.permissioning.core.soap.yodlee.com" />
+            <import namespace="http://settings.config.system.core.soap.yodlee.com" />
+            <import namespace="http://usermanagement.core.soap.yodlee.com" />
+            <import namespace="http://ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://core.soap.yodlee.com" />
+            <import namespace="http://ccw.ext.soap.yodlee.com" />
+            <import namespace="http://saml.ext.soap.yodlee.com" />
+            <import namespace="http://login.ext.soap.yodlee.com" />
+            <import namespace="http://permissioning.core.soap.yodlee.com" />
+            <import namespace="http://login.core.soap.yodlee.com" />
+            <import namespace="http://admin.core.soap.yodlee.com" />
+            <import namespace="http://sso.ext.soap.yodlee.com" />
+            <import namespace="http://usermanagement.base.appext.soap.yodlee.com" />
+            <import namespace="http://tncmanagement.core.soap.yodlee.com" />
+            <import namespace="http://login.login.core.soap.yodlee.com" />
+            <import namespace="http://collections.soap.yodlee.com" />
+            <import namespace="http://batch.core.soap.yodlee.com" />
+            <import namespace="http://client.ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://common.collections.soap.yodlee.com" />
+            <import namespace="http://common.soap.yodlee.com" />
+            <element  name="UserGroupNotFoundExceptionFault">
+                <complexType>
+                    <sequence>
+                        <element name="faultText" nillable="true" type="xsd:string" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+        </schema>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="http://usermanagement.base.appext.soap.yodlee.com">
+            <import namespace="http://searchmanagement.permissioning.core.soap.yodlee.com" />
+            <import namespace="http://settings.config.system.core.soap.yodlee.com" />
+            <import namespace="http://usermanagement.core.soap.yodlee.com" />
+            <import namespace="http://ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://exceptions.acl.admin.core.soap.yodlee.com" />
+            <import namespace="http://core.soap.yodlee.com" />
+            <import namespace="http://ccw.ext.soap.yodlee.com" />
+            <import namespace="http://saml.ext.soap.yodlee.com" />
+            <import namespace="http://login.ext.soap.yodlee.com" />
+            <import namespace="http://permissioning.core.soap.yodlee.com" />
+            <import namespace="http://login.core.soap.yodlee.com" />
+            <import namespace="http://admin.core.soap.yodlee.com" />
+            <import namespace="http://sso.ext.soap.yodlee.com" />
+            <import namespace="http://tncmanagement.core.soap.yodlee.com" />
+            <import namespace="http://login.login.core.soap.yodlee.com" />
+            <import namespace="http://collections.soap.yodlee.com" />
+            <import namespace="http://batch.core.soap.yodlee.com" />
+            <import namespace="http://client.ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://common.collections.soap.yodlee.com" />
+            <import namespace="http://common.soap.yodlee.com" />
+            <element  name="UserStateChangedExceptionFault">
+                <complexType>
+                    <sequence>
+                        <element name="faultText" nillable="true" type="xsd:string" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element  name="UserSuspendedExceptionFault">
+                <complexType>
+                    <sequence>
+                        <element name="faultText" nillable="true" type="xsd:string" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+        </schema>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="http://admin.core.soap.yodlee.com">
+            <import namespace="http://searchmanagement.permissioning.core.soap.yodlee.com" />
+            <import namespace="http://settings.config.system.core.soap.yodlee.com" />
+            <import namespace="http://usermanagement.core.soap.yodlee.com" />
+            <import namespace="http://ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://exceptions.acl.admin.core.soap.yodlee.com" />
+            <import namespace="http://core.soap.yodlee.com" />
+            <import namespace="http://ccw.ext.soap.yodlee.com" />
+            <import namespace="http://saml.ext.soap.yodlee.com" />
+            <import namespace="http://login.ext.soap.yodlee.com" />
+            <import namespace="http://permissioning.core.soap.yodlee.com" />
+            <import namespace="http://login.core.soap.yodlee.com" />
+            <import namespace="http://sso.ext.soap.yodlee.com" />
+            <import namespace="http://usermanagement.base.appext.soap.yodlee.com" />
+            <import namespace="http://tncmanagement.core.soap.yodlee.com" />
+            <import namespace="http://login.login.core.soap.yodlee.com" />
+            <import namespace="http://collections.soap.yodlee.com" />
+            <import namespace="http://batch.core.soap.yodlee.com" />
+            <import namespace="http://client.ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://common.collections.soap.yodlee.com" />
+            <import namespace="http://common.soap.yodlee.com" />
+            <simpleType name="UserStatus">
+                <restriction base="xsd:string">
+                    <enumeration value="ACTIVE_USER" />
+                    <enumeration value="DORMANT_USER" />
+                    <enumeration value="REGISTRATION_INCOMPLETE" />
+                    <enumeration value="DELETED_USER" />
+                    <enumeration value="PRE_REGISTERED_USER" />
+                    <enumeration value="SUSPENDED_USER" />
+                    <enumeration value="INACTIVE_USER" />
+                    <enumeration value="LOCKED_USER" />
+                </restriction>
+            </simpleType>
+            <element  name="MaxUserCountExceededExceptionFault">
+                <complexType>
+                    <sequence>
+                        <element name="faultText" nillable="true" type="xsd:string" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+        </schema>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="http://sso.ext.soap.yodlee.com">
+            <import namespace="http://searchmanagement.permissioning.core.soap.yodlee.com" />
+            <import namespace="http://settings.config.system.core.soap.yodlee.com" />
+            <import namespace="http://usermanagement.core.soap.yodlee.com" />
+            <import namespace="http://ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://exceptions.acl.admin.core.soap.yodlee.com" />
+            <import namespace="http://core.soap.yodlee.com" />
+            <import namespace="http://ccw.ext.soap.yodlee.com" />
+            <import namespace="http://saml.ext.soap.yodlee.com" />
+            <import namespace="http://login.ext.soap.yodlee.com" />
+            <import namespace="http://permissioning.core.soap.yodlee.com" />
+            <import namespace="http://login.core.soap.yodlee.com" />
+            <import namespace="http://admin.core.soap.yodlee.com" />
+            <import namespace="http://usermanagement.base.appext.soap.yodlee.com" />
+            <import namespace="http://tncmanagement.core.soap.yodlee.com" />
+            <import namespace="http://login.login.core.soap.yodlee.com" />
+            <import namespace="http://collections.soap.yodlee.com" />
+            <import namespace="http://batch.core.soap.yodlee.com" />
+            <import namespace="http://client.ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://common.collections.soap.yodlee.com" />
+            <import namespace="http://common.soap.yodlee.com" />
+            <complexType name="ExternalAttributes">
+                <sequence>
+                    <element name="name" nillable="true" type="xsd:string" minOccurs="0" />
+                    <element name="version" nillable="true" type="xsd:string" minOccurs="0" />
+                </sequence>
+            </complexType>
+        </schema>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="http://ycache.system.util.soap.yodlee.com">
+            <import namespace="http://searchmanagement.permissioning.core.soap.yodlee.com" />
+            <import namespace="http://settings.config.system.core.soap.yodlee.com" />
+            <import namespace="http://usermanagement.core.soap.yodlee.com" />
+            <import namespace="http://exceptions.acl.admin.core.soap.yodlee.com" />
+            <import namespace="http://core.soap.yodlee.com" />
+            <import namespace="http://ccw.ext.soap.yodlee.com" />
+            <import namespace="http://saml.ext.soap.yodlee.com" />
+            <import namespace="http://login.ext.soap.yodlee.com" />
+            <import namespace="http://permissioning.core.soap.yodlee.com" />
+            <import namespace="http://login.core.soap.yodlee.com" />
+            <import namespace="http://admin.core.soap.yodlee.com" />
+            <import namespace="http://sso.ext.soap.yodlee.com" />
+            <import namespace="http://usermanagement.base.appext.soap.yodlee.com" />
+            <import namespace="http://tncmanagement.core.soap.yodlee.com" />
+            <import namespace="http://login.login.core.soap.yodlee.com" />
+            <import namespace="http://collections.soap.yodlee.com" />
+            <import namespace="http://batch.core.soap.yodlee.com" />
+            <import namespace="http://client.ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://common.collections.soap.yodlee.com" />
+            <import namespace="http://common.soap.yodlee.com" />
+            <complexType abstract="true" name="Cacheable">
+                <sequence />
+            </complexType>
+        </schema>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="http://client.ycache.system.util.soap.yodlee.com">
+            <import namespace="http://searchmanagement.permissioning.core.soap.yodlee.com" />
+            <import namespace="http://settings.config.system.core.soap.yodlee.com" />
+            <import namespace="http://usermanagement.core.soap.yodlee.com" />
+            <import namespace="http://ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://exceptions.acl.admin.core.soap.yodlee.com" />
+            <import namespace="http://core.soap.yodlee.com" />
+            <import namespace="http://ccw.ext.soap.yodlee.com" />
+            <import namespace="http://saml.ext.soap.yodlee.com" />
+            <import namespace="http://login.ext.soap.yodlee.com" />
+            <import namespace="http://permissioning.core.soap.yodlee.com" />
+            <import namespace="http://login.core.soap.yodlee.com" />
+            <import namespace="http://admin.core.soap.yodlee.com" />
+            <import namespace="http://sso.ext.soap.yodlee.com" />
+            <import namespace="http://usermanagement.base.appext.soap.yodlee.com" />
+            <import namespace="http://tncmanagement.core.soap.yodlee.com" />
+            <import namespace="http://login.login.core.soap.yodlee.com" />
+            <import namespace="http://collections.soap.yodlee.com" />
+            <import namespace="http://batch.core.soap.yodlee.com" />
+            <import namespace="http://common.collections.soap.yodlee.com" />
+            <import namespace="http://common.soap.yodlee.com" />
+            <complexType name="MessageCatalogInfo">
+                <sequence>
+                    <element name="catalogs" nillable="true" type="tns2:Map" minOccurs="0" />
+                    <element name="formats" nillable="true" type="tns2:Map" minOccurs="0" />
+                    <element name="resourceRegistry" nillable="true" type="tns2:Map" minOccurs="0" />
+                    <element name="messageCache" nillable="true" type="tns2:Map" minOccurs="0" />
+                    <element name="messageLookup" nillable="true" type="tns2:Map" minOccurs="0" />
+                </sequence>
+            </complexType>
+            <complexType abstract="true" name="ClientCache">
+                <complexContent>
+                    <extension base="tns12:Cacheable">
+                        <sequence>
+                            <element name="appCobParamsMap" nillable="true" type="tns2:Map" minOccurs="0" />
+                            <element name="returnNull" type="xsd:boolean" />
+                            <element name="messageCatalogInfo" nillable="true" type="tns11:MessageCatalogInfo" minOccurs="0" />
+                            <element name="isAppCobParamLoaded" type="xsd:boolean" />
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <complexType name="ClientCobrandCache">
+                <complexContent>
+                    <extension base="tns11:ClientCache">
+                        <sequence />
+                    </extension>
+                </complexContent>
+            </complexType>
+            <complexType name="ClientGenericCache">
+                <complexContent>
+                    <extension base="tns11:ClientCache">
+                        <sequence />
+                    </extension>
+                </complexContent>
+            </complexType>
+            <complexType name="ClientCacheContext">
+                <sequence>
+                    <element name="clientCobrandCache" nillable="true" type="tns11:ClientCobrandCache" minOccurs="0" />
+                    <element name="clientGenericCache" nillable="true" type="tns11:ClientGenericCache" minOccurs="0" />
+                    <element name="clientChannelCache" nillable="true" type="tns11:ClientCobrandCache" minOccurs="0" />
+                </sequence>
+            </complexType>
+        </schema>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="http://permissioning.core.soap.yodlee.com">
+            <import namespace="http://searchmanagement.permissioning.core.soap.yodlee.com" />
+            <import namespace="http://settings.config.system.core.soap.yodlee.com" />
+            <import namespace="http://usermanagement.core.soap.yodlee.com" />
+            <import namespace="http://ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://exceptions.acl.admin.core.soap.yodlee.com" />
+            <import namespace="http://core.soap.yodlee.com" />
+            <import namespace="http://ccw.ext.soap.yodlee.com" />
+            <import namespace="http://saml.ext.soap.yodlee.com" />
+            <import namespace="http://login.ext.soap.yodlee.com" />
+            <import namespace="http://login.core.soap.yodlee.com" />
+            <import namespace="http://admin.core.soap.yodlee.com" />
+            <import namespace="http://sso.ext.soap.yodlee.com" />
+            <import namespace="http://usermanagement.base.appext.soap.yodlee.com" />
+            <import namespace="http://tncmanagement.core.soap.yodlee.com" />
+            <import namespace="http://login.login.core.soap.yodlee.com" />
+            <import namespace="http://collections.soap.yodlee.com" />
+            <import namespace="http://batch.core.soap.yodlee.com" />
+            <import namespace="http://client.ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://common.collections.soap.yodlee.com" />
+            <import namespace="http://common.soap.yodlee.com" />
+            <complexType name="GrantorInfo">
+                <sequence>
+                    <element name="grantorToken" nillable="true" type="xsd:string" minOccurs="0" />
+                    <element name="namespaceId" type="xsd:long" minOccurs="0" />
+                    <element name="userType" nillable="true" type="tns1:UserType" minOccurs="0" />
+                </sequence>
+            </complexType>
+            <complexType name="ExtendedGrantorInfo">
+                <complexContent>
+                    <extension base="tns14:GrantorInfo">
+                        <sequence>
+                            <element name="obo" type="xsd:boolean" />
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <complexType name="GrantorInfoWithData">
+                <complexContent>
+                    <extension base="tns14:GrantorInfo">
+                        <sequence>
+                            <element name="profileFields" nillable="true" type="tns2:List" minOccurs="0" />
+                            <element name="netWorth" nillable="true" type="xsd:anyType" minOccurs="0" />
+                            <element name="aggregateData" nillable="true" type="tns2:Map" minOccurs="0" />
+                            <element name="accountStatus" type="xsd:long" minOccurs="0" />
+                            <element name="advisorList" nillable="true" type="tns2:List" minOccurs="0" />
+                            <element name="lastAccessTime" nillable="true" type="xsd:long" minOccurs="0" />
+                            <element name="userName" nillable="true" type="xsd:string" minOccurs="0" />
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+        </schema>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="http://common.collections.soap.yodlee.com">
+            <import namespace="http://searchmanagement.permissioning.core.soap.yodlee.com" />
+            <import namespace="http://settings.config.system.core.soap.yodlee.com" />
+            <import namespace="http://usermanagement.core.soap.yodlee.com" />
+            <import namespace="http://ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://exceptions.acl.admin.core.soap.yodlee.com" />
+            <import namespace="http://core.soap.yodlee.com" />
+            <import namespace="http://ccw.ext.soap.yodlee.com" />
+            <import namespace="http://saml.ext.soap.yodlee.com" />
+            <import namespace="http://login.ext.soap.yodlee.com" />
+            <import namespace="http://permissioning.core.soap.yodlee.com" />
+            <import namespace="http://login.core.soap.yodlee.com" />
+            <import namespace="http://admin.core.soap.yodlee.com" />
+            <import namespace="http://sso.ext.soap.yodlee.com" />
+            <import namespace="http://usermanagement.base.appext.soap.yodlee.com" />
+            <import namespace="http://tncmanagement.core.soap.yodlee.com" />
+            <import namespace="http://login.login.core.soap.yodlee.com" />
+            <import namespace="http://collections.soap.yodlee.com" />
+            <import namespace="http://batch.core.soap.yodlee.com" />
+            <import namespace="http://client.ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://common.soap.yodlee.com" />
+            <complexType name="ArrayOfNVPair">
+                <sequence>
+                    <element name="elements" nillable="true" type="tns1:NVPair" maxOccurs="unbounded" minOccurs="0" />
+                </sequence>
+            </complexType>
+        </schema>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="http://searchmanagement.permissioning.core.soap.yodlee.com">
+            <import namespace="http://settings.config.system.core.soap.yodlee.com" />
+            <import namespace="http://usermanagement.core.soap.yodlee.com" />
+            <import namespace="http://ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://exceptions.acl.admin.core.soap.yodlee.com" />
+            <import namespace="http://core.soap.yodlee.com" />
+            <import namespace="http://ccw.ext.soap.yodlee.com" />
+            <import namespace="http://saml.ext.soap.yodlee.com" />
+            <import namespace="http://login.ext.soap.yodlee.com" />
+            <import namespace="http://permissioning.core.soap.yodlee.com" />
+            <import namespace="http://login.core.soap.yodlee.com" />
+            <import namespace="http://admin.core.soap.yodlee.com" />
+            <import namespace="http://sso.ext.soap.yodlee.com" />
+            <import namespace="http://usermanagement.base.appext.soap.yodlee.com" />
+            <import namespace="http://tncmanagement.core.soap.yodlee.com" />
+            <import namespace="http://login.login.core.soap.yodlee.com" />
+            <import namespace="http://collections.soap.yodlee.com" />
+            <import namespace="http://batch.core.soap.yodlee.com" />
+            <import namespace="http://client.ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://common.collections.soap.yodlee.com" />
+            <import namespace="http://common.soap.yodlee.com" />
+            <complexType name="GrantorSearchInfo">
+                <complexContent>
+                    <extension base="tns14:GrantorInfo">
+                        <sequence>
+                            <element name="profileFields" nillable="true" type="tns15:ArrayOfNVPair" minOccurs="0" />
+                            <element name="searchInfo" nillable="true" type="tns15:ArrayOfNVPair" minOccurs="0" />
+                            <element name="date" nillable="true" type="xsd:dateTime" minOccurs="0" />
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+        </schema>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="http://saml.ext.soap.yodlee.com">
+            <import namespace="http://searchmanagement.permissioning.core.soap.yodlee.com" />
+            <import namespace="http://settings.config.system.core.soap.yodlee.com" />
+            <import namespace="http://usermanagement.core.soap.yodlee.com" />
+            <import namespace="http://ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://exceptions.acl.admin.core.soap.yodlee.com" />
+            <import namespace="http://core.soap.yodlee.com" />
+            <import namespace="http://ccw.ext.soap.yodlee.com" />
+            <import namespace="http://login.ext.soap.yodlee.com" />
+            <import namespace="http://permissioning.core.soap.yodlee.com" />
+            <import namespace="http://login.core.soap.yodlee.com" />
+            <import namespace="http://admin.core.soap.yodlee.com" />
+            <import namespace="http://sso.ext.soap.yodlee.com" />
+            <import namespace="http://usermanagement.base.appext.soap.yodlee.com" />
+            <import namespace="http://tncmanagement.core.soap.yodlee.com" />
+            <import namespace="http://login.login.core.soap.yodlee.com" />
+            <import namespace="http://collections.soap.yodlee.com" />
+            <import namespace="http://batch.core.soap.yodlee.com" />
+            <import namespace="http://client.ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://common.collections.soap.yodlee.com" />
+            <import namespace="http://common.soap.yodlee.com" />
+            <complexType name="SAMLCredentials">
+                <complexContent>
+                    <extension base="tns3:ExternalAuthenticationCredentials">
+                        <sequence>
+                            <element name="samlResponse" nillable="true" type="xsd:string" minOccurs="0" />
+                            <element name="issuerId" nillable="true" type="xsd:string" minOccurs="0" />
+                            <element name="artifactProfile" type="xsd:boolean" />
+                            <element name="sourceID" nillable="true" type="xsd:string" minOccurs="0" />
+                            <element name="decrypted" type="xsd:boolean" />
+                            <element name="source" nillable="true" type="xsd:string" minOccurs="0" />
+                            <element name="validateAssertionID" type="xsd:boolean" />
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+        </schema>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="http://batch.core.soap.yodlee.com">
+            <import namespace="http://searchmanagement.permissioning.core.soap.yodlee.com" />
+            <import namespace="http://settings.config.system.core.soap.yodlee.com" />
+            <import namespace="http://usermanagement.core.soap.yodlee.com" />
+            <import namespace="http://ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://exceptions.acl.admin.core.soap.yodlee.com" />
+            <import namespace="http://core.soap.yodlee.com" />
+            <import namespace="http://ccw.ext.soap.yodlee.com" />
+            <import namespace="http://saml.ext.soap.yodlee.com" />
+            <import namespace="http://login.ext.soap.yodlee.com" />
+            <import namespace="http://permissioning.core.soap.yodlee.com" />
+            <import namespace="http://login.core.soap.yodlee.com" />
+            <import namespace="http://admin.core.soap.yodlee.com" />
+            <import namespace="http://sso.ext.soap.yodlee.com" />
+            <import namespace="http://usermanagement.base.appext.soap.yodlee.com" />
+            <import namespace="http://tncmanagement.core.soap.yodlee.com" />
+            <import namespace="http://login.login.core.soap.yodlee.com" />
+            <import namespace="http://collections.soap.yodlee.com" />
+            <import namespace="http://client.ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://common.collections.soap.yodlee.com" />
+            <import namespace="http://common.soap.yodlee.com" />
+            <complexType name="BatchUserInfo">
+                <complexContent>
+                    <extension base="tns5:UserInfo">
+                        <sequence />
+                    </extension>
+                </complexContent>
+            </complexType>
+        </schema>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="http://settings.config.system.core.soap.yodlee.com">
+            <import namespace="http://searchmanagement.permissioning.core.soap.yodlee.com" />
+            <import namespace="http://usermanagement.core.soap.yodlee.com" />
+            <import namespace="http://ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://exceptions.acl.admin.core.soap.yodlee.com" />
+            <import namespace="http://core.soap.yodlee.com" />
+            <import namespace="http://ccw.ext.soap.yodlee.com" />
+            <import namespace="http://saml.ext.soap.yodlee.com" />
+            <import namespace="http://login.ext.soap.yodlee.com" />
+            <import namespace="http://permissioning.core.soap.yodlee.com" />
+            <import namespace="http://login.core.soap.yodlee.com" />
+            <import namespace="http://admin.core.soap.yodlee.com" />
+            <import namespace="http://sso.ext.soap.yodlee.com" />
+            <import namespace="http://usermanagement.base.appext.soap.yodlee.com" />
+            <import namespace="http://tncmanagement.core.soap.yodlee.com" />
+            <import namespace="http://login.login.core.soap.yodlee.com" />
+            <import namespace="http://collections.soap.yodlee.com" />
+            <import namespace="http://batch.core.soap.yodlee.com" />
+            <import namespace="http://client.ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://common.collections.soap.yodlee.com" />
+            <import namespace="http://common.soap.yodlee.com" />
+            <complexType name="ConfigValue">
+                <complexContent>
+                    <extension base="tns1:NVPair">
+                        <sequence>
+                            <element name="groupId" type="xsd:int" minOccurs="0" />
+                            <element name="isGroup" type="xsd:boolean" />
+                            <element name="groupModuleName" nillable="true" type="xsd:string" minOccurs="0" />
+                            <element name="moduleName" nillable="true" type="xsd:string" minOccurs="0" />
+                            <element name="valueOrder" nillable="true" type="tns2:List" minOccurs="0" />
+                            <element name="isDefault" type="xsd:boolean" />
+                            <element name="description" nillable="true" type="xsd:string" minOccurs="0" />
+                            <element name="isBasic" type="xsd:int" minOccurs="0" />
+                            <element name="requiresRestart" type="xsd:int" minOccurs="0" />
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+        </schema>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="http://tncmanagement.core.soap.yodlee.com">
+            <import namespace="http://searchmanagement.permissioning.core.soap.yodlee.com" />
+            <import namespace="http://settings.config.system.core.soap.yodlee.com" />
+            <import namespace="http://usermanagement.core.soap.yodlee.com" />
+            <import namespace="http://ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://exceptions.acl.admin.core.soap.yodlee.com" />
+            <import namespace="http://core.soap.yodlee.com" />
+            <import namespace="http://ccw.ext.soap.yodlee.com" />
+            <import namespace="http://saml.ext.soap.yodlee.com" />
+            <import namespace="http://login.ext.soap.yodlee.com" />
+            <import namespace="http://permissioning.core.soap.yodlee.com" />
+            <import namespace="http://login.core.soap.yodlee.com" />
+            <import namespace="http://admin.core.soap.yodlee.com" />
+            <import namespace="http://sso.ext.soap.yodlee.com" />
+            <import namespace="http://usermanagement.base.appext.soap.yodlee.com" />
+            <import namespace="http://login.login.core.soap.yodlee.com" />
+            <import namespace="http://collections.soap.yodlee.com" />
+            <import namespace="http://batch.core.soap.yodlee.com" />
+            <import namespace="http://client.ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://common.collections.soap.yodlee.com" />
+            <import namespace="http://common.soap.yodlee.com" />
+            <complexType name="TNC">
+                <sequence>
+                    <element name="version" nillable="true" type="xsd:string" minOccurs="0" />
+                    <element name="CobrandId" type="xsd:long" minOccurs="0" />
+                    <element name="groupdId" nillable="true" type="xsd:long" minOccurs="0" />
+                    <element name="htmlText" nillable="true" type="xsd:string" minOccurs="0" />
+                </sequence>
+            </complexType>
+        </schema>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="http://ccw.ext.soap.yodlee.com">
+            <import namespace="http://searchmanagement.permissioning.core.soap.yodlee.com" />
+            <import namespace="http://settings.config.system.core.soap.yodlee.com" />
+            <import namespace="http://usermanagement.core.soap.yodlee.com" />
+            <import namespace="http://ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://exceptions.acl.admin.core.soap.yodlee.com" />
+            <import namespace="http://core.soap.yodlee.com" />
+            <import namespace="http://saml.ext.soap.yodlee.com" />
+            <import namespace="http://login.ext.soap.yodlee.com" />
+            <import namespace="http://permissioning.core.soap.yodlee.com" />
+            <import namespace="http://login.core.soap.yodlee.com" />
+            <import namespace="http://admin.core.soap.yodlee.com" />
+            <import namespace="http://sso.ext.soap.yodlee.com" />
+            <import namespace="http://usermanagement.base.appext.soap.yodlee.com" />
+            <import namespace="http://tncmanagement.core.soap.yodlee.com" />
+            <import namespace="http://login.login.core.soap.yodlee.com" />
+            <import namespace="http://collections.soap.yodlee.com" />
+            <import namespace="http://batch.core.soap.yodlee.com" />
+            <import namespace="http://client.ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://common.collections.soap.yodlee.com" />
+            <import namespace="http://common.soap.yodlee.com" />
+            <complexType name="CCWCredentials">
+                <complexContent>
+                    <extension base="tns3:ExternalAuthenticationCredentials">
+                        <sequence>
+                            <element name="ccwToken" nillable="true" type="xsd:string" minOccurs="0" />
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+        </schema>
+    </wsdl:types>
+    <wsdl:message name="logoutAllRequest">
+        <wsdl:part element="impl:logoutAll" name="parameters" />
+    </wsdl:message>
+    <wsdl:message name="revalidateCredentialsRequest">
+        <wsdl:part element="impl:revalidateCredentials" name="parameters" />
+    </wsdl:message>
+    <wsdl:message name="cloneConversationRequest">
+        <wsdl:part element="impl:cloneConversation" name="parameters" />
+    </wsdl:message>
+    <wsdl:message name="UserAccountLockedExceptionFaultMessage">
+        <wsdl:part element="tns5:UserAccountLockedExceptionFault" name="fault" />
+    </wsdl:message>
+    <wsdl:message name="revalidateCredentialsResponse">
+        <wsdl:part element="impl:revalidateCredentialsResponse" name="parameters" />
+    </wsdl:message>
+    <wsdl:message name="changeCredentialsResponse">
+        <wsdl:part element="impl:changeCredentialsResponse" name="parameters" />
+    </wsdl:message>
+    <wsdl:message name="logoutAllResponse">
+        <wsdl:part element="impl:logoutAllResponse" name="parameters" />
+    </wsdl:message>
+    <wsdl:message name="cloneConversationResponse">
+        <wsdl:part element="impl:cloneConversationResponse" name="parameters" />
+    </wsdl:message>
+    <wsdl:message name="touchConversationCredentialsRequest">
+        <wsdl:part element="impl:touchConversationCredentials" name="parameters" />
+    </wsdl:message>
+    <wsdl:message name="UserUnregisteredExceptionFaultMessage">
+        <wsdl:part element="tns4:UserUnregisteredExceptionFault" name="fault" />
+    </wsdl:message>
+    <wsdl:message name="InvalidUserContextExceptionFaultMessage">
+        <wsdl:part element="tns6:InvalidUserContextExceptionFault" name="fault" />
+    </wsdl:message>
+    <wsdl:message name="InvalidCobrandConversationCredentialsExceptionFaultMessage">
+        <wsdl:part element="tns6:InvalidCobrandConversationCredentialsExceptionFault" name="fault" />
+    </wsdl:message>
+    <wsdl:message name="UserSuspendedExceptionFaultMessage">
+        <wsdl:part element="tns8:UserSuspendedExceptionFault" name="fault" />
+    </wsdl:message>
+    <wsdl:message name="InvalidExternalAuthenticationCredentialsExceptionFaultMessage">
+        <wsdl:part element="tns6:InvalidExternalAuthenticationCredentialsExceptionFault" name="fault" />
+    </wsdl:message>
+    <wsdl:message name="InvalidUserCredentialsExceptionFaultMessage">
+        <wsdl:part element="tns5:InvalidUserCredentialsExceptionFault" name="fault" />
+    </wsdl:message>
+    <wsdl:message name="logoutResponse">
+        <wsdl:part element="impl:logoutResponse" name="parameters" />
+    </wsdl:message>
+    <wsdl:message name="touchConversationCredentialsResponse">
+        <wsdl:part element="impl:touchConversationCredentialsResponse" name="parameters" />
+    </wsdl:message>
+    <wsdl:message name="changeCredentialsRequest">
+        <wsdl:part element="impl:changeCredentials" name="parameters" />
+    </wsdl:message>
+    <wsdl:message name="login1Response">
+        <wsdl:part element="impl:login1Response" name="parameters" />
+    </wsdl:message>
+    <wsdl:message name="UserStateChangedExceptionFaultMessage">
+        <wsdl:part element="tns8:UserStateChangedExceptionFault" name="fault" />
+    </wsdl:message>
+    <wsdl:message name="validateUserResponse">
+        <wsdl:part element="impl:validateUserResponse" name="parameters" />
+    </wsdl:message>
+    <wsdl:message name="login1Request">
+        <wsdl:part element="impl:login1" name="parameters" />
+    </wsdl:message>
+    <wsdl:message name="revalidateSessionRequest">
+        <wsdl:part element="impl:revalidateSession" name="parameters" />
+    </wsdl:message>
+    <wsdl:message name="logoutRequest">
+        <wsdl:part element="impl:logout" name="parameters" />
+    </wsdl:message>
+    <wsdl:message name="IllegalArgumentValueExceptionFaultMessage">
+        <wsdl:part element="tns6:IllegalArgumentValueExceptionFault" name="fault" />
+    </wsdl:message>
+    <wsdl:message name="login2Response">
+        <wsdl:part element="impl:login2Response" name="parameters" />
+    </wsdl:message>
+    <wsdl:message name="getUserInfoRequest">
+        <wsdl:part element="impl:getUserInfo" name="parameters" />
+    </wsdl:message>
+    <wsdl:message name="getUserInfoResponse">
+        <wsdl:part element="impl:getUserInfoResponse" name="parameters" />
+    </wsdl:message>
+    <wsdl:message name="MaxUserCountExceededExceptionFaultMessage">
+        <wsdl:part element="tns9:MaxUserCountExceededExceptionFault" name="fault" />
+    </wsdl:message>
+    <wsdl:message name="renewConversationRequest">
+        <wsdl:part element="impl:renewConversation" name="parameters" />
+    </wsdl:message>
+    <wsdl:message name="renewConversationResponse">
+        <wsdl:part element="impl:renewConversationResponse" name="parameters" />
+    </wsdl:message>
+    <wsdl:message name="login2Request">
+        <wsdl:part element="impl:login2" name="parameters" />
+    </wsdl:message>
+    <wsdl:message name="InvalidCobrandContextExceptionFaultMessage">
+        <wsdl:part element="tns6:InvalidCobrandContextExceptionFault" name="fault" />
+    </wsdl:message>
+    <wsdl:message name="UserUncertifiedExceptionFaultMessage">
+        <wsdl:part element="tns4:UserUncertifiedExceptionFault" name="fault" />
+    </wsdl:message>
+    <wsdl:message name="CoreExceptionFaultMessage">
+        <wsdl:part element="tns6:CoreExceptionFault" name="fault" />
+    </wsdl:message>
+    <wsdl:message name="validateUserRequest">
+        <wsdl:part element="impl:validateUser" name="parameters" />
+    </wsdl:message>
+    <wsdl:message name="revalidateSessionResponse">
+        <wsdl:part element="impl:revalidateSessionResponse" name="parameters" />
+    </wsdl:message>
+    <wsdl:message name="UserGroupNotFoundExceptionFaultMessage">
+        <wsdl:part element="tns7:UserGroupNotFoundExceptionFault" name="fault" />
+    </wsdl:message>
+    <wsdl:message name="AuthenticationAttemptsExceededExceptionFaultMessage">
+        <wsdl:part element="tns5:AuthenticationAttemptsExceededExceptionFault" name="fault" />
+    </wsdl:message>
+    <wsdl:message name="InvalidConversationCredentialsExceptionFaultMessage">
+        <wsdl:part element="tns6:InvalidConversationCredentialsExceptionFault" name="fault" />
+    </wsdl:message>
+    <wsdl:message name="StaleConversationCredentialsExceptionFaultMessage">
+        <wsdl:part element="tns6:StaleConversationCredentialsExceptionFault" name="fault" />
+    </wsdl:message>
+    <wsdl:message name="InvalidRegisterArgumentValueExceptionFaultMessage">
+        <wsdl:part element="tns4:InvalidRegisterArgumentValueExceptionFault" name="fault" />
+    </wsdl:message>
+    <wsdl:portType name="Login">
+        <wsdl:operation name="getUserInfo">
+            <wsdl:input message="impl:getUserInfoRequest" name="getUserInfoRequest" />
+            <wsdl:output message="impl:getUserInfoResponse" name="getUserInfoResponse" />
+            <wsdl:fault message="impl:InvalidUserContextExceptionFaultMessage" name="InvalidUserContextExceptionFault" />
+            <wsdl:fault message="impl:StaleConversationCredentialsExceptionFaultMessage" name="StaleConversationCredentialsExceptionFault" />
+            <wsdl:fault message="impl:InvalidConversationCredentialsExceptionFaultMessage" name="InvalidConversationCredentialsExceptionFault" />
+            <wsdl:fault message="impl:CoreExceptionFaultMessage" name="CoreExceptionFault" />
+            <wsdl:fault message="impl:IllegalArgumentValueExceptionFaultMessage" name="IllegalArgumentValueExceptionFault" />
+        </wsdl:operation>
+        <wsdl:operation name="changeCredentials">
+            <wsdl:input message="impl:changeCredentialsRequest" name="changeCredentialsRequest" />
+            <wsdl:output message="impl:changeCredentialsResponse" name="changeCredentialsResponse" />
+            <wsdl:fault message="impl:InvalidUserContextExceptionFaultMessage" name="InvalidUserContextExceptionFault" />
+            <wsdl:fault message="impl:InvalidRegisterArgumentValueExceptionFaultMessage" name="InvalidRegisterArgumentValueExceptionFault" />
+            <wsdl:fault message="impl:StaleConversationCredentialsExceptionFaultMessage" name="StaleConversationCredentialsExceptionFault" />
+            <wsdl:fault message="impl:InvalidConversationCredentialsExceptionFaultMessage" name="InvalidConversationCredentialsExceptionFault" />
+            <wsdl:fault message="impl:AuthenticationAttemptsExceededExceptionFaultMessage" name="AuthenticationAttemptsExceededExceptionFault" />
+            <wsdl:fault message="impl:InvalidUserCredentialsExceptionFaultMessage" name="InvalidUserCredentialsExceptionFault" />
+            <wsdl:fault message="impl:CoreExceptionFaultMessage" name="CoreExceptionFault" />
+            <wsdl:fault message="impl:IllegalArgumentValueExceptionFaultMessage" name="IllegalArgumentValueExceptionFault" />
+        </wsdl:operation>
+        <wsdl:operation name="cloneConversation">
+            <wsdl:input message="impl:cloneConversationRequest" name="cloneConversationRequest" />
+            <wsdl:output message="impl:cloneConversationResponse" name="cloneConversationResponse" />
+            <wsdl:fault message="impl:InvalidUserContextExceptionFaultMessage" name="InvalidUserContextExceptionFault" />
+            <wsdl:fault message="impl:StaleConversationCredentialsExceptionFaultMessage" name="StaleConversationCredentialsExceptionFault" />
+            <wsdl:fault message="impl:InvalidConversationCredentialsExceptionFaultMessage" name="InvalidConversationCredentialsExceptionFault" />
+            <wsdl:fault message="impl:CoreExceptionFaultMessage" name="CoreExceptionFault" />
+            <wsdl:fault message="impl:IllegalArgumentValueExceptionFaultMessage" name="IllegalArgumentValueExceptionFault" />
+        </wsdl:operation>
+        <wsdl:operation name="login2">
+            <wsdl:input message="impl:login2Request" name="login2Request" />
+            <wsdl:output message="impl:login2Response" name="login2Response" />
+            <wsdl:fault message="impl:UserUnregisteredExceptionFaultMessage" name="UserUnregisteredExceptionFault" />
+            <wsdl:fault message="impl:MaxUserCountExceededExceptionFaultMessage" name="MaxUserCountExceededExceptionFault" />
+            <wsdl:fault message="impl:UserAccountLockedExceptionFaultMessage" name="UserAccountLockedExceptionFault" />
+            <wsdl:fault message="impl:IllegalArgumentValueExceptionFaultMessage" name="IllegalArgumentValueExceptionFault" />
+            <wsdl:fault message="impl:UserStateChangedExceptionFaultMessage" name="UserStateChangedExceptionFault" />
+            <wsdl:fault message="impl:StaleConversationCredentialsExceptionFaultMessage" name="StaleConversationCredentialsExceptionFault" />
+            <wsdl:fault message="impl:UserUncertifiedExceptionFaultMessage" name="UserUncertifiedExceptionFault" />
+            <wsdl:fault message="impl:UserSuspendedExceptionFaultMessage" name="UserSuspendedExceptionFault" />
+            <wsdl:fault message="impl:InvalidCobrandConversationCredentialsExceptionFaultMessage" name="InvalidCobrandConversationCredentialsExceptionFault" />
+            <wsdl:fault message="impl:InvalidCobrandContextExceptionFaultMessage" name="InvalidCobrandContextExceptionFault" />
+            <wsdl:fault message="impl:UserGroupNotFoundExceptionFaultMessage" name="UserGroupNotFoundExceptionFault" />
+            <wsdl:fault message="impl:InvalidConversationCredentialsExceptionFaultMessage" name="InvalidConversationCredentialsExceptionFault" />
+            <wsdl:fault message="impl:CoreExceptionFaultMessage" name="CoreExceptionFault" />
+            <wsdl:fault message="impl:InvalidUserCredentialsExceptionFaultMessage" name="InvalidUserCredentialsExceptionFault" />
+        </wsdl:operation>
+        <wsdl:operation name="login1">
+            <wsdl:input message="impl:login1Request" name="login1Request" />
+            <wsdl:output message="impl:login1Response" name="login1Response" />
+            <wsdl:fault message="impl:UserStateChangedExceptionFaultMessage" name="UserStateChangedExceptionFault" />
+            <wsdl:fault message="impl:UserUnregisteredExceptionFaultMessage" name="UserUnregisteredExceptionFault" />
+            <wsdl:fault message="impl:StaleConversationCredentialsExceptionFaultMessage" name="StaleConversationCredentialsExceptionFault" />
+            <wsdl:fault message="impl:UserUncertifiedExceptionFaultMessage" name="UserUncertifiedExceptionFault" />
+            <wsdl:fault message="impl:UserAccountLockedExceptionFaultMessage" name="UserAccountLockedExceptionFault" />
+            <wsdl:fault message="impl:UserSuspendedExceptionFaultMessage" name="UserSuspendedExceptionFault" />
+            <wsdl:fault message="impl:InvalidCobrandContextExceptionFaultMessage" name="InvalidCobrandContextExceptionFault" />
+            <wsdl:fault message="impl:InvalidCobrandConversationCredentialsExceptionFaultMessage" name="InvalidCobrandConversationCredentialsExceptionFault" />
+            <wsdl:fault message="impl:InvalidConversationCredentialsExceptionFaultMessage" name="InvalidConversationCredentialsExceptionFault" />
+            <wsdl:fault message="impl:InvalidUserCredentialsExceptionFaultMessage" name="InvalidUserCredentialsExceptionFault" />
+            <wsdl:fault message="impl:CoreExceptionFaultMessage" name="CoreExceptionFault" />
+            <wsdl:fault message="impl:IllegalArgumentValueExceptionFaultMessage" name="IllegalArgumentValueExceptionFault" />
+        </wsdl:operation>
+        <wsdl:operation name="logout">
+            <wsdl:input message="impl:logoutRequest" name="logoutRequest" />
+            <wsdl:output message="impl:logoutResponse" name="logoutResponse" />
+            <wsdl:fault message="impl:InvalidUserContextExceptionFaultMessage" name="InvalidUserContextExceptionFault" />
+            <wsdl:fault message="impl:StaleConversationCredentialsExceptionFaultMessage" name="StaleConversationCredentialsExceptionFault" />
+            <wsdl:fault message="impl:InvalidConversationCredentialsExceptionFaultMessage" name="InvalidConversationCredentialsExceptionFault" />
+            <wsdl:fault message="impl:CoreExceptionFaultMessage" name="CoreExceptionFault" />
+            <wsdl:fault message="impl:IllegalArgumentValueExceptionFaultMessage" name="IllegalArgumentValueExceptionFault" />
+        </wsdl:operation>
+        <wsdl:operation name="logoutAll">
+            <wsdl:input message="impl:logoutAllRequest" name="logoutAllRequest" />
+            <wsdl:output message="impl:logoutAllResponse" name="logoutAllResponse" />
+            <wsdl:fault message="impl:InvalidUserContextExceptionFaultMessage" name="InvalidUserContextExceptionFault" />
+            <wsdl:fault message="impl:StaleConversationCredentialsExceptionFaultMessage" name="StaleConversationCredentialsExceptionFault" />
+            <wsdl:fault message="impl:InvalidConversationCredentialsExceptionFaultMessage" name="InvalidConversationCredentialsExceptionFault" />
+            <wsdl:fault message="impl:CoreExceptionFaultMessage" name="CoreExceptionFault" />
+            <wsdl:fault message="impl:IllegalArgumentValueExceptionFaultMessage" name="IllegalArgumentValueExceptionFault" />
+        </wsdl:operation>
+        <wsdl:operation name="renewConversation">
+            <wsdl:input message="impl:renewConversationRequest" name="renewConversationRequest" />
+            <wsdl:output message="impl:renewConversationResponse" name="renewConversationResponse" />
+            <wsdl:fault message="impl:InvalidUserContextExceptionFaultMessage" name="InvalidUserContextExceptionFault" />
+            <wsdl:fault message="impl:StaleConversationCredentialsExceptionFaultMessage" name="StaleConversationCredentialsExceptionFault" />
+            <wsdl:fault message="impl:InvalidConversationCredentialsExceptionFaultMessage" name="InvalidConversationCredentialsExceptionFault" />
+            <wsdl:fault message="impl:CoreExceptionFaultMessage" name="CoreExceptionFault" />
+            <wsdl:fault message="impl:IllegalArgumentValueExceptionFaultMessage" name="IllegalArgumentValueExceptionFault" />
+        </wsdl:operation>
+        <wsdl:operation name="revalidateCredentials">
+            <wsdl:input message="impl:revalidateCredentialsRequest" name="revalidateCredentialsRequest" />
+            <wsdl:output message="impl:revalidateCredentialsResponse" name="revalidateCredentialsResponse" />
+            <wsdl:fault message="impl:InvalidUserContextExceptionFaultMessage" name="InvalidUserContextExceptionFault" />
+            <wsdl:fault message="impl:StaleConversationCredentialsExceptionFaultMessage" name="StaleConversationCredentialsExceptionFault" />
+            <wsdl:fault message="impl:InvalidConversationCredentialsExceptionFaultMessage" name="InvalidConversationCredentialsExceptionFault" />
+            <wsdl:fault message="impl:AuthenticationAttemptsExceededExceptionFaultMessage" name="AuthenticationAttemptsExceededExceptionFault" />
+            <wsdl:fault message="impl:InvalidUserCredentialsExceptionFaultMessage" name="InvalidUserCredentialsExceptionFault" />
+            <wsdl:fault message="impl:CoreExceptionFaultMessage" name="CoreExceptionFault" />
+            <wsdl:fault message="impl:IllegalArgumentValueExceptionFaultMessage" name="IllegalArgumentValueExceptionFault" />
+        </wsdl:operation>
+        <wsdl:operation name="revalidateSession">
+            <wsdl:input message="impl:revalidateSessionRequest" name="revalidateSessionRequest" />
+            <wsdl:output message="impl:revalidateSessionResponse" name="revalidateSessionResponse" />
+            <wsdl:fault message="impl:InvalidUserContextExceptionFaultMessage" name="InvalidUserContextExceptionFault" />
+            <wsdl:fault message="impl:StaleConversationCredentialsExceptionFaultMessage" name="StaleConversationCredentialsExceptionFault" />
+            <wsdl:fault message="impl:InvalidCobrandContextExceptionFaultMessage" name="InvalidCobrandContextExceptionFault" />
+            <wsdl:fault message="impl:InvalidConversationCredentialsExceptionFaultMessage" name="InvalidConversationCredentialsExceptionFault" />
+            <wsdl:fault message="impl:InvalidExternalAuthenticationCredentialsExceptionFaultMessage" name="InvalidExternalAuthenticationCredentialsExceptionFault" />
+            <wsdl:fault message="impl:CoreExceptionFaultMessage" name="CoreExceptionFault" />
+            <wsdl:fault message="impl:IllegalArgumentValueExceptionFaultMessage" name="IllegalArgumentValueExceptionFault" />
+        </wsdl:operation>
+        <wsdl:operation name="touchConversationCredentials">
+            <wsdl:input message="impl:touchConversationCredentialsRequest" name="touchConversationCredentialsRequest" />
+            <wsdl:output message="impl:touchConversationCredentialsResponse" name="touchConversationCredentialsResponse" />
+            <wsdl:fault message="impl:InvalidUserContextExceptionFaultMessage" name="InvalidUserContextExceptionFault" />
+            <wsdl:fault message="impl:StaleConversationCredentialsExceptionFaultMessage" name="StaleConversationCredentialsExceptionFault" />
+            <wsdl:fault message="impl:InvalidConversationCredentialsExceptionFaultMessage" name="InvalidConversationCredentialsExceptionFault" />
+            <wsdl:fault message="impl:CoreExceptionFaultMessage" name="CoreExceptionFault" />
+            <wsdl:fault message="impl:IllegalArgumentValueExceptionFaultMessage" name="IllegalArgumentValueExceptionFault" />
+        </wsdl:operation>
+        <wsdl:operation name="validateUser">
+            <wsdl:input message="impl:validateUserRequest" name="validateUserRequest" />
+            <wsdl:output message="impl:validateUserResponse" name="validateUserResponse" />
+            <wsdl:fault message="impl:StaleConversationCredentialsExceptionFaultMessage" name="StaleConversationCredentialsExceptionFault" />
+            <wsdl:fault message="impl:InvalidCobrandContextExceptionFaultMessage" name="InvalidCobrandContextExceptionFault" />
+            <wsdl:fault message="impl:InvalidCobrandConversationCredentialsExceptionFaultMessage" name="InvalidCobrandConversationCredentialsExceptionFault" />
+            <wsdl:fault message="impl:InvalidConversationCredentialsExceptionFaultMessage" name="InvalidConversationCredentialsExceptionFault" />
+            <wsdl:fault message="impl:CoreExceptionFaultMessage" name="CoreExceptionFault" />
+            <wsdl:fault message="impl:IllegalArgumentValueExceptionFaultMessage" name="IllegalArgumentValueExceptionFault" />
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="LoginServiceSoapBinding" type="impl:Login">
+        <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+        <wsdl:operation name="getUserInfo">
+            <wsdlsoap:operation soapAction="urn:getUserInfo" />
+            <wsdl:input name="getUserInfoRequest">
+                <wsdlsoap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="getUserInfoResponse">
+                <wsdlsoap:body use="literal" />
+            </wsdl:output>
+            <wsdl:fault name="InvalidUserContextExceptionFault">
+                <wsdlsoap:fault name="InvalidUserContextExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="StaleConversationCredentialsExceptionFault">
+                <wsdlsoap:fault name="StaleConversationCredentialsExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="InvalidConversationCredentialsExceptionFault">
+                <wsdlsoap:fault name="InvalidConversationCredentialsExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="CoreExceptionFault">
+                <wsdlsoap:fault name="CoreExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="IllegalArgumentValueExceptionFault">
+                <wsdlsoap:fault name="IllegalArgumentValueExceptionFault" use="literal" />
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="changeCredentials">
+            <wsdlsoap:operation soapAction="urn:changeCredentials" />
+            <wsdl:input name="changeCredentialsRequest">
+                <wsdlsoap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="changeCredentialsResponse">
+                <wsdlsoap:body use="literal" />
+            </wsdl:output>
+            <wsdl:fault name="InvalidUserContextExceptionFault">
+                <wsdlsoap:fault name="InvalidUserContextExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="InvalidRegisterArgumentValueExceptionFault">
+                <wsdlsoap:fault name="InvalidRegisterArgumentValueExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="StaleConversationCredentialsExceptionFault">
+                <wsdlsoap:fault name="StaleConversationCredentialsExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="InvalidConversationCredentialsExceptionFault">
+                <wsdlsoap:fault name="InvalidConversationCredentialsExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="AuthenticationAttemptsExceededExceptionFault">
+                <wsdlsoap:fault name="AuthenticationAttemptsExceededExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="InvalidUserCredentialsExceptionFault">
+                <wsdlsoap:fault name="InvalidUserCredentialsExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="CoreExceptionFault">
+                <wsdlsoap:fault name="CoreExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="IllegalArgumentValueExceptionFault">
+                <wsdlsoap:fault name="IllegalArgumentValueExceptionFault" use="literal" />
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="cloneConversation">
+            <wsdlsoap:operation soapAction="urn:cloneConversation" />
+            <wsdl:input name="cloneConversationRequest">
+                <wsdlsoap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="cloneConversationResponse">
+                <wsdlsoap:body use="literal" />
+            </wsdl:output>
+            <wsdl:fault name="InvalidUserContextExceptionFault">
+                <wsdlsoap:fault name="InvalidUserContextExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="StaleConversationCredentialsExceptionFault">
+                <wsdlsoap:fault name="StaleConversationCredentialsExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="InvalidConversationCredentialsExceptionFault">
+                <wsdlsoap:fault name="InvalidConversationCredentialsExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="CoreExceptionFault">
+                <wsdlsoap:fault name="CoreExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="IllegalArgumentValueExceptionFault">
+                <wsdlsoap:fault name="IllegalArgumentValueExceptionFault" use="literal" />
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="login2">
+            <wsdlsoap:operation soapAction="urn:login2" />
+            <wsdl:input name="login2Request">
+                <wsdlsoap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="login2Response">
+                <wsdlsoap:body use="literal" />
+            </wsdl:output>
+            <wsdl:fault name="UserUnregisteredExceptionFault">
+                <wsdlsoap:fault name="UserUnregisteredExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="MaxUserCountExceededExceptionFault">
+                <wsdlsoap:fault name="MaxUserCountExceededExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="UserAccountLockedExceptionFault">
+                <wsdlsoap:fault name="UserAccountLockedExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="IllegalArgumentValueExceptionFault">
+                <wsdlsoap:fault name="IllegalArgumentValueExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="UserStateChangedExceptionFault">
+                <wsdlsoap:fault name="UserStateChangedExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="StaleConversationCredentialsExceptionFault">
+                <wsdlsoap:fault name="StaleConversationCredentialsExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="UserUncertifiedExceptionFault">
+                <wsdlsoap:fault name="UserUncertifiedExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="UserSuspendedExceptionFault">
+                <wsdlsoap:fault name="UserSuspendedExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="InvalidCobrandConversationCredentialsExceptionFault">
+                <wsdlsoap:fault name="InvalidCobrandConversationCredentialsExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="InvalidCobrandContextExceptionFault">
+                <wsdlsoap:fault name="InvalidCobrandContextExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="UserGroupNotFoundExceptionFault">
+                <wsdlsoap:fault name="UserGroupNotFoundExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="InvalidConversationCredentialsExceptionFault">
+                <wsdlsoap:fault name="InvalidConversationCredentialsExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="CoreExceptionFault">
+                <wsdlsoap:fault name="CoreExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="InvalidUserCredentialsExceptionFault">
+                <wsdlsoap:fault name="InvalidUserCredentialsExceptionFault" use="literal" />
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="login1">
+            <wsdlsoap:operation soapAction="urn:login1" />
+            <wsdl:input name="login1Request">
+                <wsdlsoap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="login1Response">
+                <wsdlsoap:body use="literal" />
+            </wsdl:output>
+            <wsdl:fault name="UserStateChangedExceptionFault">
+                <wsdlsoap:fault name="UserStateChangedExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="UserUnregisteredExceptionFault">
+                <wsdlsoap:fault name="UserUnregisteredExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="StaleConversationCredentialsExceptionFault">
+                <wsdlsoap:fault name="StaleConversationCredentialsExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="UserUncertifiedExceptionFault">
+                <wsdlsoap:fault name="UserUncertifiedExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="UserAccountLockedExceptionFault">
+                <wsdlsoap:fault name="UserAccountLockedExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="UserSuspendedExceptionFault">
+                <wsdlsoap:fault name="UserSuspendedExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="InvalidCobrandContextExceptionFault">
+                <wsdlsoap:fault name="InvalidCobrandContextExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="InvalidCobrandConversationCredentialsExceptionFault">
+                <wsdlsoap:fault name="InvalidCobrandConversationCredentialsExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="InvalidConversationCredentialsExceptionFault">
+                <wsdlsoap:fault name="InvalidConversationCredentialsExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="InvalidUserCredentialsExceptionFault">
+                <wsdlsoap:fault name="InvalidUserCredentialsExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="CoreExceptionFault">
+                <wsdlsoap:fault name="CoreExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="IllegalArgumentValueExceptionFault">
+                <wsdlsoap:fault name="IllegalArgumentValueExceptionFault" use="literal" />
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="logout">
+            <wsdlsoap:operation soapAction="urn:logout" />
+            <wsdl:input name="logoutRequest">
+                <wsdlsoap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="logoutResponse">
+                <wsdlsoap:body use="literal" />
+            </wsdl:output>
+            <wsdl:fault name="InvalidUserContextExceptionFault">
+                <wsdlsoap:fault name="InvalidUserContextExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="StaleConversationCredentialsExceptionFault">
+                <wsdlsoap:fault name="StaleConversationCredentialsExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="InvalidConversationCredentialsExceptionFault">
+                <wsdlsoap:fault name="InvalidConversationCredentialsExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="CoreExceptionFault">
+                <wsdlsoap:fault name="CoreExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="IllegalArgumentValueExceptionFault">
+                <wsdlsoap:fault name="IllegalArgumentValueExceptionFault" use="literal" />
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="logoutAll">
+            <wsdlsoap:operation soapAction="urn:logoutAll" />
+            <wsdl:input name="logoutAllRequest">
+                <wsdlsoap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="logoutAllResponse">
+                <wsdlsoap:body use="literal" />
+            </wsdl:output>
+            <wsdl:fault name="InvalidUserContextExceptionFault">
+                <wsdlsoap:fault name="InvalidUserContextExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="StaleConversationCredentialsExceptionFault">
+                <wsdlsoap:fault name="StaleConversationCredentialsExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="InvalidConversationCredentialsExceptionFault">
+                <wsdlsoap:fault name="InvalidConversationCredentialsExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="CoreExceptionFault">
+                <wsdlsoap:fault name="CoreExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="IllegalArgumentValueExceptionFault">
+                <wsdlsoap:fault name="IllegalArgumentValueExceptionFault" use="literal" />
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="renewConversation">
+            <wsdlsoap:operation soapAction="urn:renewConversation" />
+            <wsdl:input name="renewConversationRequest">
+                <wsdlsoap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="renewConversationResponse">
+                <wsdlsoap:body use="literal" />
+            </wsdl:output>
+            <wsdl:fault name="InvalidUserContextExceptionFault">
+                <wsdlsoap:fault name="InvalidUserContextExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="StaleConversationCredentialsExceptionFault">
+                <wsdlsoap:fault name="StaleConversationCredentialsExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="InvalidConversationCredentialsExceptionFault">
+                <wsdlsoap:fault name="InvalidConversationCredentialsExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="CoreExceptionFault">
+                <wsdlsoap:fault name="CoreExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="IllegalArgumentValueExceptionFault">
+                <wsdlsoap:fault name="IllegalArgumentValueExceptionFault" use="literal" />
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="revalidateCredentials">
+            <wsdlsoap:operation soapAction="urn:revalidateCredentials" />
+            <wsdl:input name="revalidateCredentialsRequest">
+                <wsdlsoap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="revalidateCredentialsResponse">
+                <wsdlsoap:body use="literal" />
+            </wsdl:output>
+            <wsdl:fault name="InvalidUserContextExceptionFault">
+                <wsdlsoap:fault name="InvalidUserContextExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="StaleConversationCredentialsExceptionFault">
+                <wsdlsoap:fault name="StaleConversationCredentialsExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="InvalidConversationCredentialsExceptionFault">
+                <wsdlsoap:fault name="InvalidConversationCredentialsExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="AuthenticationAttemptsExceededExceptionFault">
+                <wsdlsoap:fault name="AuthenticationAttemptsExceededExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="InvalidUserCredentialsExceptionFault">
+                <wsdlsoap:fault name="InvalidUserCredentialsExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="CoreExceptionFault">
+                <wsdlsoap:fault name="CoreExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="IllegalArgumentValueExceptionFault">
+                <wsdlsoap:fault name="IllegalArgumentValueExceptionFault" use="literal" />
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="revalidateSession">
+            <wsdlsoap:operation soapAction="urn:revalidateSession" />
+            <wsdl:input name="revalidateSessionRequest">
+                <wsdlsoap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="revalidateSessionResponse">
+                <wsdlsoap:body use="literal" />
+            </wsdl:output>
+            <wsdl:fault name="InvalidUserContextExceptionFault">
+                <wsdlsoap:fault name="InvalidUserContextExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="StaleConversationCredentialsExceptionFault">
+                <wsdlsoap:fault name="StaleConversationCredentialsExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="InvalidCobrandContextExceptionFault">
+                <wsdlsoap:fault name="InvalidCobrandContextExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="InvalidConversationCredentialsExceptionFault">
+                <wsdlsoap:fault name="InvalidConversationCredentialsExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="InvalidExternalAuthenticationCredentialsExceptionFault">
+                <wsdlsoap:fault name="InvalidExternalAuthenticationCredentialsExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="CoreExceptionFault">
+                <wsdlsoap:fault name="CoreExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="IllegalArgumentValueExceptionFault">
+                <wsdlsoap:fault name="IllegalArgumentValueExceptionFault" use="literal" />
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="touchConversationCredentials">
+            <wsdlsoap:operation soapAction="urn:touchConversationCredentials" />
+            <wsdl:input name="touchConversationCredentialsRequest">
+                <wsdlsoap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="touchConversationCredentialsResponse">
+                <wsdlsoap:body use="literal" />
+            </wsdl:output>
+            <wsdl:fault name="InvalidUserContextExceptionFault">
+                <wsdlsoap:fault name="InvalidUserContextExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="StaleConversationCredentialsExceptionFault">
+                <wsdlsoap:fault name="StaleConversationCredentialsExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="InvalidConversationCredentialsExceptionFault">
+                <wsdlsoap:fault name="InvalidConversationCredentialsExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="CoreExceptionFault">
+                <wsdlsoap:fault name="CoreExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="IllegalArgumentValueExceptionFault">
+                <wsdlsoap:fault name="IllegalArgumentValueExceptionFault" use="literal" />
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="validateUser">
+            <wsdlsoap:operation soapAction="urn:validateUser" />
+            <wsdl:input name="validateUserRequest">
+                <wsdlsoap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="validateUserResponse">
+                <wsdlsoap:body use="literal" />
+            </wsdl:output>
+            <wsdl:fault name="StaleConversationCredentialsExceptionFault">
+                <wsdlsoap:fault name="StaleConversationCredentialsExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="InvalidCobrandContextExceptionFault">
+                <wsdlsoap:fault name="InvalidCobrandContextExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="InvalidCobrandConversationCredentialsExceptionFault">
+                <wsdlsoap:fault name="InvalidCobrandConversationCredentialsExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="InvalidConversationCredentialsExceptionFault">
+                <wsdlsoap:fault name="InvalidConversationCredentialsExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="CoreExceptionFault">
+                <wsdlsoap:fault name="CoreExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="IllegalArgumentValueExceptionFault">
+                <wsdlsoap:fault name="IllegalArgumentValueExceptionFault" use="literal" />
+            </wsdl:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="LoginService">
+        <wsdl:port binding="impl:LoginServiceSoapBinding" name="LoginService">
+            <wsdlsoap:address location="http://localhost:8080/yodsoap/services/LoginService" />
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>
+

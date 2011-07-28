@@ -6,6 +6,7 @@ require "yodlee_api/user_registration"
 require "yodlee_api/user_credentials"
 require "yodlee_api/content_services"
 require "yodlee_api/item_management"
+require "yodlee_api/user_login"
 
 module YodleeApi
   extend Config

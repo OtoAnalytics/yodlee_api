@@ -1,5 +1,3 @@
-require 'savon'
-
 module YodleeApi
   class CobrandLogin
     
