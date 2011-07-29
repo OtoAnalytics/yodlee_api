@@ -1,0 +1,3026 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://refresh.refresh.core.soap.yodlee.com" xmlns:intf="http://refresh.refresh.core.soap.yodlee.com" xmlns:tns1="http://common.soap.yodlee.com" xmlns:tns10="http://refresh.core.collections.soap.yodlee.com" xmlns:tns11="http://client.ycache.system.util.soap.yodlee.com" xmlns:tns12="http://ycache.system.util.soap.yodlee.com" xmlns:tns13="http://bpaa.core.soap.yodlee.com" xmlns:tns14="http://mfarefresh.core.collections.soap.yodlee.com" xmlns:tns15="http://permissioning.core.soap.yodlee.com" xmlns:tns16="http://searchmanagement.permissioning.core.soap.yodlee.com" xmlns:tns17="http://accountmanagement.core.soap.yodlee.com" xmlns:tns18="http://saml.ext.soap.yodlee.com" xmlns:tns19="http://settings.config.system.core.soap.yodlee.com" xmlns:tns2="http://collections.soap.yodlee.com" xmlns:tns20="http://ccw.ext.soap.yodlee.com" xmlns:tns3="http://login.ext.soap.yodlee.com" xmlns:tns4="http://usermanagement.core.soap.yodlee.com" xmlns:tns5="http://mfarefresh.core.soap.yodlee.com" xmlns:tns6="http://core.soap.yodlee.com" xmlns:tns7="http://refresh.core.soap.yodlee.com" xmlns:tns8="http://common.collections.soap.yodlee.com" xmlns:tns9="http://accountdataservice.core.soap.yodlee.com" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://refresh.refresh.core.soap.yodlee.com">
+    <!--WSDL created by Apache Axis version: 1.4Built on Apr 22, 2006 (06:55:48 PDT)-->
+    <wsdl:types>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="http://refresh.refresh.core.soap.yodlee.com">
+            <import namespace="http://mfarefresh.core.soap.yodlee.com" />
+            <import namespace="http://accountmanagement.core.soap.yodlee.com" />
+            <import namespace="http://searchmanagement.permissioning.core.soap.yodlee.com" />
+            <import namespace="http://settings.config.system.core.soap.yodlee.com" />
+            <import namespace="http://usermanagement.core.soap.yodlee.com" />
+            <import namespace="http://ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://core.soap.yodlee.com" />
+            <import namespace="http://ccw.ext.soap.yodlee.com" />
+            <import namespace="http://saml.ext.soap.yodlee.com" />
+            <import namespace="http://login.ext.soap.yodlee.com" />
+            <import namespace="http://permissioning.core.soap.yodlee.com" />
+            <import namespace="http://refresh.core.collections.soap.yodlee.com" />
+            <import namespace="http://collections.soap.yodlee.com" />
+            <import namespace="http://accountdataservice.core.soap.yodlee.com" />
+            <import namespace="http://refresh.core.soap.yodlee.com" />
+            <import namespace="http://client.ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://mfarefresh.core.collections.soap.yodlee.com" />
+            <import namespace="http://common.collections.soap.yodlee.com" />
+            <import namespace="http://bpaa.core.soap.yodlee.com" />
+            <import namespace="http://common.soap.yodlee.com" />
+            <element name="getMFAResponse">
+                <complexType>
+                    <sequence>
+                        <element name="userContext" type="tns1:UserContext" nillable="true" minOccurs="0" />
+                        <element name="itemId" type="xsd:long" nillable="true" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="getMFAResponseResponse">
+                <complexType>
+                    <sequence>
+                        <element name="getMFAResponseReturn" type="tns5:MFARefreshInfo" nillable="true" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="getNextRefreshTime">
+                <complexType>
+                    <sequence>
+                        <element name="userContext" type="tns1:UserContext" nillable="true" minOccurs="0" />
+                        <element name="itemId" type="xsd:long" nillable="true" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="getNextRefreshTimeResponse">
+                <complexType>
+                    <sequence>
+                        <element name="getNextRefreshTimeReturn" type="xsd:dateTime" nillable="true" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="getNextRefreshTime1">
+                <complexType>
+                    <sequence>
+                        <element name="userContext" type="tns1:UserContext" nillable="true" minOccurs="0" />
+                        <element name="itemIds" type="tns2:ArrayOflong" nillable="true" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="getNextRefreshTime1Response">
+                <complexType>
+                    <sequence>
+                        <element name="getNextRefreshTime1Return" type="tns2:ArrayOfDate" nillable="true" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="getRefreshInfo">
+                <complexType>
+                    <sequence>
+                        <element name="userContext" type="tns1:UserContext" nillable="true" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="getRefreshInfoResponse">
+                <complexType>
+                    <sequence>
+                        <element name="getRefreshInfoReturn" type="tns8:ArrayOfRefreshInfo" nillable="true" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="getRefreshInfo1">
+                <complexType>
+                    <sequence>
+                        <element name="userContext" type="tns1:UserContext" nillable="true" minOccurs="0" />
+                        <element name="itemIds" type="tns2:ArrayOflong" nillable="true" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="getRefreshInfo1Response">
+                <complexType>
+                    <sequence>
+                        <element name="getRefreshInfo1Return" type="tns8:ArrayOfRefreshInfo" nillable="true" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="getRefreshStatus">
+                <complexType>
+                    <sequence>
+                        <element name="userContext" type="tns1:UserContext" nillable="true" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="getRefreshStatusResponse">
+                <complexType>
+                    <sequence>
+                        <element name="getRefreshStatusReturn" type="tns2:ArrayOfArrayOflong" nillable="true" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="isItemRefreshing">
+                <complexType>
+                    <sequence>
+                        <element name="userContext" type="tns1:UserContext" nillable="true" minOccurs="0" />
+                        <element name="memItemId" type="xsd:long" nillable="true" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="isItemRefreshingResponse">
+                <complexType>
+                    <sequence>
+                        <element name="isItemRefreshingReturn" type="xsd:boolean" nillable="true" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="putMFARequest">
+                <complexType>
+                    <sequence>
+                        <element name="userContext" type="tns1:UserContext" nillable="true" minOccurs="0" />
+                        <element name="userResponse" type="tns5:MFAUserResponse" nillable="true" minOccurs="0" />
+                        <element name="itemId" type="xsd:long" nillable="true" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="putMFARequestResponse">
+                <complexType>
+                    <sequence>
+                        <element name="putMFARequestReturn" type="xsd:boolean" nillable="true" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="setNextRefreshTime">
+                <complexType>
+                    <sequence>
+                        <element name="userContext" type="tns1:UserContext" nillable="true" minOccurs="0" />
+                        <element name="itemId" type="xsd:long" nillable="true" minOccurs="0" />
+                        <element name="date" type="xsd:dateTime" nillable="true" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="setNextRefreshTimeResponse">
+                <complexType>
+                    <sequence>
+                        <element name="setNextRefreshTimeReturn" type="tns7:RefreshStatus" nillable="true" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="setNextRefreshTime1">
+                <complexType>
+                    <sequence>
+                        <element name="userContext" type="tns1:UserContext" nillable="true" minOccurs="0" />
+                        <element name="itemIds" type="tns2:ArrayOflong" nillable="true" minOccurs="0" />
+                        <element name="date" type="tns2:ArrayOfDate" nillable="true" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="setNextRefreshTime1Response">
+                <complexType>
+                    <sequence>
+                        <element name="setNextRefreshTime1Return" type="tns10:ArrayOfRefreshStatus" nillable="true" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="startRefresh2">
+                <complexType>
+                    <sequence>
+                        <element name="userContext" type="tns1:UserContext" nillable="true" minOccurs="0" />
+                        <element name="refreshPriority" type="xsd:int" nillable="true" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="startRefresh2Response">
+                <complexType>
+                    <sequence>
+                        <element name="startRefresh2Return" type="tns2:Map" nillable="true" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="startRefresh3">
+                <complexType>
+                    <sequence>
+                        <element name="userContext" type="tns1:UserContext" nillable="true" minOccurs="0" />
+                        <element name="refreshPriority" type="xsd:int" nillable="true" minOccurs="0" />
+                        <element name="forceRefresh" type="xsd:boolean" nillable="true" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="startRefresh3Response">
+                <complexType>
+                    <sequence>
+                        <element name="startRefresh3Return" type="tns2:Map" nillable="true" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="startRefresh4">
+                <complexType>
+                    <sequence>
+                        <element name="userContext" type="tns1:UserContext" nillable="true" minOccurs="0" />
+                        <element name="itemId" type="xsd:long" nillable="true" minOccurs="0" />
+                        <element name="refreshPriority" type="xsd:int" nillable="true" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="startRefresh4Response">
+                <complexType>
+                    <sequence>
+                        <element name="startRefresh4Return" type="tns7:RefreshStatus" nillable="true" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="startRefresh5">
+                <complexType>
+                    <sequence>
+                        <element name="userContext" type="tns1:UserContext" nillable="true" minOccurs="0" />
+                        <element name="itemId" type="xsd:long" nillable="true" minOccurs="0" />
+                        <element name="refreshPriority" type="xsd:int" nillable="true" minOccurs="0" />
+                        <element name="forceRefresh" type="xsd:boolean" nillable="true" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="startRefresh5Response">
+                <complexType>
+                    <sequence>
+                        <element name="startRefresh5Return" type="tns7:RefreshStatus" nillable="true" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="startRefresh7">
+                <complexType>
+                    <sequence>
+                        <element name="userContext" type="tns1:UserContext" nillable="true" minOccurs="0" />
+                        <element name="itemId" type="xsd:long" nillable="true" minOccurs="0" />
+                        <element name="refreshParameters" type="tns7:RefreshParameters" nillable="true" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="startRefresh7Response">
+                <complexType>
+                    <sequence>
+                        <element name="startRefresh7Return" type="tns7:RefreshStatus" nillable="true" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="startRefresh6">
+                <complexType>
+                    <sequence>
+                        <element name="userContext" type="tns1:UserContext" nillable="true" minOccurs="0" />
+                        <element name="memItemId" type="xsd:long" nillable="true" minOccurs="0" />
+                        <element name="mfaFields" type="tns8:ArrayOfFieldInfo" nillable="true" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="startRefresh6Response">
+                <complexType>
+                    <sequence>
+                        <element name="startRefresh6Return" type="tns7:RefreshStatus" nillable="true" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="startRefresh">
+                <complexType>
+                    <sequence>
+                        <element name="userContext" type="tns1:UserContext" nillable="true" minOccurs="0" />
+                        <element name="itemIds" type="tns2:ArrayOflong" nillable="true" minOccurs="0" />
+                        <element name="refreshPriority" type="xsd:int" nillable="true" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="startRefreshResponse">
+                <complexType>
+                    <sequence>
+                        <element name="startRefreshReturn" type="tns2:Map" nillable="true" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="startRefresh1">
+                <complexType>
+                    <sequence>
+                        <element name="userContext" type="tns1:UserContext" nillable="true" minOccurs="0" />
+                        <element name="itemIds" type="tns2:ArrayOflong" nillable="true" minOccurs="0" />
+                        <element name="refreshPriority" type="xsd:int" nillable="true" minOccurs="0" />
+                        <element name="forceRefresh" type="xsd:boolean" nillable="true" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="startRefresh1Response">
+                <complexType>
+                    <sequence>
+                        <element name="startRefresh1Return" type="tns2:Map" nillable="true" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="startRefreshingAllItems">
+                <complexType>
+                    <sequence>
+                        <element name="userContext" type="tns1:UserContext" nillable="true" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="startRefreshingAllItemsResponse">
+                <complexType />
+            </element>
+            <element name="startRefreshingItem">
+                <complexType>
+                    <sequence>
+                        <element name="userContext" type="tns1:UserContext" nillable="true" minOccurs="0" />
+                        <element name="itemId" type="xsd:long" nillable="true" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="startRefreshingItemResponse">
+                <complexType />
+            </element>
+            <element name="startRefreshingItem1">
+                <complexType>
+                    <sequence>
+                        <element name="userContext" type="tns1:UserContext" nillable="true" minOccurs="0" />
+                        <element name="itemIds" type="tns2:ArrayOflong" nillable="true" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="startRefreshingItem1Response">
+                <complexType />
+            </element>
+            <element name="stopRefresh2">
+                <complexType>
+                    <sequence>
+                        <element name="userContext" type="tns1:UserContext" nillable="true" minOccurs="0" />
+                        <element name="reason" type="xsd:int" nillable="true" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="stopRefresh2Response">
+                <complexType />
+            </element>
+            <element name="stopRefresh">
+                <complexType>
+                    <sequence>
+                        <element name="userContext" type="tns1:UserContext" nillable="true" minOccurs="0" />
+                        <element name="itemId" type="xsd:long" nillable="true" minOccurs="0" />
+                        <element name="reason" type="xsd:int" nillable="true" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="stopRefreshResponse">
+                <complexType />
+            </element>
+            <element name="stopRefresh1">
+                <complexType>
+                    <sequence>
+                        <element name="userContext" type="tns1:UserContext" nillable="true" minOccurs="0" />
+                        <element name="itemIds" type="tns2:ArrayOflong" nillable="true" minOccurs="0" />
+                        <element name="reason" type="xsd:int" nillable="true" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="stopRefresh1Response">
+                <complexType />
+            </element>
+            <element name="stopRefreshingAllItems">
+                <complexType>
+                    <sequence>
+                        <element name="userContext" type="tns1:UserContext" nillable="true" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="stopRefreshingAllItemsResponse">
+                <complexType />
+            </element>
+            <element name="stopRefreshingItem">
+                <complexType>
+                    <sequence>
+                        <element name="userContext" type="tns1:UserContext" nillable="true" minOccurs="0" />
+                        <element name="itemId" type="xsd:long" nillable="true" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="stopRefreshingItemResponse">
+                <complexType />
+            </element>
+        </schema>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="http://common.soap.yodlee.com">
+            <import namespace="http://mfarefresh.core.soap.yodlee.com" />
+            <import namespace="http://accountmanagement.core.soap.yodlee.com" />
+            <import namespace="http://searchmanagement.permissioning.core.soap.yodlee.com" />
+            <import namespace="http://settings.config.system.core.soap.yodlee.com" />
+            <import namespace="http://usermanagement.core.soap.yodlee.com" />
+            <import namespace="http://ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://core.soap.yodlee.com" />
+            <import namespace="http://ccw.ext.soap.yodlee.com" />
+            <import namespace="http://saml.ext.soap.yodlee.com" />
+            <import namespace="http://login.ext.soap.yodlee.com" />
+            <import namespace="http://permissioning.core.soap.yodlee.com" />
+            <import namespace="http://refresh.refresh.core.soap.yodlee.com" />
+            <import namespace="http://refresh.core.collections.soap.yodlee.com" />
+            <import namespace="http://collections.soap.yodlee.com" />
+            <import namespace="http://accountdataservice.core.soap.yodlee.com" />
+            <import namespace="http://refresh.core.soap.yodlee.com" />
+            <import namespace="http://client.ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://mfarefresh.core.collections.soap.yodlee.com" />
+            <import namespace="http://common.collections.soap.yodlee.com" />
+            <import namespace="http://bpaa.core.soap.yodlee.com" />
+            <complexType abstract="true" name="ICobrandContext">
+                <sequence />
+            </complexType>
+            <complexType abstract="true" name="CCobrandContext">
+                <complexContent>
+                    <extension base="tns1:ICobrandContext">
+                        <sequence />
+                    </extension>
+                </complexContent>
+            </complexType>
+            <complexType name="ConversationCredentials">
+                <sequence />
+            </complexType>
+            <simpleType name="CurrencyNotation">
+                <restriction base="xsd:string">
+                    <enumeration value="TEXT_NOTATION" />
+                    <enumeration value="SYMBOL_NOTATION" />
+                    <enumeration value="TEXT_SYMBOL_NOTATION" />
+                </restriction>
+            </simpleType>
+            <complexType name="NumberFormat">
+                <sequence>
+                    <element name="decimalSeparator" nillable="true" type="xsd:string" minOccurs="0" />
+                    <element name="groupingSeparator" nillable="true" type="xsd:string" minOccurs="0" />
+                    <element name="groupPattern" nillable="true" type="xsd:string" minOccurs="0" />
+                </sequence>
+            </complexType>
+            <complexType name="PreferenceInfo">
+                <sequence>
+                    <element name="currencyCode" nillable="true" type="xsd:string" minOccurs="0" />
+                    <element name="timeZone" nillable="true" type="xsd:string" minOccurs="0" />
+                    <element name="dateFormat" nillable="true" type="xsd:string" minOccurs="0" />
+                    <element name="currencyNotationType" nillable="true" type="tns1:CurrencyNotation" minOccurs="0" />
+                    <element name="numberFormat" nillable="true" type="tns1:NumberFormat" minOccurs="0" />
+                </sequence>
+            </complexType>
+            <complexType name="CobrandContext">
+                <complexContent>
+                    <extension base="tns1:CCobrandContext">
+                        <sequence>
+                            <element name="cobrandId" type="xsd:long" minOccurs="0" />
+                            <element name="channelId" type="xsd:long" minOccurs="0" />
+                            <element name="locale" nillable="true" type="tns2:Locale" minOccurs="0" />
+                            <element name="tncVersion" type="xsd:long" minOccurs="0" />
+                            <element name="applicationId" nillable="true" type="xsd:string" minOccurs="0" />
+                            <element name="cobrandConversationCredentials" nillable="true" type="tns1:ConversationCredentials" minOccurs="0" />
+                            <element name="validationHandler" nillable="true" type="xsd:string" minOccurs="0" />
+                            <element name="ipAddress" nillable="true" type="xsd:string" minOccurs="0" />
+                            <element name="preferenceInfo" nillable="true" type="tns1:PreferenceInfo" minOccurs="0" />
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <complexType name="UserCredentials">
+                <complexContent>
+                    <extension base="tns1:ConversationCredentials">
+                        <sequence />
+                    </extension>
+                </complexContent>
+            </complexType>
+            <complexType name="UserContext">
+                <complexContent>
+                    <extension base="tns1:CobrandContext">
+                        <sequence>
+                            <element name="conversationCredentials" nillable="true" type="tns1:ConversationCredentials" minOccurs="0" />
+                            <element name="valid" type="xsd:boolean" />
+                            <element name="isPasswordExpired" type="xsd:boolean" />
+                            <element name="oauthAccessCredentials" nillable="true" type="tns3:OAuthAccessCredentials" minOccurs="0" />
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <simpleType name="ResponseCodeType">
+                <restriction base="xsd:string">
+                    <enumeration value="NONE" />
+                    <enumeration value="SITE_ERROR" />
+                    <enumeration value="USER_ERROR" />
+                    <enumeration value="AGENT_ERROR" />
+                </restriction>
+            </simpleType>
+            <complexType name="DynamicErrorInfo">
+                <sequence>
+                    <element name="dynamicErrorCode" type="xsd:int" minOccurs="0" />
+                    <element name="statusCode" type="xsd:int" minOccurs="0" />
+                    <element name="message" nillable="true" type="xsd:string" minOccurs="0" />
+                    <element name="responseCodeType" nillable="true" type="tns1:ResponseCodeType" minOccurs="0" />
+                </sequence>
+            </complexType>
+            <complexType name="RefreshInfo">
+                <sequence>
+                    <element name="itemId" type="xsd:long" minOccurs="0" />
+                    <element name="statusCode" type="xsd:int" minOccurs="0" />
+                    <element name="refreshType" type="xsd:int" minOccurs="0" />
+                    <element name="refreshRequestTime" type="xsd:long" minOccurs="0" />
+                    <element name="lastUpdatedTime" type="xsd:long" minOccurs="0" />
+                    <element name="lastUpdateAttemptTime" type="xsd:long" minOccurs="0" />
+                    <element name="message" nillable="true" type="xsd:string" minOccurs="0" />
+                    <element name="itemAccessStatus" nillable="true" type="tns9:ItemAccessStatus" minOccurs="0" />
+                    <element name="userActionRequiredType" nillable="true" type="tns9:UserActionRequiredType" minOccurs="0" />
+                    <element name="userActionRequiredCode" nillable="true" type="xsd:int" minOccurs="0" />
+                    <element name="userActionRequiredSince" nillable="true" type="xsd:dateTime" minOccurs="0" />
+                    <element name="lastDataUpdateAttempt" nillable="true" type="tns9:DataUpdateAttempt" minOccurs="0" />
+                    <element name="lastUserRequestedDataUpdateAttempt" nillable="true" type="tns9:DataUpdateAttempt" minOccurs="0" />
+                    <element name="lastSuccessfulDataUpdate" nillable="true" type="xsd:dateTime" minOccurs="0" />
+                    <element name="itemCreateDate" nillable="true" type="xsd:dateTime" minOccurs="0" />
+                    <element name="nextUpdateTime" nillable="true" type="xsd:long" minOccurs="0" />
+                    <element name="dynamicErrorInfo" nillable="true" type="tns1:DynamicErrorInfo" minOccurs="0" />
+                    <element name="responseCodeType" nillable="true" type="tns1:ResponseCodeType" minOccurs="0" />
+                    <element name="retryCount" type="xsd:int" minOccurs="0" />
+                    <element name="refreshMode" nillable="true" type="xsd:string" minOccurs="0" />
+                </sequence>
+            </complexType>
+            <complexType abstract="true" name="FormComponent">
+                <sequence />
+            </complexType>
+            <complexType abstract="true" name="FieldComponent">
+                <complexContent>
+                    <extension base="tns1:FormComponent">
+                        <sequence />
+                    </extension>
+                </complexContent>
+            </complexType>
+            <complexType name="FieldInfo">
+                <complexContent>
+                    <extension base="tns1:FieldComponent">
+                        <sequence>
+                            <element name="name" nillable="true" type="xsd:string" minOccurs="0" />
+                            <element name="displayName" nillable="true" type="xsd:string" minOccurs="0" />
+                            <element name="isEditable" type="xsd:boolean" />
+                            <element name="isOptional" type="xsd:boolean" />
+                            <element name="isEscaped" type="xsd:boolean" />
+                            <element name="helpText" nillable="true" type="xsd:string" minOccurs="0" />
+                            <element name="isOptionalMFA" type="xsd:boolean" />
+                            <element name="isMFA" type="xsd:boolean" />
+                            <element name="valuePattern" nillable="true" type="xsd:string" minOccurs="0" />
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <complexType abstract="true" name="FieldGroup">
+                <complexContent>
+                    <extension base="tns1:FieldComponent">
+                        <sequence>
+                            <element name="conjunction" type="xsd:int" minOccurs="0" />
+                            <element name="componentList" nillable="true" type="tns2:List" minOccurs="0" />
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <complexType name="FieldGroupSimple">
+                <complexContent>
+                    <extension base="tns1:FieldGroup">
+                        <sequence>
+                            <element name="fieldInfos" nillable="true" type="tns2:List" minOccurs="0" />
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <simpleType name="FormConjunctionOperator">
+                <restriction base="xsd:string">
+                    <enumeration value="OR" />
+                    <enumeration value="AND" />
+                </restriction>
+            </simpleType>
+            <complexType name="Form">
+                <complexContent>
+                    <extension base="tns1:FormComponent">
+                        <sequence>
+                            <element name="conjunctionOp" nillable="true" type="tns1:FormConjunctionOperator" minOccurs="0" />
+                            <element name="componentList" nillable="true" type="tns2:List" minOccurs="0" />
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <complexType name="CobrandCredentials">
+                <complexContent>
+                    <extension base="tns1:ConversationCredentials">
+                        <sequence />
+                    </extension>
+                </complexContent>
+            </complexType>
+            <simpleType name="FieldType">
+                <restriction base="xsd:string">
+                    <enumeration value="TEXT" />
+                    <enumeration value="PASSWORD" />
+                    <enumeration value="OPTIONS" />
+                    <enumeration value="CHECKBOX" />
+                    <enumeration value="RADIO" />
+                    <enumeration value="LOGIN" />
+                    <enumeration value="URL" />
+                    <enumeration value="HIDDEN" />
+                    <enumeration value="IMAGE_URL" />
+                    <enumeration value="CONTENT_URL" />
+                    <enumeration value="CUSTOM" />
+                    <enumeration value="CLUDGE" />
+                </restriction>
+            </simpleType>
+            <complexType name="FieldInputValidationRule">
+                <sequence>
+                    <element name="validationExpression" nillable="true" type="xsd:string" minOccurs="0" />
+                    <element name="errorMessage" nillable="true" type="xsd:string" minOccurs="0" />
+                </sequence>
+            </complexType>
+            <complexType name="FieldInfoChoice">
+                <complexContent>
+                    <extension base="tns1:FormComponent">
+                        <sequence>
+                            <element name="fieldInfoList" nillable="true" type="tns2:List" minOccurs="0" />
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <simpleType name="UserType">
+                <restriction base="xsd:string">
+                    <enumeration value="NORMAL_USER" />
+                    <enumeration value="SUPPORT_USER" />
+                </restriction>
+            </simpleType>
+            <complexType name="FieldInfoMultiVariable">
+                <complexContent>
+                    <extension base="tns1:FieldInfo">
+                        <sequence>
+                            <element name="values" nillable="true" type="tns2:ArrayOfString" minOccurs="0" />
+                            <element name="validValues" nillable="true" type="tns2:ArrayOfString" minOccurs="0" />
+                            <element name="displayValidValues" nillable="true" type="tns2:ArrayOfString" minOccurs="0" />
+                            <element name="valueIdentifiers" nillable="true" type="tns2:ArrayOfString" minOccurs="0" />
+                            <element name="valueMasks" nillable="true" type="tns2:ArrayOfString" minOccurs="0" />
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <complexType name="SecureFieldInfoMultiVariable">
+                <complexContent>
+                    <extension base="tns1:FieldInfoMultiVariable">
+                        <sequence />
+                    </extension>
+                </complexContent>
+            </complexType>
+            <complexType name="SharedUserContext">
+                <complexContent>
+                    <extension base="tns1:UserContext">
+                        <sequence>
+                            <element name="grantorInfo" nillable="true" type="tns15:GrantorInfo" minOccurs="0" />
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <complexType name="NVPair">
+                <sequence>
+                    <element name="type" type="xsd:int" minOccurs="0" />
+                    <element name="name" nillable="true" type="xsd:string" minOccurs="0" />
+                    <element name="values" nillable="true" type="tns2:List" minOccurs="0" />
+                    <element name="status" type="xsd:int" minOccurs="0" />
+                </sequence>
+            </complexType>
+            <complexType name="FieldInfoMultiFixed">
+                <complexContent>
+                    <extension base="tns1:FieldInfo">
+                        <sequence>
+                            <element name="defaultValues" nillable="true" type="tns2:ArrayOfString" minOccurs="0" />
+                            <element name="values" nillable="true" type="tns2:ArrayOfString" minOccurs="0" />
+                            <element name="validValues" nillable="true" type="tns2:ArrayOfArrayOfString" minOccurs="0" />
+                            <element name="displayValidValues" nillable="true" type="tns2:ArrayOfArrayOfString" minOccurs="0" />
+                            <element name="valueIdentifiers" nillable="true" type="tns2:ArrayOfString" minOccurs="0" />
+                            <element name="valueMasks" nillable="true" type="tns2:ArrayOfString" minOccurs="0" />
+                            <element name="fieldTypes" nillable="true" type="tns8:ArrayOfFieldType" minOccurs="0" />
+                            <element name="validationRules" nillable="true" type="tns8:ArrayOfArrayOfFieldInputValidationRule" minOccurs="0" />
+                            <element name="sizes" nillable="true" type="tns2:ArrayOflong" minOccurs="0" />
+                            <element name="maxlengths" nillable="true" type="tns2:ArrayOflong" minOccurs="0" />
+                            <element name="userProfileMappingExpressions" nillable="true" type="tns2:ArrayOfString" minOccurs="0" />
+                            <element name="fieldErrorCodes" nillable="true" type="tns2:ArrayOflong" minOccurs="0" />
+                            <element name="fieldErrorMessages" nillable="true" type="tns2:ArrayOfString" minOccurs="0" />
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <complexType name="SecureFieldInfoMultiFixed">
+                <complexContent>
+                    <extension base="tns1:FieldInfoMultiFixed">
+                        <sequence />
+                    </extension>
+                </complexContent>
+            </complexType>
+            <complexType name="AppSharedUserContext">
+                <complexContent>
+                    <extension base="tns1:SharedUserContext">
+                        <sequence>
+                            <element name="clientCacheContext" nillable="true" type="tns11:ClientCacheContext" minOccurs="0" />
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <complexType name="FieldInfoSingle">
+                <complexContent>
+                    <extension base="tns1:FieldInfo">
+                        <sequence>
+                            <element name="defaultValue" nillable="true" type="xsd:string" minOccurs="0" />
+                            <element name="value" nillable="true" type="xsd:string" minOccurs="0" />
+                            <element name="validValues" nillable="true" type="tns2:ArrayOfString" minOccurs="0" />
+                            <element name="displayValidValues" nillable="true" type="tns2:ArrayOfString" minOccurs="0" />
+                            <element name="valueIdentifier" nillable="true" type="xsd:string" minOccurs="0" />
+                            <element name="valueMask" nillable="true" type="xsd:string" minOccurs="0" />
+                            <element name="fieldType" nillable="true" type="tns1:FieldType" minOccurs="0" />
+                            <element name="validationRules" nillable="true" type="tns8:ArrayOfFieldInputValidationRule" minOccurs="0" />
+                            <element name="size" nillable="true" type="xsd:long" minOccurs="0" />
+                            <element name="maxlength" nillable="true" type="xsd:long" minOccurs="0" />
+                            <element name="userProfileMappingExpression" nillable="true" type="xsd:string" minOccurs="0" />
+                            <element name="fieldErrorCode" nillable="true" type="xsd:long" minOccurs="0" />
+                            <element name="fieldErrorMessage" nillable="true" type="xsd:string" minOccurs="0" />
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <complexType name="SecureFieldInfoSingle">
+                <complexContent>
+                    <extension base="tns1:FieldInfoSingle">
+                        <sequence />
+                    </extension>
+                </complexContent>
+            </complexType>
+            <complexType name="FieldGroupComplex">
+                <complexContent>
+                    <extension base="tns1:FieldGroup">
+                        <sequence>
+                            <element name="groupsList" nillable="true" type="tns2:List" minOccurs="0" />
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <complexType name="TempUserContext">
+                <complexContent>
+                    <extension base="tns1:UserContext">
+                        <sequence />
+                    </extension>
+                </complexContent>
+            </complexType>
+        </schema>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="http://collections.soap.yodlee.com">
+            <import namespace="http://mfarefresh.core.soap.yodlee.com" />
+            <import namespace="http://accountmanagement.core.soap.yodlee.com" />
+            <import namespace="http://searchmanagement.permissioning.core.soap.yodlee.com" />
+            <import namespace="http://settings.config.system.core.soap.yodlee.com" />
+            <import namespace="http://usermanagement.core.soap.yodlee.com" />
+            <import namespace="http://ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://core.soap.yodlee.com" />
+            <import namespace="http://ccw.ext.soap.yodlee.com" />
+            <import namespace="http://saml.ext.soap.yodlee.com" />
+            <import namespace="http://login.ext.soap.yodlee.com" />
+            <import namespace="http://permissioning.core.soap.yodlee.com" />
+            <import namespace="http://refresh.refresh.core.soap.yodlee.com" />
+            <import namespace="http://refresh.core.collections.soap.yodlee.com" />
+            <import namespace="http://accountdataservice.core.soap.yodlee.com" />
+            <import namespace="http://refresh.core.soap.yodlee.com" />
+            <import namespace="http://client.ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://mfarefresh.core.collections.soap.yodlee.com" />
+            <import namespace="http://common.collections.soap.yodlee.com" />
+            <import namespace="http://bpaa.core.soap.yodlee.com" />
+            <import namespace="http://common.soap.yodlee.com" />
+            <complexType name="Locale">
+                <sequence>
+                    <element name="country" nillable="true" type="xsd:string" minOccurs="0" />
+                    <element name="language" nillable="true" type="xsd:string" minOccurs="0" />
+                    <element name="variant" nillable="true" type="xsd:string" minOccurs="0" />
+                </sequence>
+            </complexType>
+            <complexType name="ArrayOflong">
+                <sequence>
+                    <element name="elements" nillable="true" type="xsd:long" maxOccurs="unbounded" minOccurs="0" />
+                </sequence>
+            </complexType>
+            <complexType name="ArrayOfDate">
+                <sequence>
+                    <element name="elements" nillable="true" type="xsd:dateTime" maxOccurs="unbounded" minOccurs="0" />
+                </sequence>
+            </complexType>
+            <complexType name="ArrayOfArrayOflong">
+                <sequence>
+                    <element name="elements" nillable="true" type="tns2:ArrayOflong" maxOccurs="unbounded" minOccurs="0" />
+                </sequence>
+            </complexType>
+            <complexType name="Entry">
+                <sequence>
+                    <element name="key" nillable="true" type="xsd:anyType" minOccurs="0" />
+                    <element name="value" nillable="true" type="xsd:anyType" minOccurs="0" />
+                </sequence>
+            </complexType>
+            <complexType name="Map">
+                <sequence>
+                    <element name="table" nillable="true" type="tns2:Entry" maxOccurs="unbounded" minOccurs="0" />
+                </sequence>
+            </complexType>
+            <complexType name="List">
+                <sequence>
+                    <element name="elements" nillable="true" type="xsd:anyType" maxOccurs="unbounded" minOccurs="0" />
+                </sequence>
+            </complexType>
+            <complexType name="ArrayOfString">
+                <sequence>
+                    <element name="elements" nillable="true" type="xsd:string" maxOccurs="unbounded" minOccurs="0" />
+                </sequence>
+            </complexType>
+            <complexType name="ArrayOfbyte">
+                <sequence>
+                    <element name="elements" nillable="true" type="xsd:base64Binary" minOccurs="0" />
+                </sequence>
+            </complexType>
+            <complexType name="ArrayOfArrayOfString">
+                <sequence>
+                    <element name="elements" nillable="true" type="tns2:ArrayOfString" maxOccurs="unbounded" minOccurs="0" />
+                </sequence>
+            </complexType>
+            <complexType name="ArrayOfboolean">
+                <sequence>
+                    <element name="elements" nillable="true" type="xsd:boolean" maxOccurs="unbounded" minOccurs="0" />
+                </sequence>
+            </complexType>
+        </schema>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="http://usermanagement.core.soap.yodlee.com">
+            <import namespace="http://mfarefresh.core.soap.yodlee.com" />
+            <import namespace="http://accountmanagement.core.soap.yodlee.com" />
+            <import namespace="http://searchmanagement.permissioning.core.soap.yodlee.com" />
+            <import namespace="http://settings.config.system.core.soap.yodlee.com" />
+            <import namespace="http://ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://core.soap.yodlee.com" />
+            <import namespace="http://ccw.ext.soap.yodlee.com" />
+            <import namespace="http://saml.ext.soap.yodlee.com" />
+            <import namespace="http://login.ext.soap.yodlee.com" />
+            <import namespace="http://permissioning.core.soap.yodlee.com" />
+            <import namespace="http://refresh.refresh.core.soap.yodlee.com" />
+            <import namespace="http://refresh.core.collections.soap.yodlee.com" />
+            <import namespace="http://collections.soap.yodlee.com" />
+            <import namespace="http://accountdataservice.core.soap.yodlee.com" />
+            <import namespace="http://refresh.core.soap.yodlee.com" />
+            <import namespace="http://client.ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://mfarefresh.core.collections.soap.yodlee.com" />
+            <import namespace="http://common.collections.soap.yodlee.com" />
+            <import namespace="http://bpaa.core.soap.yodlee.com" />
+            <import namespace="http://common.soap.yodlee.com" />
+            <complexType name="ExternalUserCredentials">
+                <sequence>
+                    <element name="externalUserName" nillable="true" type="xsd:string" minOccurs="0" />
+                    <element name="externalUserPassword" nillable="true" type="xsd:string" minOccurs="0" />
+                </sequence>
+            </complexType>
+        </schema>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="http://login.ext.soap.yodlee.com">
+            <import namespace="http://mfarefresh.core.soap.yodlee.com" />
+            <import namespace="http://accountmanagement.core.soap.yodlee.com" />
+            <import namespace="http://searchmanagement.permissioning.core.soap.yodlee.com" />
+            <import namespace="http://settings.config.system.core.soap.yodlee.com" />
+            <import namespace="http://usermanagement.core.soap.yodlee.com" />
+            <import namespace="http://ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://core.soap.yodlee.com" />
+            <import namespace="http://ccw.ext.soap.yodlee.com" />
+            <import namespace="http://saml.ext.soap.yodlee.com" />
+            <import namespace="http://permissioning.core.soap.yodlee.com" />
+            <import namespace="http://refresh.refresh.core.soap.yodlee.com" />
+            <import namespace="http://refresh.core.collections.soap.yodlee.com" />
+            <import namespace="http://collections.soap.yodlee.com" />
+            <import namespace="http://accountdataservice.core.soap.yodlee.com" />
+            <import namespace="http://refresh.core.soap.yodlee.com" />
+            <import namespace="http://client.ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://mfarefresh.core.collections.soap.yodlee.com" />
+            <import namespace="http://common.collections.soap.yodlee.com" />
+            <import namespace="http://bpaa.core.soap.yodlee.com" />
+            <import namespace="http://common.soap.yodlee.com" />
+            <complexType name="OAuthAccessCredentials">
+                <complexContent>
+                    <extension base="tns1:UserCredentials">
+                        <sequence>
+                            <element name="applicationIdentifier" nillable="true" type="xsd:string" minOccurs="0" />
+                            <element name="token" nillable="true" type="xsd:string" minOccurs="0" />
+                            <element name="tokenSecret" nillable="true" type="xsd:string" minOccurs="0" />
+                            <element name="signatureMethod" nillable="true" type="xsd:string" minOccurs="0" />
+                            <element name="signedToken" nillable="true" type="xsd:string" minOccurs="0" />
+                            <element name="memId" type="xsd:long" minOccurs="0" />
+                            <element name="externalUserCredentials" nillable="true" type="tns4:ExternalUserCredentials" minOccurs="0" />
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <complexType name="CobrandPasswordCredentials">
+                <complexContent>
+                    <extension base="tns1:CobrandCredentials">
+                        <sequence>
+                            <element name="loginName" nillable="true" type="xsd:string" minOccurs="0" />
+                            <element name="password" nillable="true" type="xsd:string" minOccurs="0" />
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <complexType name="YSSOCredentials">
+                <complexContent>
+                    <extension base="tns1:UserCredentials">
+                        <sequence>
+                            <element name="yssoLoginName" nillable="true" type="xsd:string" minOccurs="0" />
+                            <element name="yssoPassword" nillable="true" type="xsd:string" minOccurs="0" />
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <complexType name="TokenizedCredentials">
+                <complexContent>
+                    <extension base="tns1:UserCredentials">
+                        <sequence>
+                            <element name="token" nillable="true" type="xsd:string" minOccurs="0" />
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <complexType name="PasswordCredentials">
+                <complexContent>
+                    <extension base="tns1:UserCredentials">
+                        <sequence>
+                            <element name="loginName" nillable="true" type="xsd:string" minOccurs="0" />
+                            <element name="password" nillable="true" type="xsd:string" minOccurs="0" />
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <complexType name="SessionCredentials">
+                <complexContent>
+                    <extension base="tns1:ConversationCredentials">
+                        <sequence>
+                            <element name="sessionToken" nillable="true" type="xsd:string" minOccurs="0" />
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <complexType name="SharedLoginCredentials">
+                <complexContent>
+                    <extension base="tns3:SessionCredentials">
+                        <sequence>
+                            <element name="sharerToken" nillable="true" type="xsd:string" minOccurs="0" />
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <complexType name="ExternalAuthenticationCredentials">
+                <complexContent>
+                    <extension base="tns1:UserCredentials">
+                        <sequence />
+                    </extension>
+                </complexContent>
+            </complexType>
+            <complexType name="SMSCredentials">
+                <complexContent>
+                    <extension base="tns1:UserCredentials">
+                        <sequence>
+                            <element name="smsNumber" nillable="true" type="xsd:string" minOccurs="0" />
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <complexType name="UncertifiedSessionCredentials">
+                <complexContent>
+                    <extension base="tns1:ConversationCredentials">
+                        <sequence>
+                            <element name="sessionToken" nillable="true" type="xsd:string" minOccurs="0" />
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <complexType name="PWSSessionCredentials">
+                <complexContent>
+                    <extension base="tns1:ConversationCredentials">
+                        <sequence>
+                            <element name="sessionToken" nillable="true" type="xsd:string" minOccurs="0" />
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <complexType name="PWSCredentials">
+                <complexContent>
+                    <extension base="tns1:UserCredentials">
+                        <sequence>
+                            <element name="loginName" nillable="true" type="xsd:string" minOccurs="0" />
+                            <element name="password" nillable="true" type="xsd:string" minOccurs="0" />
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+        </schema>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="http://mfarefresh.core.soap.yodlee.com">
+            <import namespace="http://accountmanagement.core.soap.yodlee.com" />
+            <import namespace="http://searchmanagement.permissioning.core.soap.yodlee.com" />
+            <import namespace="http://settings.config.system.core.soap.yodlee.com" />
+            <import namespace="http://usermanagement.core.soap.yodlee.com" />
+            <import namespace="http://ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://core.soap.yodlee.com" />
+            <import namespace="http://ccw.ext.soap.yodlee.com" />
+            <import namespace="http://saml.ext.soap.yodlee.com" />
+            <import namespace="http://login.ext.soap.yodlee.com" />
+            <import namespace="http://permissioning.core.soap.yodlee.com" />
+            <import namespace="http://refresh.refresh.core.soap.yodlee.com" />
+            <import namespace="http://refresh.core.collections.soap.yodlee.com" />
+            <import namespace="http://collections.soap.yodlee.com" />
+            <import namespace="http://accountdataservice.core.soap.yodlee.com" />
+            <import namespace="http://refresh.core.soap.yodlee.com" />
+            <import namespace="http://client.ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://mfarefresh.core.collections.soap.yodlee.com" />
+            <import namespace="http://common.collections.soap.yodlee.com" />
+            <import namespace="http://bpaa.core.soap.yodlee.com" />
+            <import namespace="http://common.soap.yodlee.com" />
+            <complexType abstract="true" name="MFAFieldInfo">
+                <sequence />
+            </complexType>
+            <complexType name="MFARefreshInfo">
+                <sequence>
+                    <element name="isMessageAvailable" type="xsd:boolean" />
+                    <element name="fieldInfo" nillable="true" type="tns5:MFAFieldInfo" minOccurs="0" />
+                    <element name="timeOutTime" type="xsd:long" minOccurs="0" />
+                    <element name="itemId" type="xsd:long" minOccurs="0" />
+                    <element name="errorCode" nillable="true" type="xsd:long" minOccurs="0" />
+                </sequence>
+            </complexType>
+            <complexType abstract="true" name="MFAUserResponse">
+                <sequence />
+            </complexType>
+            <complexType name="QuesAndAnswerDetails">
+                <sequence>
+                    <element name="question" nillable="true" type="xsd:string" minOccurs="0" />
+                    <element name="answer" nillable="true" type="xsd:string" minOccurs="0" />
+                    <element name="questionFieldType" nillable="true" type="xsd:string" minOccurs="0" />
+                    <element name="answerFieldType" nillable="true" type="xsd:string" minOccurs="0" />
+                    <element name="metaData" nillable="true" type="xsd:string" minOccurs="0" />
+                </sequence>
+            </complexType>
+            <complexType abstract="true" name="QuestionAndAnswerValues">
+                <sequence>
+                    <element name="questionFieldType" nillable="true" type="xsd:string" minOccurs="0" />
+                    <element name="responseFieldType" nillable="true" type="xsd:string" minOccurs="0" />
+                    <element name="isRequired" nillable="true" type="xsd:string" minOccurs="0" />
+                    <element name="sequence" type="xsd:int" minOccurs="0" />
+                    <element name="metaData" nillable="true" type="xsd:string" minOccurs="0" />
+                </sequence>
+            </complexType>
+            <complexType name="MultiQuesMultiAnswerOptionsValues">
+                <complexContent>
+                    <extension base="tns5:QuestionAndAnswerValues">
+                        <sequence>
+                            <element name="question" nillable="true" type="tns2:ArrayOfString" minOccurs="0" />
+                            <element name="questionAnswersMapping" nillable="true" type="tns2:Map" minOccurs="0" />
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <complexType name="SiteLoginOptionsFieldInfo">
+                <complexContent>
+                    <extension base="tns5:MFAFieldInfo">
+                        <sequence>
+                            <element name="siteLoginOptionsAndValues" nillable="true" type="tns14:ArrayOfQuestionAndAnswerValues" minOccurs="0" />
+                            <element name="numOfMandatoryQuestions" type="xsd:int" minOccurs="0" />
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <complexType name="MFAImageResponse">
+                <complexContent>
+                    <extension base="tns5:MFAUserResponse">
+                        <sequence>
+                            <element name="imageString" nillable="true" type="xsd:string" minOccurs="0" />
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <complexType name="MultiQuesOptionsSingleAnswerValues">
+                <complexContent>
+                    <extension base="tns5:QuestionAndAnswerValues">
+                        <sequence>
+                            <element name="question" nillable="true" type="tns2:ArrayOfString" minOccurs="0" />
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <complexType name="ImageFieldInfo">
+                <complexContent>
+                    <extension base="tns5:MFAFieldInfo">
+                        <sequence>
+                            <element name="responseFieldType" nillable="true" type="xsd:string" minOccurs="0" />
+                            <element name="imageFieldType" nillable="true" type="xsd:string" minOccurs="0" />
+                            <element name="image" nillable="true" type="tns2:ArrayOfbyte" minOccurs="0" />
+                            <element name="minimumLength" type="xsd:int" minOccurs="0" />
+                            <element name="maximumLength" type="xsd:int" minOccurs="0" />
+                            <element name="displayString" nillable="true" type="xsd:string" minOccurs="0" />
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <complexType name="SingleQuesSingleAnswerValues">
+                <complexContent>
+                    <extension base="tns5:QuestionAndAnswerValues">
+                        <sequence>
+                            <element name="question" nillable="true" type="xsd:string" minOccurs="0" />
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <complexType name="SecurityQuestionFieldInfo">
+                <complexContent>
+                    <extension base="tns5:MFAFieldInfo">
+                        <sequence>
+                            <element name="questionAndAnswerValues" nillable="true" type="tns14:ArrayOfQuestionAndAnswerValues" minOccurs="0" />
+                            <element name="numOfMandatoryQuestions" type="xsd:int" minOccurs="0" />
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <complexType name="MFATokenResponse">
+                <complexContent>
+                    <extension base="tns5:MFAUserResponse">
+                        <sequence>
+                            <element name="token" nillable="true" type="xsd:string" minOccurs="0" />
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <complexType name="TokenIdFieldInfo">
+                <complexContent>
+                    <extension base="tns5:MFAFieldInfo">
+                        <sequence>
+                            <element name="responseFieldType" nillable="true" type="xsd:string" minOccurs="0" />
+                            <element name="minimumLength" type="xsd:int" minOccurs="0" />
+                            <element name="maximumLength" type="xsd:int" minOccurs="0" />
+                            <element name="displayString" nillable="true" type="xsd:string" minOccurs="0" />
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <complexType name="MFAQuesAnsResponse">
+                <complexContent>
+                    <extension base="tns5:MFAUserResponse">
+                        <sequence>
+                            <element name="quesAnsDetailArray" nillable="true" type="tns14:ArrayOfQuesAndAnswerDetails" minOccurs="0" />
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <complexType name="SingleQuesMultiAnswerOptionsValues">
+                <complexContent>
+                    <extension base="tns5:QuestionAndAnswerValues">
+                        <sequence>
+                            <element name="question" nillable="true" type="xsd:string" minOccurs="0" />
+                            <element name="answerOptions" nillable="true" type="tns2:ArrayOfString" minOccurs="0" />
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+        </schema>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="http://core.soap.yodlee.com">
+            <import namespace="http://mfarefresh.core.soap.yodlee.com" />
+            <import namespace="http://accountmanagement.core.soap.yodlee.com" />
+            <import namespace="http://searchmanagement.permissioning.core.soap.yodlee.com" />
+            <import namespace="http://settings.config.system.core.soap.yodlee.com" />
+            <import namespace="http://usermanagement.core.soap.yodlee.com" />
+            <import namespace="http://ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://ccw.ext.soap.yodlee.com" />
+            <import namespace="http://saml.ext.soap.yodlee.com" />
+            <import namespace="http://login.ext.soap.yodlee.com" />
+            <import namespace="http://permissioning.core.soap.yodlee.com" />
+            <import namespace="http://refresh.refresh.core.soap.yodlee.com" />
+            <import namespace="http://refresh.core.collections.soap.yodlee.com" />
+            <import namespace="http://collections.soap.yodlee.com" />
+            <import namespace="http://accountdataservice.core.soap.yodlee.com" />
+            <import namespace="http://refresh.core.soap.yodlee.com" />
+            <import namespace="http://client.ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://mfarefresh.core.collections.soap.yodlee.com" />
+            <import namespace="http://common.collections.soap.yodlee.com" />
+            <import namespace="http://bpaa.core.soap.yodlee.com" />
+            <import namespace="http://common.soap.yodlee.com" />
+            <element  name="CoreExceptionFault">
+                <complexType>
+                    <sequence>
+                        <element name="faultText" nillable="true" type="xsd:string" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element  name="InvalidConversationCredentialsExceptionFault">
+                <complexType>
+                    <sequence>
+                        <element name="faultText" nillable="true" type="xsd:string" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element  name="IllegalArgumentValueExceptionFault">
+                <complexType>
+                    <sequence>
+                        <element name="faultText" nillable="true" type="xsd:string" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element  name="InvalidUserContextExceptionFault">
+                <complexType>
+                    <sequence>
+                        <element name="faultText" nillable="true" type="xsd:string" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element  name="InvalidItemExceptionFault">
+                <complexType>
+                    <sequence>
+                        <element name="faultText" nillable="true" type="xsd:string" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element  name="StaleConversationCredentialsExceptionFault">
+                <complexType>
+                    <sequence>
+                        <element name="faultText" nillable="true" type="xsd:string" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element  name="InvalidRefreshModeExceptionFault">
+                <complexType>
+                    <sequence>
+                        <element name="faultText" nillable="true" type="xsd:string" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element  name="IncompleteArgumentExceptionFault">
+                <complexType>
+                    <sequence>
+                        <element name="faultText" nillable="true" type="xsd:string" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+        </schema>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="http://refresh.core.soap.yodlee.com">
+            <import namespace="http://mfarefresh.core.soap.yodlee.com" />
+            <import namespace="http://accountmanagement.core.soap.yodlee.com" />
+            <import namespace="http://searchmanagement.permissioning.core.soap.yodlee.com" />
+            <import namespace="http://settings.config.system.core.soap.yodlee.com" />
+            <import namespace="http://usermanagement.core.soap.yodlee.com" />
+            <import namespace="http://ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://core.soap.yodlee.com" />
+            <import namespace="http://ccw.ext.soap.yodlee.com" />
+            <import namespace="http://saml.ext.soap.yodlee.com" />
+            <import namespace="http://login.ext.soap.yodlee.com" />
+            <import namespace="http://permissioning.core.soap.yodlee.com" />
+            <import namespace="http://refresh.refresh.core.soap.yodlee.com" />
+            <import namespace="http://refresh.core.collections.soap.yodlee.com" />
+            <import namespace="http://collections.soap.yodlee.com" />
+            <import namespace="http://accountdataservice.core.soap.yodlee.com" />
+            <import namespace="http://client.ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://mfarefresh.core.collections.soap.yodlee.com" />
+            <import namespace="http://common.collections.soap.yodlee.com" />
+            <import namespace="http://bpaa.core.soap.yodlee.com" />
+            <import namespace="http://common.soap.yodlee.com" />
+            <simpleType name="RefreshStatus">
+                <restriction base="xsd:string">
+                    <enumeration value="STATUS_UNKNOWN" />
+                    <enumeration value="SUCCESS_NEXT_REFRESH_SCHEDULED" />
+                    <enumeration value="REFRESH_ALREADY_IN_PROGRESS" />
+                    <enumeration value="UNSUPPORTED_OPERATION_FOR_SHARED_ITEM" />
+                    <enumeration value="SUCCESS_START_REFRESH" />
+                    <enumeration value="ITEM_CANNOT_BE_REFRESHED" />
+                    <enumeration value="ALREADY_REFRESHED_RECENTLY" />
+                    <enumeration value="UNSUPPORTED_OPERATION_FOR_CUSTOM_ITEM" />
+                    <enumeration value="SUCCESS_REFRESH_WAIT_FOR_MFA" />
+                </restriction>
+            </simpleType>
+            <simpleType name="RefreshMode">
+                <restriction base="xsd:string">
+                    <enumeration value="MFA_REFRESH_MODE" />
+                    <enumeration value="NORMAL_REFRESH_MODE" />
+                </restriction>
+            </simpleType>
+            <complexType name="RefreshParameters">
+                <sequence>
+                    <element name="refreshPriority" type="xsd:int" minOccurs="0" />
+                    <element name="forceRefresh" type="xsd:boolean" />
+                    <element name="refreshMode" nillable="true" type="tns7:RefreshMode" minOccurs="0" />
+                </sequence>
+            </complexType>
+            <element  name="MFARefreshExceptionFault">
+                <complexType>
+                    <sequence>
+                        <element name="faultText" nillable="true" type="xsd:string" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element  name="RefreshCompletedExceptionFault">
+                <complexType>
+                    <sequence>
+                        <element name="faultText" nillable="true" type="xsd:string" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element  name="RefreshRejectedExceptionFault">
+                <complexType>
+                    <sequence>
+                        <element name="faultText" nillable="true" type="xsd:string" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+        </schema>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="http://accountdataservice.core.soap.yodlee.com">
+            <import namespace="http://mfarefresh.core.soap.yodlee.com" />
+            <import namespace="http://accountmanagement.core.soap.yodlee.com" />
+            <import namespace="http://searchmanagement.permissioning.core.soap.yodlee.com" />
+            <import namespace="http://settings.config.system.core.soap.yodlee.com" />
+            <import namespace="http://usermanagement.core.soap.yodlee.com" />
+            <import namespace="http://ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://core.soap.yodlee.com" />
+            <import namespace="http://ccw.ext.soap.yodlee.com" />
+            <import namespace="http://saml.ext.soap.yodlee.com" />
+            <import namespace="http://login.ext.soap.yodlee.com" />
+            <import namespace="http://permissioning.core.soap.yodlee.com" />
+            <import namespace="http://refresh.refresh.core.soap.yodlee.com" />
+            <import namespace="http://refresh.core.collections.soap.yodlee.com" />
+            <import namespace="http://collections.soap.yodlee.com" />
+            <import namespace="http://refresh.core.soap.yodlee.com" />
+            <import namespace="http://client.ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://mfarefresh.core.collections.soap.yodlee.com" />
+            <import namespace="http://common.collections.soap.yodlee.com" />
+            <import namespace="http://bpaa.core.soap.yodlee.com" />
+            <import namespace="http://common.soap.yodlee.com" />
+            <simpleType name="ItemAccessStatus">
+                <restriction base="xsd:string">
+                    <enumeration value="AUTO_REGISTRATION_INCOMPLETE" />
+                    <enumeration value="ACCESS_PENDING_REVERIFICATION" />
+                    <enumeration value="ACCESS_VERIFIED" />
+                    <enumeration value="ACCESS_NOT_VERIFIED" />
+                    <enumeration value="DELETED" />
+                </restriction>
+            </simpleType>
+            <simpleType name="UserActionRequiredType">
+                <restriction base="xsd:string">
+                    <enumeration value="NONE" />
+                    <enumeration value="CHANGE_CREDENTIALS" />
+                    <enumeration value="OTHER" />
+                </restriction>
+            </simpleType>
+            <simpleType name="DataUpdateAttemptStatus">
+                <restriction base="xsd:string">
+                    <enumeration value="SUCCESS" />
+                    <enumeration value="IN_PROCESS" />
+                    <enumeration value="USER_ACTION_REQUIRED" />
+                    <enumeration value="LOGIN_FAILURE" />
+                    <enumeration value="DATA_SOURCE_ERROR" />
+                    <enumeration value="OTHER_ERROR" />
+                </restriction>
+            </simpleType>
+            <simpleType name="DataUpdateAttemptType">
+                <restriction base="xsd:string">
+                    <enumeration value="USER_REQUESTED" />
+                    <enumeration value="SCHEDULED" />
+                </restriction>
+            </simpleType>
+            <complexType name="DataUpdateAttempt">
+                <sequence>
+                    <element name="date" nillable="true" type="xsd:dateTime" minOccurs="0" />
+                    <element name="status" nillable="true" type="tns9:DataUpdateAttemptStatus" minOccurs="0" />
+                    <element name="statusCode" nillable="true" type="xsd:int" minOccurs="0" />
+                    <element name="type" nillable="true" type="tns9:DataUpdateAttemptType" minOccurs="0" />
+                </sequence>
+            </complexType>
+        </schema>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="http://common.collections.soap.yodlee.com">
+            <import namespace="http://mfarefresh.core.soap.yodlee.com" />
+            <import namespace="http://accountmanagement.core.soap.yodlee.com" />
+            <import namespace="http://searchmanagement.permissioning.core.soap.yodlee.com" />
+            <import namespace="http://settings.config.system.core.soap.yodlee.com" />
+            <import namespace="http://usermanagement.core.soap.yodlee.com" />
+            <import namespace="http://ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://core.soap.yodlee.com" />
+            <import namespace="http://ccw.ext.soap.yodlee.com" />
+            <import namespace="http://saml.ext.soap.yodlee.com" />
+            <import namespace="http://login.ext.soap.yodlee.com" />
+            <import namespace="http://permissioning.core.soap.yodlee.com" />
+            <import namespace="http://refresh.refresh.core.soap.yodlee.com" />
+            <import namespace="http://refresh.core.collections.soap.yodlee.com" />
+            <import namespace="http://collections.soap.yodlee.com" />
+            <import namespace="http://accountdataservice.core.soap.yodlee.com" />
+            <import namespace="http://refresh.core.soap.yodlee.com" />
+            <import namespace="http://client.ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://mfarefresh.core.collections.soap.yodlee.com" />
+            <import namespace="http://bpaa.core.soap.yodlee.com" />
+            <import namespace="http://common.soap.yodlee.com" />
+            <complexType name="ArrayOfRefreshInfo">
+                <sequence>
+                    <element name="elements" nillable="true" type="tns1:RefreshInfo" maxOccurs="unbounded" minOccurs="0" />
+                </sequence>
+            </complexType>
+            <complexType name="ArrayOfFieldInfo">
+                <sequence>
+                    <element name="elements" nillable="true" type="tns1:FieldInfo" maxOccurs="unbounded" minOccurs="0" />
+                </sequence>
+            </complexType>
+            <complexType name="ArrayOfNVPair">
+                <sequence>
+                    <element name="elements" nillable="true" type="tns1:NVPair" maxOccurs="unbounded" minOccurs="0" />
+                </sequence>
+            </complexType>
+            <complexType name="ArrayOfFieldType">
+                <sequence>
+                    <element name="elements" nillable="true" type="tns1:FieldType" maxOccurs="unbounded" minOccurs="0" />
+                </sequence>
+            </complexType>
+            <complexType name="ArrayOfFieldInputValidationRule">
+                <sequence>
+                    <element name="elements" nillable="true" type="tns1:FieldInputValidationRule" maxOccurs="unbounded" minOccurs="0" />
+                </sequence>
+            </complexType>
+            <complexType name="ArrayOfArrayOfFieldInputValidationRule">
+                <sequence>
+                    <element name="elements" nillable="true" type="tns8:ArrayOfFieldInputValidationRule" maxOccurs="unbounded" minOccurs="0" />
+                </sequence>
+            </complexType>
+        </schema>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="http://refresh.core.collections.soap.yodlee.com">
+            <import namespace="http://mfarefresh.core.soap.yodlee.com" />
+            <import namespace="http://accountmanagement.core.soap.yodlee.com" />
+            <import namespace="http://searchmanagement.permissioning.core.soap.yodlee.com" />
+            <import namespace="http://settings.config.system.core.soap.yodlee.com" />
+            <import namespace="http://usermanagement.core.soap.yodlee.com" />
+            <import namespace="http://ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://core.soap.yodlee.com" />
+            <import namespace="http://ccw.ext.soap.yodlee.com" />
+            <import namespace="http://saml.ext.soap.yodlee.com" />
+            <import namespace="http://login.ext.soap.yodlee.com" />
+            <import namespace="http://permissioning.core.soap.yodlee.com" />
+            <import namespace="http://refresh.refresh.core.soap.yodlee.com" />
+            <import namespace="http://collections.soap.yodlee.com" />
+            <import namespace="http://accountdataservice.core.soap.yodlee.com" />
+            <import namespace="http://refresh.core.soap.yodlee.com" />
+            <import namespace="http://client.ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://mfarefresh.core.collections.soap.yodlee.com" />
+            <import namespace="http://common.collections.soap.yodlee.com" />
+            <import namespace="http://bpaa.core.soap.yodlee.com" />
+            <import namespace="http://common.soap.yodlee.com" />
+            <complexType name="ArrayOfRefreshStatus">
+                <sequence>
+                    <element name="elements" nillable="true" type="tns7:RefreshStatus" maxOccurs="unbounded" minOccurs="0" />
+                </sequence>
+            </complexType>
+        </schema>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="http://ycache.system.util.soap.yodlee.com">
+            <import namespace="http://mfarefresh.core.soap.yodlee.com" />
+            <import namespace="http://accountmanagement.core.soap.yodlee.com" />
+            <import namespace="http://searchmanagement.permissioning.core.soap.yodlee.com" />
+            <import namespace="http://settings.config.system.core.soap.yodlee.com" />
+            <import namespace="http://usermanagement.core.soap.yodlee.com" />
+            <import namespace="http://core.soap.yodlee.com" />
+            <import namespace="http://ccw.ext.soap.yodlee.com" />
+            <import namespace="http://saml.ext.soap.yodlee.com" />
+            <import namespace="http://login.ext.soap.yodlee.com" />
+            <import namespace="http://permissioning.core.soap.yodlee.com" />
+            <import namespace="http://refresh.refresh.core.soap.yodlee.com" />
+            <import namespace="http://refresh.core.collections.soap.yodlee.com" />
+            <import namespace="http://collections.soap.yodlee.com" />
+            <import namespace="http://accountdataservice.core.soap.yodlee.com" />
+            <import namespace="http://refresh.core.soap.yodlee.com" />
+            <import namespace="http://client.ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://mfarefresh.core.collections.soap.yodlee.com" />
+            <import namespace="http://common.collections.soap.yodlee.com" />
+            <import namespace="http://bpaa.core.soap.yodlee.com" />
+            <import namespace="http://common.soap.yodlee.com" />
+            <complexType abstract="true" name="Cacheable">
+                <sequence />
+            </complexType>
+        </schema>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="http://client.ycache.system.util.soap.yodlee.com">
+            <import namespace="http://mfarefresh.core.soap.yodlee.com" />
+            <import namespace="http://accountmanagement.core.soap.yodlee.com" />
+            <import namespace="http://searchmanagement.permissioning.core.soap.yodlee.com" />
+            <import namespace="http://settings.config.system.core.soap.yodlee.com" />
+            <import namespace="http://usermanagement.core.soap.yodlee.com" />
+            <import namespace="http://ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://core.soap.yodlee.com" />
+            <import namespace="http://ccw.ext.soap.yodlee.com" />
+            <import namespace="http://saml.ext.soap.yodlee.com" />
+            <import namespace="http://login.ext.soap.yodlee.com" />
+            <import namespace="http://permissioning.core.soap.yodlee.com" />
+            <import namespace="http://refresh.refresh.core.soap.yodlee.com" />
+            <import namespace="http://refresh.core.collections.soap.yodlee.com" />
+            <import namespace="http://collections.soap.yodlee.com" />
+            <import namespace="http://accountdataservice.core.soap.yodlee.com" />
+            <import namespace="http://refresh.core.soap.yodlee.com" />
+            <import namespace="http://mfarefresh.core.collections.soap.yodlee.com" />
+            <import namespace="http://common.collections.soap.yodlee.com" />
+            <import namespace="http://bpaa.core.soap.yodlee.com" />
+            <import namespace="http://common.soap.yodlee.com" />
+            <complexType name="MessageCatalogInfo">
+                <sequence>
+                    <element name="catalogs" nillable="true" type="tns2:Map" minOccurs="0" />
+                    <element name="formats" nillable="true" type="tns2:Map" minOccurs="0" />
+                    <element name="resourceRegistry" nillable="true" type="tns2:Map" minOccurs="0" />
+                    <element name="messageCache" nillable="true" type="tns2:Map" minOccurs="0" />
+                    <element name="messageLookup" nillable="true" type="tns2:Map" minOccurs="0" />
+                </sequence>
+            </complexType>
+            <complexType abstract="true" name="ClientCache">
+                <complexContent>
+                    <extension base="tns12:Cacheable">
+                        <sequence>
+                            <element name="appCobParamsMap" nillable="true" type="tns2:Map" minOccurs="0" />
+                            <element name="returnNull" type="xsd:boolean" />
+                            <element name="messageCatalogInfo" nillable="true" type="tns11:MessageCatalogInfo" minOccurs="0" />
+                            <element name="isAppCobParamLoaded" type="xsd:boolean" />
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <complexType name="ClientCobrandCache">
+                <complexContent>
+                    <extension base="tns11:ClientCache">
+                        <sequence />
+                    </extension>
+                </complexContent>
+            </complexType>
+            <complexType name="ClientGenericCache">
+                <complexContent>
+                    <extension base="tns11:ClientCache">
+                        <sequence />
+                    </extension>
+                </complexContent>
+            </complexType>
+            <complexType name="ClientCacheContext">
+                <sequence>
+                    <element name="clientCobrandCache" nillable="true" type="tns11:ClientCobrandCache" minOccurs="0" />
+                    <element name="clientGenericCache" nillable="true" type="tns11:ClientGenericCache" minOccurs="0" />
+                    <element name="clientChannelCache" nillable="true" type="tns11:ClientCobrandCache" minOccurs="0" />
+                </sequence>
+            </complexType>
+        </schema>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="http://bpaa.core.soap.yodlee.com">
+            <import namespace="http://mfarefresh.core.soap.yodlee.com" />
+            <import namespace="http://accountmanagement.core.soap.yodlee.com" />
+            <import namespace="http://searchmanagement.permissioning.core.soap.yodlee.com" />
+            <import namespace="http://settings.config.system.core.soap.yodlee.com" />
+            <import namespace="http://usermanagement.core.soap.yodlee.com" />
+            <import namespace="http://ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://core.soap.yodlee.com" />
+            <import namespace="http://ccw.ext.soap.yodlee.com" />
+            <import namespace="http://saml.ext.soap.yodlee.com" />
+            <import namespace="http://login.ext.soap.yodlee.com" />
+            <import namespace="http://permissioning.core.soap.yodlee.com" />
+            <import namespace="http://refresh.refresh.core.soap.yodlee.com" />
+            <import namespace="http://refresh.core.collections.soap.yodlee.com" />
+            <import namespace="http://collections.soap.yodlee.com" />
+            <import namespace="http://accountdataservice.core.soap.yodlee.com" />
+            <import namespace="http://refresh.core.soap.yodlee.com" />
+            <import namespace="http://client.ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://mfarefresh.core.collections.soap.yodlee.com" />
+            <import namespace="http://common.collections.soap.yodlee.com" />
+            <import namespace="http://common.soap.yodlee.com" />
+            <simpleType name="BPAAStatus">
+                <restriction base="xsd:string">
+                    <enumeration value="NOT_INITIATED" />
+                    <enumeration value="SUCCESSED" />
+                    <enumeration value="CREATED" />
+                    <enumeration value="IN_PROGRESS" />
+                    <enumeration value="FAILED" />
+                    <enumeration value="CANCELLED" />
+                    <enumeration value="FAILED_FINAL" />
+                    <enumeration value="SUCCESS_PARTIAL" />
+                </restriction>
+            </simpleType>
+            <complexType name="RefreshAttemptInfo">
+                <complexContent>
+                    <extension base="tns1:RefreshInfo">
+                        <sequence>
+                            <element name="attemptCode" type="xsd:long" minOccurs="0" />
+                            <element name="attemptResponseCodeType" nillable="true" type="tns1:ResponseCodeType" minOccurs="0" />
+                            <element name="attemptMessage" nillable="true" type="xsd:string" minOccurs="0" />
+                            <element name="bpaaStatus" nillable="true" type="tns13:BPAAStatus" minOccurs="0" />
+                            <element name="attemptStartTime" type="xsd:long" minOccurs="0" />
+                            <element name="attemptLastUpdatedTime" type="xsd:long" minOccurs="0" />
+                            <element name="attemptCompletedTime" type="xsd:long" minOccurs="0" />
+                            <element name="requestExpired" type="xsd:boolean" />
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+        </schema>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="http://mfarefresh.core.collections.soap.yodlee.com">
+            <import namespace="http://mfarefresh.core.soap.yodlee.com" />
+            <import namespace="http://accountmanagement.core.soap.yodlee.com" />
+            <import namespace="http://searchmanagement.permissioning.core.soap.yodlee.com" />
+            <import namespace="http://settings.config.system.core.soap.yodlee.com" />
+            <import namespace="http://usermanagement.core.soap.yodlee.com" />
+            <import namespace="http://ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://core.soap.yodlee.com" />
+            <import namespace="http://ccw.ext.soap.yodlee.com" />
+            <import namespace="http://saml.ext.soap.yodlee.com" />
+            <import namespace="http://login.ext.soap.yodlee.com" />
+            <import namespace="http://permissioning.core.soap.yodlee.com" />
+            <import namespace="http://refresh.refresh.core.soap.yodlee.com" />
+            <import namespace="http://refresh.core.collections.soap.yodlee.com" />
+            <import namespace="http://collections.soap.yodlee.com" />
+            <import namespace="http://accountdataservice.core.soap.yodlee.com" />
+            <import namespace="http://refresh.core.soap.yodlee.com" />
+            <import namespace="http://client.ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://common.collections.soap.yodlee.com" />
+            <import namespace="http://bpaa.core.soap.yodlee.com" />
+            <import namespace="http://common.soap.yodlee.com" />
+            <complexType name="ArrayOfQuestionAndAnswerValues">
+                <sequence>
+                    <element name="elements" nillable="true" type="tns5:QuestionAndAnswerValues" maxOccurs="unbounded" minOccurs="0" />
+                </sequence>
+            </complexType>
+            <complexType name="ArrayOfQuesAndAnswerDetails">
+                <sequence>
+                    <element name="elements" nillable="true" type="tns5:QuesAndAnswerDetails" maxOccurs="unbounded" minOccurs="0" />
+                </sequence>
+            </complexType>
+        </schema>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="http://permissioning.core.soap.yodlee.com">
+            <import namespace="http://mfarefresh.core.soap.yodlee.com" />
+            <import namespace="http://accountmanagement.core.soap.yodlee.com" />
+            <import namespace="http://searchmanagement.permissioning.core.soap.yodlee.com" />
+            <import namespace="http://settings.config.system.core.soap.yodlee.com" />
+            <import namespace="http://usermanagement.core.soap.yodlee.com" />
+            <import namespace="http://ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://core.soap.yodlee.com" />
+            <import namespace="http://ccw.ext.soap.yodlee.com" />
+            <import namespace="http://saml.ext.soap.yodlee.com" />
+            <import namespace="http://login.ext.soap.yodlee.com" />
+            <import namespace="http://refresh.refresh.core.soap.yodlee.com" />
+            <import namespace="http://refresh.core.collections.soap.yodlee.com" />
+            <import namespace="http://collections.soap.yodlee.com" />
+            <import namespace="http://accountdataservice.core.soap.yodlee.com" />
+            <import namespace="http://refresh.core.soap.yodlee.com" />
+            <import namespace="http://client.ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://mfarefresh.core.collections.soap.yodlee.com" />
+            <import namespace="http://common.collections.soap.yodlee.com" />
+            <import namespace="http://bpaa.core.soap.yodlee.com" />
+            <import namespace="http://common.soap.yodlee.com" />
+            <complexType name="GrantorInfo">
+                <sequence>
+                    <element name="grantorToken" nillable="true" type="xsd:string" minOccurs="0" />
+                    <element name="namespaceId" type="xsd:long" minOccurs="0" />
+                    <element name="userType" nillable="true" type="tns1:UserType" minOccurs="0" />
+                </sequence>
+            </complexType>
+            <complexType name="ExtendedGrantorInfo">
+                <complexContent>
+                    <extension base="tns15:GrantorInfo">
+                        <sequence>
+                            <element name="obo" type="xsd:boolean" />
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <complexType name="GrantorInfoWithData">
+                <complexContent>
+                    <extension base="tns15:GrantorInfo">
+                        <sequence>
+                            <element name="profileFields" nillable="true" type="tns2:List" minOccurs="0" />
+                            <element name="netWorth" nillable="true" type="xsd:anyType" minOccurs="0" />
+                            <element name="aggregateData" nillable="true" type="tns2:Map" minOccurs="0" />
+                            <element name="accountStatus" type="xsd:long" minOccurs="0" />
+                            <element name="advisorList" nillable="true" type="tns2:List" minOccurs="0" />
+                            <element name="lastAccessTime" nillable="true" type="xsd:long" minOccurs="0" />
+                            <element name="userName" nillable="true" type="xsd:string" minOccurs="0" />
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+        </schema>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="http://searchmanagement.permissioning.core.soap.yodlee.com">
+            <import namespace="http://mfarefresh.core.soap.yodlee.com" />
+            <import namespace="http://accountmanagement.core.soap.yodlee.com" />
+            <import namespace="http://settings.config.system.core.soap.yodlee.com" />
+            <import namespace="http://usermanagement.core.soap.yodlee.com" />
+            <import namespace="http://ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://core.soap.yodlee.com" />
+            <import namespace="http://ccw.ext.soap.yodlee.com" />
+            <import namespace="http://saml.ext.soap.yodlee.com" />
+            <import namespace="http://login.ext.soap.yodlee.com" />
+            <import namespace="http://permissioning.core.soap.yodlee.com" />
+            <import namespace="http://refresh.refresh.core.soap.yodlee.com" />
+            <import namespace="http://refresh.core.collections.soap.yodlee.com" />
+            <import namespace="http://collections.soap.yodlee.com" />
+            <import namespace="http://accountdataservice.core.soap.yodlee.com" />
+            <import namespace="http://refresh.core.soap.yodlee.com" />
+            <import namespace="http://client.ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://mfarefresh.core.collections.soap.yodlee.com" />
+            <import namespace="http://common.collections.soap.yodlee.com" />
+            <import namespace="http://bpaa.core.soap.yodlee.com" />
+            <import namespace="http://common.soap.yodlee.com" />
+            <complexType name="GrantorSearchInfo">
+                <complexContent>
+                    <extension base="tns15:GrantorInfo">
+                        <sequence>
+                            <element name="profileFields" nillable="true" type="tns8:ArrayOfNVPair" minOccurs="0" />
+                            <element name="searchInfo" nillable="true" type="tns8:ArrayOfNVPair" minOccurs="0" />
+                            <element name="date" nillable="true" type="xsd:dateTime" minOccurs="0" />
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+        </schema>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="http://accountmanagement.core.soap.yodlee.com">
+            <import namespace="http://mfarefresh.core.soap.yodlee.com" />
+            <import namespace="http://searchmanagement.permissioning.core.soap.yodlee.com" />
+            <import namespace="http://settings.config.system.core.soap.yodlee.com" />
+            <import namespace="http://usermanagement.core.soap.yodlee.com" />
+            <import namespace="http://ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://core.soap.yodlee.com" />
+            <import namespace="http://ccw.ext.soap.yodlee.com" />
+            <import namespace="http://saml.ext.soap.yodlee.com" />
+            <import namespace="http://login.ext.soap.yodlee.com" />
+            <import namespace="http://permissioning.core.soap.yodlee.com" />
+            <import namespace="http://refresh.refresh.core.soap.yodlee.com" />
+            <import namespace="http://refresh.core.collections.soap.yodlee.com" />
+            <import namespace="http://collections.soap.yodlee.com" />
+            <import namespace="http://accountdataservice.core.soap.yodlee.com" />
+            <import namespace="http://refresh.core.soap.yodlee.com" />
+            <import namespace="http://client.ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://mfarefresh.core.collections.soap.yodlee.com" />
+            <import namespace="http://common.collections.soap.yodlee.com" />
+            <import namespace="http://bpaa.core.soap.yodlee.com" />
+            <import namespace="http://common.soap.yodlee.com" />
+            <complexType name="AutoRegFieldInfoMultiFixed">
+                <complexContent>
+                    <extension base="tns1:SecureFieldInfoMultiFixed">
+                        <sequence>
+                            <element name="okToAutoGenerate" nillable="true" type="tns2:ArrayOfboolean" minOccurs="0" />
+                            <element name="autoGeneratable" nillable="true" type="tns2:ArrayOfboolean" minOccurs="0" />
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <complexType name="AutoRegFieldInfoSingle">
+                <complexContent>
+                    <extension base="tns1:SecureFieldInfoSingle">
+                        <sequence>
+                            <element name="autoGeneratable" type="xsd:boolean" />
+                            <element name="okToAutoGenerate" type="xsd:boolean" />
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+        </schema>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="http://saml.ext.soap.yodlee.com">
+            <import namespace="http://mfarefresh.core.soap.yodlee.com" />
+            <import namespace="http://accountmanagement.core.soap.yodlee.com" />
+            <import namespace="http://searchmanagement.permissioning.core.soap.yodlee.com" />
+            <import namespace="http://settings.config.system.core.soap.yodlee.com" />
+            <import namespace="http://usermanagement.core.soap.yodlee.com" />
+            <import namespace="http://ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://core.soap.yodlee.com" />
+            <import namespace="http://ccw.ext.soap.yodlee.com" />
+            <import namespace="http://login.ext.soap.yodlee.com" />
+            <import namespace="http://permissioning.core.soap.yodlee.com" />
+            <import namespace="http://refresh.refresh.core.soap.yodlee.com" />
+            <import namespace="http://refresh.core.collections.soap.yodlee.com" />
+            <import namespace="http://collections.soap.yodlee.com" />
+            <import namespace="http://accountdataservice.core.soap.yodlee.com" />
+            <import namespace="http://refresh.core.soap.yodlee.com" />
+            <import namespace="http://client.ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://mfarefresh.core.collections.soap.yodlee.com" />
+            <import namespace="http://common.collections.soap.yodlee.com" />
+            <import namespace="http://bpaa.core.soap.yodlee.com" />
+            <import namespace="http://common.soap.yodlee.com" />
+            <complexType name="SAMLCredentials">
+                <complexContent>
+                    <extension base="tns3:ExternalAuthenticationCredentials">
+                        <sequence>
+                            <element name="samlResponse" nillable="true" type="xsd:string" minOccurs="0" />
+                            <element name="issuerId" nillable="true" type="xsd:string" minOccurs="0" />
+                            <element name="artifactProfile" type="xsd:boolean" />
+                            <element name="sourceID" nillable="true" type="xsd:string" minOccurs="0" />
+                            <element name="decrypted" type="xsd:boolean" />
+                            <element name="source" nillable="true" type="xsd:string" minOccurs="0" />
+                            <element name="validateAssertionID" type="xsd:boolean" />
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+        </schema>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="http://settings.config.system.core.soap.yodlee.com">
+            <import namespace="http://mfarefresh.core.soap.yodlee.com" />
+            <import namespace="http://accountmanagement.core.soap.yodlee.com" />
+            <import namespace="http://searchmanagement.permissioning.core.soap.yodlee.com" />
+            <import namespace="http://usermanagement.core.soap.yodlee.com" />
+            <import namespace="http://ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://core.soap.yodlee.com" />
+            <import namespace="http://ccw.ext.soap.yodlee.com" />
+            <import namespace="http://saml.ext.soap.yodlee.com" />
+            <import namespace="http://login.ext.soap.yodlee.com" />
+            <import namespace="http://permissioning.core.soap.yodlee.com" />
+            <import namespace="http://refresh.refresh.core.soap.yodlee.com" />
+            <import namespace="http://refresh.core.collections.soap.yodlee.com" />
+            <import namespace="http://collections.soap.yodlee.com" />
+            <import namespace="http://accountdataservice.core.soap.yodlee.com" />
+            <import namespace="http://refresh.core.soap.yodlee.com" />
+            <import namespace="http://client.ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://mfarefresh.core.collections.soap.yodlee.com" />
+            <import namespace="http://common.collections.soap.yodlee.com" />
+            <import namespace="http://bpaa.core.soap.yodlee.com" />
+            <import namespace="http://common.soap.yodlee.com" />
+            <complexType name="ConfigValue">
+                <complexContent>
+                    <extension base="tns1:NVPair">
+                        <sequence>
+                            <element name="groupId" type="xsd:int" minOccurs="0" />
+                            <element name="isGroup" type="xsd:boolean" />
+                            <element name="groupModuleName" nillable="true" type="xsd:string" minOccurs="0" />
+                            <element name="moduleName" nillable="true" type="xsd:string" minOccurs="0" />
+                            <element name="valueOrder" nillable="true" type="tns2:List" minOccurs="0" />
+                            <element name="isDefault" type="xsd:boolean" />
+                            <element name="description" nillable="true" type="xsd:string" minOccurs="0" />
+                            <element name="isBasic" type="xsd:int" minOccurs="0" />
+                            <element name="requiresRestart" type="xsd:int" minOccurs="0" />
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+        </schema>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="http://ccw.ext.soap.yodlee.com">
+            <import namespace="http://mfarefresh.core.soap.yodlee.com" />
+            <import namespace="http://accountmanagement.core.soap.yodlee.com" />
+            <import namespace="http://searchmanagement.permissioning.core.soap.yodlee.com" />
+            <import namespace="http://settings.config.system.core.soap.yodlee.com" />
+            <import namespace="http://usermanagement.core.soap.yodlee.com" />
+            <import namespace="http://ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://core.soap.yodlee.com" />
+            <import namespace="http://saml.ext.soap.yodlee.com" />
+            <import namespace="http://login.ext.soap.yodlee.com" />
+            <import namespace="http://permissioning.core.soap.yodlee.com" />
+            <import namespace="http://refresh.refresh.core.soap.yodlee.com" />
+            <import namespace="http://refresh.core.collections.soap.yodlee.com" />
+            <import namespace="http://collections.soap.yodlee.com" />
+            <import namespace="http://accountdataservice.core.soap.yodlee.com" />
+            <import namespace="http://refresh.core.soap.yodlee.com" />
+            <import namespace="http://client.ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://mfarefresh.core.collections.soap.yodlee.com" />
+            <import namespace="http://common.collections.soap.yodlee.com" />
+            <import namespace="http://bpaa.core.soap.yodlee.com" />
+            <import namespace="http://common.soap.yodlee.com" />
+            <complexType name="CCWCredentials">
+                <complexContent>
+                    <extension base="tns3:ExternalAuthenticationCredentials">
+                        <sequence>
+                            <element name="ccwToken" nillable="true" type="xsd:string" minOccurs="0" />
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+        </schema>
+    </wsdl:types>
+    <wsdl:message name="startRefresh1Response">
+        <wsdl:part element="impl:startRefresh1Response" name="parameters" />
+    </wsdl:message>
+    <wsdl:message name="startRefreshingItem1Response">
+        <wsdl:part element="impl:startRefreshingItem1Response" name="parameters" />
+    </wsdl:message>
+    <wsdl:message name="startRefreshingItemRequest">
+        <wsdl:part element="impl:startRefreshingItem" name="parameters" />
+    </wsdl:message>
+    <wsdl:message name="setNextRefreshTime1Response">
+        <wsdl:part element="impl:setNextRefreshTime1Response" name="parameters" />
+    </wsdl:message>
+    <wsdl:message name="setNextRefreshTimeRequest">
+        <wsdl:part element="impl:setNextRefreshTime" name="parameters" />
+    </wsdl:message>
+    <wsdl:message name="getRefreshInfoResponse">
+        <wsdl:part element="impl:getRefreshInfoResponse" name="parameters" />
+    </wsdl:message>
+    <wsdl:message name="getNextRefreshTimeRequest">
+        <wsdl:part element="impl:getNextRefreshTime" name="parameters" />
+    </wsdl:message>
+    <wsdl:message name="startRefresh5Response">
+        <wsdl:part element="impl:startRefresh5Response" name="parameters" />
+    </wsdl:message>
+    <wsdl:message name="IncompleteArgumentExceptionFaultMessage">
+        <wsdl:part element="tns6:IncompleteArgumentExceptionFault" name="fault" />
+    </wsdl:message>
+    <wsdl:message name="isItemRefreshingResponse">
+        <wsdl:part element="impl:isItemRefreshingResponse" name="parameters" />
+    </wsdl:message>
+    <wsdl:message name="stopRefreshingItemRequest">
+        <wsdl:part element="impl:stopRefreshingItem" name="parameters" />
+    </wsdl:message>
+    <wsdl:message name="startRefresh4Response">
+        <wsdl:part element="impl:startRefresh4Response" name="parameters" />
+    </wsdl:message>
+    <wsdl:message name="getNextRefreshTime1Response">
+        <wsdl:part element="impl:getNextRefreshTime1Response" name="parameters" />
+    </wsdl:message>
+    <wsdl:message name="startRefresh1Request">
+        <wsdl:part element="impl:startRefresh1" name="parameters" />
+    </wsdl:message>
+    <wsdl:message name="getRefreshStatusRequest">
+        <wsdl:part element="impl:getRefreshStatus" name="parameters" />
+    </wsdl:message>
+    <wsdl:message name="startRefresh3Request">
+        <wsdl:part element="impl:startRefresh3" name="parameters" />
+    </wsdl:message>
+    <wsdl:message name="getRefreshInfo1Request">
+        <wsdl:part element="impl:getRefreshInfo1" name="parameters" />
+    </wsdl:message>
+    <wsdl:message name="getRefreshStatusResponse">
+        <wsdl:part element="impl:getRefreshStatusResponse" name="parameters" />
+    </wsdl:message>
+    <wsdl:message name="getNextRefreshTime1Request">
+        <wsdl:part element="impl:getNextRefreshTime1" name="parameters" />
+    </wsdl:message>
+    <wsdl:message name="startRefreshingItem1Request">
+        <wsdl:part element="impl:startRefreshingItem1" name="parameters" />
+    </wsdl:message>
+    <wsdl:message name="getMFAResponseResponse">
+        <wsdl:part element="impl:getMFAResponseResponse" name="parameters" />
+    </wsdl:message>
+    <wsdl:message name="InvalidRefreshModeExceptionFaultMessage">
+        <wsdl:part element="tns6:InvalidRefreshModeExceptionFault" name="fault" />
+    </wsdl:message>
+    <wsdl:message name="startRefresh2Response">
+        <wsdl:part element="impl:startRefresh2Response" name="parameters" />
+    </wsdl:message>
+    <wsdl:message name="CoreExceptionFaultMessage">
+        <wsdl:part element="tns6:CoreExceptionFault" name="fault" />
+    </wsdl:message>
+    <wsdl:message name="getMFAResponseRequest">
+        <wsdl:part element="impl:getMFAResponse" name="parameters" />
+    </wsdl:message>
+    <wsdl:message name="stopRefresh1Request">
+        <wsdl:part element="impl:stopRefresh1" name="parameters" />
+    </wsdl:message>
+    <wsdl:message name="RefreshCompletedExceptionFaultMessage">
+        <wsdl:part element="tns7:RefreshCompletedExceptionFault" name="fault" />
+    </wsdl:message>
+    <wsdl:message name="setNextRefreshTime1Request">
+        <wsdl:part element="impl:setNextRefreshTime1" name="parameters" />
+    </wsdl:message>
+    <wsdl:message name="startRefresh6Response">
+        <wsdl:part element="impl:startRefresh6Response" name="parameters" />
+    </wsdl:message>
+    <wsdl:message name="stopRefresh1Response">
+        <wsdl:part element="impl:stopRefresh1Response" name="parameters" />
+    </wsdl:message>
+    <wsdl:message name="RefreshRejectedExceptionFaultMessage">
+        <wsdl:part element="tns7:RefreshRejectedExceptionFault" name="fault" />
+    </wsdl:message>
+    <wsdl:message name="getRefreshInfoRequest">
+        <wsdl:part element="impl:getRefreshInfo" name="parameters" />
+    </wsdl:message>
+    <wsdl:message name="stopRefreshRequest">
+        <wsdl:part element="impl:stopRefresh" name="parameters" />
+    </wsdl:message>
+    <wsdl:message name="stopRefreshingItemResponse">
+        <wsdl:part element="impl:stopRefreshingItemResponse" name="parameters" />
+    </wsdl:message>
+    <wsdl:message name="putMFARequestRequest">
+        <wsdl:part element="impl:putMFARequest" name="parameters" />
+    </wsdl:message>
+    <wsdl:message name="stopRefreshingAllItemsRequest">
+        <wsdl:part element="impl:stopRefreshingAllItems" name="parameters" />
+    </wsdl:message>
+    <wsdl:message name="IllegalArgumentValueExceptionFaultMessage">
+        <wsdl:part element="tns6:IllegalArgumentValueExceptionFault" name="fault" />
+    </wsdl:message>
+    <wsdl:message name="startRefreshingAllItemsResponse">
+        <wsdl:part element="impl:startRefreshingAllItemsResponse" name="parameters" />
+    </wsdl:message>
+    <wsdl:message name="stopRefreshingAllItemsResponse">
+        <wsdl:part element="impl:stopRefreshingAllItemsResponse" name="parameters" />
+    </wsdl:message>
+    <wsdl:message name="MFARefreshExceptionFaultMessage">
+        <wsdl:part element="tns7:MFARefreshExceptionFault" name="fault" />
+    </wsdl:message>
+    <wsdl:message name="startRefresh4Request">
+        <wsdl:part element="impl:startRefresh4" name="parameters" />
+    </wsdl:message>
+    <wsdl:message name="startRefresh3Response">
+        <wsdl:part element="impl:startRefresh3Response" name="parameters" />
+    </wsdl:message>
+    <wsdl:message name="InvalidUserContextExceptionFaultMessage">
+        <wsdl:part element="tns6:InvalidUserContextExceptionFault" name="fault" />
+    </wsdl:message>
+    <wsdl:message name="isItemRefreshingRequest">
+        <wsdl:part element="impl:isItemRefreshing" name="parameters" />
+    </wsdl:message>
+    <wsdl:message name="startRefreshingAllItemsRequest">
+        <wsdl:part element="impl:startRefreshingAllItems" name="parameters" />
+    </wsdl:message>
+    <wsdl:message name="getNextRefreshTimeResponse">
+        <wsdl:part element="impl:getNextRefreshTimeResponse" name="parameters" />
+    </wsdl:message>
+    <wsdl:message name="startRefresh7Request">
+        <wsdl:part element="impl:startRefresh7" name="parameters" />
+    </wsdl:message>
+    <wsdl:message name="stopRefresh2Response">
+        <wsdl:part element="impl:stopRefresh2Response" name="parameters" />
+    </wsdl:message>
+    <wsdl:message name="startRefresh2Request">
+        <wsdl:part element="impl:startRefresh2" name="parameters" />
+    </wsdl:message>
+    <wsdl:message name="startRefreshRequest">
+        <wsdl:part element="impl:startRefresh" name="parameters" />
+    </wsdl:message>
+    <wsdl:message name="putMFARequestResponse">
+        <wsdl:part element="impl:putMFARequestResponse" name="parameters" />
+    </wsdl:message>
+    <wsdl:message name="StaleConversationCredentialsExceptionFaultMessage">
+        <wsdl:part element="tns6:StaleConversationCredentialsExceptionFault" name="fault" />
+    </wsdl:message>
+    <wsdl:message name="startRefreshingItemResponse">
+        <wsdl:part element="impl:startRefreshingItemResponse" name="parameters" />
+    </wsdl:message>
+    <wsdl:message name="startRefresh6Request">
+        <wsdl:part element="impl:startRefresh6" name="parameters" />
+    </wsdl:message>
+    <wsdl:message name="startRefreshResponse">
+        <wsdl:part element="impl:startRefreshResponse" name="parameters" />
+    </wsdl:message>
+    <wsdl:message name="startRefresh7Response">
+        <wsdl:part element="impl:startRefresh7Response" name="parameters" />
+    </wsdl:message>
+    <wsdl:message name="InvalidConversationCredentialsExceptionFaultMessage">
+        <wsdl:part element="tns6:InvalidConversationCredentialsExceptionFault" name="fault" />
+    </wsdl:message>
+    <wsdl:message name="stopRefreshResponse">
+        <wsdl:part element="impl:stopRefreshResponse" name="parameters" />
+    </wsdl:message>
+    <wsdl:message name="InvalidItemExceptionFaultMessage">
+        <wsdl:part element="tns6:InvalidItemExceptionFault" name="fault" />
+    </wsdl:message>
+    <wsdl:message name="getRefreshInfo1Response">
+        <wsdl:part element="impl:getRefreshInfo1Response" name="parameters" />
+    </wsdl:message>
+    <wsdl:message name="setNextRefreshTimeResponse">
+        <wsdl:part element="impl:setNextRefreshTimeResponse" name="parameters" />
+    </wsdl:message>
+    <wsdl:message name="startRefresh5Request">
+        <wsdl:part element="impl:startRefresh5" name="parameters" />
+    </wsdl:message>
+    <wsdl:message name="stopRefresh2Request">
+        <wsdl:part element="impl:stopRefresh2" name="parameters" />
+    </wsdl:message>
+    <wsdl:portType name="Refresh">
+        <wsdl:operation name="getMFAResponse">
+            <wsdl:input message="impl:getMFAResponseRequest" name="getMFAResponseRequest" />
+            <wsdl:output message="impl:getMFAResponseResponse" name="getMFAResponseResponse" />
+            <wsdl:fault message="impl:InvalidUserContextExceptionFaultMessage" name="InvalidUserContextExceptionFault" />
+            <wsdl:fault message="impl:StaleConversationCredentialsExceptionFaultMessage" name="StaleConversationCredentialsExceptionFault" />
+            <wsdl:fault message="impl:InvalidItemExceptionFaultMessage" name="InvalidItemExceptionFault" />
+            <wsdl:fault message="impl:MFARefreshExceptionFaultMessage" name="MFARefreshExceptionFault" />
+            <wsdl:fault message="impl:InvalidConversationCredentialsExceptionFaultMessage" name="InvalidConversationCredentialsExceptionFault" />
+            <wsdl:fault message="impl:CoreExceptionFaultMessage" name="CoreExceptionFault" />
+            <wsdl:fault message="impl:IllegalArgumentValueExceptionFaultMessage" name="IllegalArgumentValueExceptionFault" />
+        </wsdl:operation>
+        <wsdl:operation name="getNextRefreshTime">
+            <wsdl:input message="impl:getNextRefreshTimeRequest" name="getNextRefreshTimeRequest" />
+            <wsdl:output message="impl:getNextRefreshTimeResponse" name="getNextRefreshTimeResponse" />
+            <wsdl:fault message="impl:InvalidUserContextExceptionFaultMessage" name="InvalidUserContextExceptionFault" />
+            <wsdl:fault message="impl:StaleConversationCredentialsExceptionFaultMessage" name="StaleConversationCredentialsExceptionFault" />
+            <wsdl:fault message="impl:InvalidItemExceptionFaultMessage" name="InvalidItemExceptionFault" />
+            <wsdl:fault message="impl:InvalidConversationCredentialsExceptionFaultMessage" name="InvalidConversationCredentialsExceptionFault" />
+            <wsdl:fault message="impl:CoreExceptionFaultMessage" name="CoreExceptionFault" />
+            <wsdl:fault message="impl:IllegalArgumentValueExceptionFaultMessage" name="IllegalArgumentValueExceptionFault" />
+        </wsdl:operation>
+        <wsdl:operation name="getNextRefreshTime1">
+            <wsdl:input message="impl:getNextRefreshTime1Request" name="getNextRefreshTime1Request" />
+            <wsdl:output message="impl:getNextRefreshTime1Response" name="getNextRefreshTime1Response" />
+            <wsdl:fault message="impl:InvalidUserContextExceptionFaultMessage" name="InvalidUserContextExceptionFault" />
+            <wsdl:fault message="impl:StaleConversationCredentialsExceptionFaultMessage" name="StaleConversationCredentialsExceptionFault" />
+            <wsdl:fault message="impl:InvalidItemExceptionFaultMessage" name="InvalidItemExceptionFault" />
+            <wsdl:fault message="impl:InvalidConversationCredentialsExceptionFaultMessage" name="InvalidConversationCredentialsExceptionFault" />
+            <wsdl:fault message="impl:CoreExceptionFaultMessage" name="CoreExceptionFault" />
+            <wsdl:fault message="impl:IllegalArgumentValueExceptionFaultMessage" name="IllegalArgumentValueExceptionFault" />
+        </wsdl:operation>
+        <wsdl:operation name="getRefreshInfo">
+            <wsdl:input message="impl:getRefreshInfoRequest" name="getRefreshInfoRequest" />
+            <wsdl:output message="impl:getRefreshInfoResponse" name="getRefreshInfoResponse" />
+            <wsdl:fault message="impl:InvalidUserContextExceptionFaultMessage" name="InvalidUserContextExceptionFault" />
+            <wsdl:fault message="impl:StaleConversationCredentialsExceptionFaultMessage" name="StaleConversationCredentialsExceptionFault" />
+            <wsdl:fault message="impl:InvalidConversationCredentialsExceptionFaultMessage" name="InvalidConversationCredentialsExceptionFault" />
+            <wsdl:fault message="impl:CoreExceptionFaultMessage" name="CoreExceptionFault" />
+            <wsdl:fault message="impl:IllegalArgumentValueExceptionFaultMessage" name="IllegalArgumentValueExceptionFault" />
+        </wsdl:operation>
+        <wsdl:operation name="getRefreshInfo1">
+            <wsdl:input message="impl:getRefreshInfo1Request" name="getRefreshInfo1Request" />
+            <wsdl:output message="impl:getRefreshInfo1Response" name="getRefreshInfo1Response" />
+            <wsdl:fault message="impl:InvalidUserContextExceptionFaultMessage" name="InvalidUserContextExceptionFault" />
+            <wsdl:fault message="impl:StaleConversationCredentialsExceptionFaultMessage" name="StaleConversationCredentialsExceptionFault" />
+            <wsdl:fault message="impl:InvalidItemExceptionFaultMessage" name="InvalidItemExceptionFault" />
+            <wsdl:fault message="impl:InvalidConversationCredentialsExceptionFaultMessage" name="InvalidConversationCredentialsExceptionFault" />
+            <wsdl:fault message="impl:CoreExceptionFaultMessage" name="CoreExceptionFault" />
+            <wsdl:fault message="impl:IllegalArgumentValueExceptionFaultMessage" name="IllegalArgumentValueExceptionFault" />
+        </wsdl:operation>
+        <wsdl:operation name="getRefreshStatus">
+            <wsdl:input message="impl:getRefreshStatusRequest" name="getRefreshStatusRequest" />
+            <wsdl:output message="impl:getRefreshStatusResponse" name="getRefreshStatusResponse" />
+            <wsdl:fault message="impl:InvalidUserContextExceptionFaultMessage" name="InvalidUserContextExceptionFault" />
+            <wsdl:fault message="impl:StaleConversationCredentialsExceptionFaultMessage" name="StaleConversationCredentialsExceptionFault" />
+            <wsdl:fault message="impl:InvalidConversationCredentialsExceptionFaultMessage" name="InvalidConversationCredentialsExceptionFault" />
+            <wsdl:fault message="impl:CoreExceptionFaultMessage" name="CoreExceptionFault" />
+            <wsdl:fault message="impl:IllegalArgumentValueExceptionFaultMessage" name="IllegalArgumentValueExceptionFault" />
+        </wsdl:operation>
+        <wsdl:operation name="isItemRefreshing">
+            <wsdl:input message="impl:isItemRefreshingRequest" name="isItemRefreshingRequest" />
+            <wsdl:output message="impl:isItemRefreshingResponse" name="isItemRefreshingResponse" />
+            <wsdl:fault message="impl:InvalidUserContextExceptionFaultMessage" name="InvalidUserContextExceptionFault" />
+            <wsdl:fault message="impl:StaleConversationCredentialsExceptionFaultMessage" name="StaleConversationCredentialsExceptionFault" />
+            <wsdl:fault message="impl:InvalidItemExceptionFaultMessage" name="InvalidItemExceptionFault" />
+            <wsdl:fault message="impl:InvalidConversationCredentialsExceptionFaultMessage" name="InvalidConversationCredentialsExceptionFault" />
+            <wsdl:fault message="impl:CoreExceptionFaultMessage" name="CoreExceptionFault" />
+            <wsdl:fault message="impl:IllegalArgumentValueExceptionFaultMessage" name="IllegalArgumentValueExceptionFault" />
+        </wsdl:operation>
+        <wsdl:operation name="putMFARequest">
+            <wsdl:input message="impl:putMFARequestRequest" name="putMFARequestRequest" />
+            <wsdl:output message="impl:putMFARequestResponse" name="putMFARequestResponse" />
+            <wsdl:fault message="impl:InvalidUserContextExceptionFaultMessage" name="InvalidUserContextExceptionFault" />
+            <wsdl:fault message="impl:StaleConversationCredentialsExceptionFaultMessage" name="StaleConversationCredentialsExceptionFault" />
+            <wsdl:fault message="impl:InvalidItemExceptionFaultMessage" name="InvalidItemExceptionFault" />
+            <wsdl:fault message="impl:MFARefreshExceptionFaultMessage" name="MFARefreshExceptionFault" />
+            <wsdl:fault message="impl:InvalidConversationCredentialsExceptionFaultMessage" name="InvalidConversationCredentialsExceptionFault" />
+            <wsdl:fault message="impl:CoreExceptionFaultMessage" name="CoreExceptionFault" />
+            <wsdl:fault message="impl:IllegalArgumentValueExceptionFaultMessage" name="IllegalArgumentValueExceptionFault" />
+        </wsdl:operation>
+        <wsdl:operation name="setNextRefreshTime">
+            <wsdl:input message="impl:setNextRefreshTimeRequest" name="setNextRefreshTimeRequest" />
+            <wsdl:output message="impl:setNextRefreshTimeResponse" name="setNextRefreshTimeResponse" />
+            <wsdl:fault message="impl:InvalidUserContextExceptionFaultMessage" name="InvalidUserContextExceptionFault" />
+            <wsdl:fault message="impl:StaleConversationCredentialsExceptionFaultMessage" name="StaleConversationCredentialsExceptionFault" />
+            <wsdl:fault message="impl:InvalidItemExceptionFaultMessage" name="InvalidItemExceptionFault" />
+            <wsdl:fault message="impl:InvalidConversationCredentialsExceptionFaultMessage" name="InvalidConversationCredentialsExceptionFault" />
+            <wsdl:fault message="impl:CoreExceptionFaultMessage" name="CoreExceptionFault" />
+            <wsdl:fault message="impl:IllegalArgumentValueExceptionFaultMessage" name="IllegalArgumentValueExceptionFault" />
+        </wsdl:operation>
+        <wsdl:operation name="setNextRefreshTime1">
+            <wsdl:input message="impl:setNextRefreshTime1Request" name="setNextRefreshTime1Request" />
+            <wsdl:output message="impl:setNextRefreshTime1Response" name="setNextRefreshTime1Response" />
+            <wsdl:fault message="impl:InvalidUserContextExceptionFaultMessage" name="InvalidUserContextExceptionFault" />
+            <wsdl:fault message="impl:StaleConversationCredentialsExceptionFaultMessage" name="StaleConversationCredentialsExceptionFault" />
+            <wsdl:fault message="impl:InvalidItemExceptionFaultMessage" name="InvalidItemExceptionFault" />
+            <wsdl:fault message="impl:InvalidConversationCredentialsExceptionFaultMessage" name="InvalidConversationCredentialsExceptionFault" />
+            <wsdl:fault message="impl:CoreExceptionFaultMessage" name="CoreExceptionFault" />
+            <wsdl:fault message="impl:IllegalArgumentValueExceptionFaultMessage" name="IllegalArgumentValueExceptionFault" />
+        </wsdl:operation>
+        <wsdl:operation name="startRefresh2">
+            <wsdl:input message="impl:startRefresh2Request" name="startRefresh2Request" />
+            <wsdl:output message="impl:startRefresh2Response" name="startRefresh2Response" />
+            <wsdl:fault message="impl:InvalidUserContextExceptionFaultMessage" name="InvalidUserContextExceptionFault" />
+            <wsdl:fault message="impl:StaleConversationCredentialsExceptionFaultMessage" name="StaleConversationCredentialsExceptionFault" />
+            <wsdl:fault message="impl:InvalidConversationCredentialsExceptionFaultMessage" name="InvalidConversationCredentialsExceptionFault" />
+            <wsdl:fault message="impl:CoreExceptionFaultMessage" name="CoreExceptionFault" />
+            <wsdl:fault message="impl:IllegalArgumentValueExceptionFaultMessage" name="IllegalArgumentValueExceptionFault" />
+        </wsdl:operation>
+        <wsdl:operation name="startRefresh3">
+            <wsdl:input message="impl:startRefresh3Request" name="startRefresh3Request" />
+            <wsdl:output message="impl:startRefresh3Response" name="startRefresh3Response" />
+            <wsdl:fault message="impl:InvalidUserContextExceptionFaultMessage" name="InvalidUserContextExceptionFault" />
+            <wsdl:fault message="impl:StaleConversationCredentialsExceptionFaultMessage" name="StaleConversationCredentialsExceptionFault" />
+            <wsdl:fault message="impl:InvalidConversationCredentialsExceptionFaultMessage" name="InvalidConversationCredentialsExceptionFault" />
+            <wsdl:fault message="impl:CoreExceptionFaultMessage" name="CoreExceptionFault" />
+            <wsdl:fault message="impl:IllegalArgumentValueExceptionFaultMessage" name="IllegalArgumentValueExceptionFault" />
+        </wsdl:operation>
+        <wsdl:operation name="startRefresh4">
+            <wsdl:input message="impl:startRefresh4Request" name="startRefresh4Request" />
+            <wsdl:output message="impl:startRefresh4Response" name="startRefresh4Response" />
+            <wsdl:fault message="impl:InvalidUserContextExceptionFaultMessage" name="InvalidUserContextExceptionFault" />
+            <wsdl:fault message="impl:StaleConversationCredentialsExceptionFaultMessage" name="StaleConversationCredentialsExceptionFault" />
+            <wsdl:fault message="impl:InvalidItemExceptionFaultMessage" name="InvalidItemExceptionFault" />
+            <wsdl:fault message="impl:InvalidConversationCredentialsExceptionFaultMessage" name="InvalidConversationCredentialsExceptionFault" />
+            <wsdl:fault message="impl:CoreExceptionFaultMessage" name="CoreExceptionFault" />
+            <wsdl:fault message="impl:IllegalArgumentValueExceptionFaultMessage" name="IllegalArgumentValueExceptionFault" />
+        </wsdl:operation>
+        <wsdl:operation name="startRefresh5">
+            <wsdl:input message="impl:startRefresh5Request" name="startRefresh5Request" />
+            <wsdl:output message="impl:startRefresh5Response" name="startRefresh5Response" />
+            <wsdl:fault message="impl:InvalidUserContextExceptionFaultMessage" name="InvalidUserContextExceptionFault" />
+            <wsdl:fault message="impl:StaleConversationCredentialsExceptionFaultMessage" name="StaleConversationCredentialsExceptionFault" />
+            <wsdl:fault message="impl:InvalidItemExceptionFaultMessage" name="InvalidItemExceptionFault" />
+            <wsdl:fault message="impl:InvalidConversationCredentialsExceptionFaultMessage" name="InvalidConversationCredentialsExceptionFault" />
+            <wsdl:fault message="impl:CoreExceptionFaultMessage" name="CoreExceptionFault" />
+            <wsdl:fault message="impl:IllegalArgumentValueExceptionFaultMessage" name="IllegalArgumentValueExceptionFault" />
+        </wsdl:operation>
+        <wsdl:operation name="startRefresh7">
+            <wsdl:input message="impl:startRefresh7Request" name="startRefresh7Request" />
+            <wsdl:output message="impl:startRefresh7Response" name="startRefresh7Response" />
+            <wsdl:fault message="impl:InvalidUserContextExceptionFaultMessage" name="InvalidUserContextExceptionFault" />
+            <wsdl:fault message="impl:StaleConversationCredentialsExceptionFaultMessage" name="StaleConversationCredentialsExceptionFault" />
+            <wsdl:fault message="impl:InvalidItemExceptionFaultMessage" name="InvalidItemExceptionFault" />
+            <wsdl:fault message="impl:InvalidRefreshModeExceptionFaultMessage" name="InvalidRefreshModeExceptionFault" />
+            <wsdl:fault message="impl:InvalidConversationCredentialsExceptionFaultMessage" name="InvalidConversationCredentialsExceptionFault" />
+            <wsdl:fault message="impl:CoreExceptionFaultMessage" name="CoreExceptionFault" />
+            <wsdl:fault message="impl:IllegalArgumentValueExceptionFaultMessage" name="IllegalArgumentValueExceptionFault" />
+        </wsdl:operation>
+        <wsdl:operation name="startRefresh6">
+            <wsdl:input message="impl:startRefresh6Request" name="startRefresh6Request" />
+            <wsdl:output message="impl:startRefresh6Response" name="startRefresh6Response" />
+            <wsdl:fault message="impl:InvalidUserContextExceptionFaultMessage" name="InvalidUserContextExceptionFault" />
+            <wsdl:fault message="impl:StaleConversationCredentialsExceptionFaultMessage" name="StaleConversationCredentialsExceptionFault" />
+            <wsdl:fault message="impl:InvalidItemExceptionFaultMessage" name="InvalidItemExceptionFault" />
+            <wsdl:fault message="impl:IncompleteArgumentExceptionFaultMessage" name="IncompleteArgumentExceptionFault" />
+            <wsdl:fault message="impl:InvalidConversationCredentialsExceptionFaultMessage" name="InvalidConversationCredentialsExceptionFault" />
+            <wsdl:fault message="impl:CoreExceptionFaultMessage" name="CoreExceptionFault" />
+            <wsdl:fault message="impl:IllegalArgumentValueExceptionFaultMessage" name="IllegalArgumentValueExceptionFault" />
+        </wsdl:operation>
+        <wsdl:operation name="startRefresh">
+            <wsdl:input message="impl:startRefreshRequest" name="startRefreshRequest" />
+            <wsdl:output message="impl:startRefreshResponse" name="startRefreshResponse" />
+            <wsdl:fault message="impl:InvalidUserContextExceptionFaultMessage" name="InvalidUserContextExceptionFault" />
+            <wsdl:fault message="impl:StaleConversationCredentialsExceptionFaultMessage" name="StaleConversationCredentialsExceptionFault" />
+            <wsdl:fault message="impl:InvalidItemExceptionFaultMessage" name="InvalidItemExceptionFault" />
+            <wsdl:fault message="impl:InvalidConversationCredentialsExceptionFaultMessage" name="InvalidConversationCredentialsExceptionFault" />
+            <wsdl:fault message="impl:CoreExceptionFaultMessage" name="CoreExceptionFault" />
+            <wsdl:fault message="impl:IllegalArgumentValueExceptionFaultMessage" name="IllegalArgumentValueExceptionFault" />
+        </wsdl:operation>
+        <wsdl:operation name="startRefresh1">
+            <wsdl:input message="impl:startRefresh1Request" name="startRefresh1Request" />
+            <wsdl:output message="impl:startRefresh1Response" name="startRefresh1Response" />
+            <wsdl:fault message="impl:InvalidUserContextExceptionFaultMessage" name="InvalidUserContextExceptionFault" />
+            <wsdl:fault message="impl:StaleConversationCredentialsExceptionFaultMessage" name="StaleConversationCredentialsExceptionFault" />
+            <wsdl:fault message="impl:InvalidItemExceptionFaultMessage" name="InvalidItemExceptionFault" />
+            <wsdl:fault message="impl:InvalidConversationCredentialsExceptionFaultMessage" name="InvalidConversationCredentialsExceptionFault" />
+            <wsdl:fault message="impl:CoreExceptionFaultMessage" name="CoreExceptionFault" />
+            <wsdl:fault message="impl:IllegalArgumentValueExceptionFaultMessage" name="IllegalArgumentValueExceptionFault" />
+        </wsdl:operation>
+        <wsdl:operation name="startRefreshingAllItems">
+            <wsdl:input message="impl:startRefreshingAllItemsRequest" name="startRefreshingAllItemsRequest" />
+            <wsdl:output message="impl:startRefreshingAllItemsResponse" name="startRefreshingAllItemsResponse" />
+            <wsdl:fault message="impl:InvalidUserContextExceptionFaultMessage" name="InvalidUserContextExceptionFault" />
+            <wsdl:fault message="impl:StaleConversationCredentialsExceptionFaultMessage" name="StaleConversationCredentialsExceptionFault" />
+            <wsdl:fault message="impl:InvalidConversationCredentialsExceptionFaultMessage" name="InvalidConversationCredentialsExceptionFault" />
+            <wsdl:fault message="impl:CoreExceptionFaultMessage" name="CoreExceptionFault" />
+            <wsdl:fault message="impl:IllegalArgumentValueExceptionFaultMessage" name="IllegalArgumentValueExceptionFault" />
+        </wsdl:operation>
+        <wsdl:operation name="startRefreshingItem">
+            <wsdl:input message="impl:startRefreshingItemRequest" name="startRefreshingItemRequest" />
+            <wsdl:output message="impl:startRefreshingItemResponse" name="startRefreshingItemResponse" />
+            <wsdl:fault message="impl:InvalidUserContextExceptionFaultMessage" name="InvalidUserContextExceptionFault" />
+            <wsdl:fault message="impl:RefreshCompletedExceptionFaultMessage" name="RefreshCompletedExceptionFault" />
+            <wsdl:fault message="impl:StaleConversationCredentialsExceptionFaultMessage" name="StaleConversationCredentialsExceptionFault" />
+            <wsdl:fault message="impl:InvalidItemExceptionFaultMessage" name="InvalidItemExceptionFault" />
+            <wsdl:fault message="impl:RefreshRejectedExceptionFaultMessage" name="RefreshRejectedExceptionFault" />
+            <wsdl:fault message="impl:InvalidConversationCredentialsExceptionFaultMessage" name="InvalidConversationCredentialsExceptionFault" />
+            <wsdl:fault message="impl:CoreExceptionFaultMessage" name="CoreExceptionFault" />
+            <wsdl:fault message="impl:IllegalArgumentValueExceptionFaultMessage" name="IllegalArgumentValueExceptionFault" />
+        </wsdl:operation>
+        <wsdl:operation name="startRefreshingItem1">
+            <wsdl:input message="impl:startRefreshingItem1Request" name="startRefreshingItem1Request" />
+            <wsdl:output message="impl:startRefreshingItem1Response" name="startRefreshingItem1Response" />
+            <wsdl:fault message="impl:InvalidUserContextExceptionFaultMessage" name="InvalidUserContextExceptionFault" />
+            <wsdl:fault message="impl:RefreshCompletedExceptionFaultMessage" name="RefreshCompletedExceptionFault" />
+            <wsdl:fault message="impl:StaleConversationCredentialsExceptionFaultMessage" name="StaleConversationCredentialsExceptionFault" />
+            <wsdl:fault message="impl:InvalidItemExceptionFaultMessage" name="InvalidItemExceptionFault" />
+            <wsdl:fault message="impl:RefreshRejectedExceptionFaultMessage" name="RefreshRejectedExceptionFault" />
+            <wsdl:fault message="impl:InvalidConversationCredentialsExceptionFaultMessage" name="InvalidConversationCredentialsExceptionFault" />
+            <wsdl:fault message="impl:CoreExceptionFaultMessage" name="CoreExceptionFault" />
+            <wsdl:fault message="impl:IllegalArgumentValueExceptionFaultMessage" name="IllegalArgumentValueExceptionFault" />
+        </wsdl:operation>
+        <wsdl:operation name="stopRefresh2">
+            <wsdl:input message="impl:stopRefresh2Request" name="stopRefresh2Request" />
+            <wsdl:output message="impl:stopRefresh2Response" name="stopRefresh2Response" />
+            <wsdl:fault message="impl:InvalidUserContextExceptionFaultMessage" name="InvalidUserContextExceptionFault" />
+            <wsdl:fault message="impl:StaleConversationCredentialsExceptionFaultMessage" name="StaleConversationCredentialsExceptionFault" />
+            <wsdl:fault message="impl:InvalidConversationCredentialsExceptionFaultMessage" name="InvalidConversationCredentialsExceptionFault" />
+            <wsdl:fault message="impl:CoreExceptionFaultMessage" name="CoreExceptionFault" />
+            <wsdl:fault message="impl:IllegalArgumentValueExceptionFaultMessage" name="IllegalArgumentValueExceptionFault" />
+        </wsdl:operation>
+        <wsdl:operation name="stopRefresh">
+            <wsdl:input message="impl:stopRefreshRequest" name="stopRefreshRequest" />
+            <wsdl:output message="impl:stopRefreshResponse" name="stopRefreshResponse" />
+            <wsdl:fault message="impl:InvalidUserContextExceptionFaultMessage" name="InvalidUserContextExceptionFault" />
+            <wsdl:fault message="impl:StaleConversationCredentialsExceptionFaultMessage" name="StaleConversationCredentialsExceptionFault" />
+            <wsdl:fault message="impl:InvalidItemExceptionFaultMessage" name="InvalidItemExceptionFault" />
+            <wsdl:fault message="impl:InvalidConversationCredentialsExceptionFaultMessage" name="InvalidConversationCredentialsExceptionFault" />
+            <wsdl:fault message="impl:CoreExceptionFaultMessage" name="CoreExceptionFault" />
+            <wsdl:fault message="impl:IllegalArgumentValueExceptionFaultMessage" name="IllegalArgumentValueExceptionFault" />
+        </wsdl:operation>
+        <wsdl:operation name="stopRefresh1">
+            <wsdl:input message="impl:stopRefresh1Request" name="stopRefresh1Request" />
+            <wsdl:output message="impl:stopRefresh1Response" name="stopRefresh1Response" />
+            <wsdl:fault message="impl:InvalidUserContextExceptionFaultMessage" name="InvalidUserContextExceptionFault" />
+            <wsdl:fault message="impl:StaleConversationCredentialsExceptionFaultMessage" name="StaleConversationCredentialsExceptionFault" />
+            <wsdl:fault message="impl:InvalidItemExceptionFaultMessage" name="InvalidItemExceptionFault" />
+            <wsdl:fault message="impl:InvalidConversationCredentialsExceptionFaultMessage" name="InvalidConversationCredentialsExceptionFault" />
+            <wsdl:fault message="impl:CoreExceptionFaultMessage" name="CoreExceptionFault" />
+            <wsdl:fault message="impl:IllegalArgumentValueExceptionFaultMessage" name="IllegalArgumentValueExceptionFault" />
+        </wsdl:operation>
+        <wsdl:operation name="stopRefreshingAllItems">
+            <wsdl:input message="impl:stopRefreshingAllItemsRequest" name="stopRefreshingAllItemsRequest" />
+            <wsdl:output message="impl:stopRefreshingAllItemsResponse" name="stopRefreshingAllItemsResponse" />
+            <wsdl:fault message="impl:InvalidUserContextExceptionFaultMessage" name="InvalidUserContextExceptionFault" />
+            <wsdl:fault message="impl:StaleConversationCredentialsExceptionFaultMessage" name="StaleConversationCredentialsExceptionFault" />
+            <wsdl:fault message="impl:InvalidConversationCredentialsExceptionFaultMessage" name="InvalidConversationCredentialsExceptionFault" />
+            <wsdl:fault message="impl:CoreExceptionFaultMessage" name="CoreExceptionFault" />
+            <wsdl:fault message="impl:IllegalArgumentValueExceptionFaultMessage" name="IllegalArgumentValueExceptionFault" />
+        </wsdl:operation>
+        <wsdl:operation name="stopRefreshingItem">
+            <wsdl:input message="impl:stopRefreshingItemRequest" name="stopRefreshingItemRequest" />
+            <wsdl:output message="impl:stopRefreshingItemResponse" name="stopRefreshingItemResponse" />
+            <wsdl:fault message="impl:InvalidUserContextExceptionFaultMessage" name="InvalidUserContextExceptionFault" />
+            <wsdl:fault message="impl:StaleConversationCredentialsExceptionFaultMessage" name="StaleConversationCredentialsExceptionFault" />
+            <wsdl:fault message="impl:InvalidItemExceptionFaultMessage" name="InvalidItemExceptionFault" />
+            <wsdl:fault message="impl:InvalidConversationCredentialsExceptionFaultMessage" name="InvalidConversationCredentialsExceptionFault" />
+            <wsdl:fault message="impl:CoreExceptionFaultMessage" name="CoreExceptionFault" />
+            <wsdl:fault message="impl:IllegalArgumentValueExceptionFaultMessage" name="IllegalArgumentValueExceptionFault" />
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="RefreshServiceSoapBinding" type="impl:Refresh">
+        <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+        <wsdl:operation name="getMFAResponse">
+            <wsdlsoap:operation soapAction="urn:getMFAResponse" />
+            <wsdl:input name="getMFAResponseRequest">
+                <wsdlsoap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="getMFAResponseResponse">
+                <wsdlsoap:body use="literal" />
+            </wsdl:output>
+            <wsdl:fault name="InvalidUserContextExceptionFault">
+                <wsdlsoap:fault name="InvalidUserContextExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="StaleConversationCredentialsExceptionFault">
+                <wsdlsoap:fault name="StaleConversationCredentialsExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="InvalidItemExceptionFault">
+                <wsdlsoap:fault name="InvalidItemExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="MFARefreshExceptionFault">
+                <wsdlsoap:fault name="MFARefreshExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="InvalidConversationCredentialsExceptionFault">
+                <wsdlsoap:fault name="InvalidConversationCredentialsExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="CoreExceptionFault">
+                <wsdlsoap:fault name="CoreExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="IllegalArgumentValueExceptionFault">
+                <wsdlsoap:fault name="IllegalArgumentValueExceptionFault" use="literal" />
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getNextRefreshTime">
+            <wsdlsoap:operation soapAction="urn:getNextRefreshTime" />
+            <wsdl:input name="getNextRefreshTimeRequest">
+                <wsdlsoap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="getNextRefreshTimeResponse">
+                <wsdlsoap:body use="literal" />
+            </wsdl:output>
+            <wsdl:fault name="InvalidUserContextExceptionFault">
+                <wsdlsoap:fault name="InvalidUserContextExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="StaleConversationCredentialsExceptionFault">
+                <wsdlsoap:fault name="StaleConversationCredentialsExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="InvalidItemExceptionFault">
+                <wsdlsoap:fault name="InvalidItemExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="InvalidConversationCredentialsExceptionFault">
+                <wsdlsoap:fault name="InvalidConversationCredentialsExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="CoreExceptionFault">
+                <wsdlsoap:fault name="CoreExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="IllegalArgumentValueExceptionFault">
+                <wsdlsoap:fault name="IllegalArgumentValueExceptionFault" use="literal" />
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getNextRefreshTime1">
+            <wsdlsoap:operation soapAction="urn:getNextRefreshTime1" />
+            <wsdl:input name="getNextRefreshTime1Request">
+                <wsdlsoap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="getNextRefreshTime1Response">
+                <wsdlsoap:body use="literal" />
+            </wsdl:output>
+            <wsdl:fault name="InvalidUserContextExceptionFault">
+                <wsdlsoap:fault name="InvalidUserContextExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="StaleConversationCredentialsExceptionFault">
+                <wsdlsoap:fault name="StaleConversationCredentialsExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="InvalidItemExceptionFault">
+                <wsdlsoap:fault name="InvalidItemExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="InvalidConversationCredentialsExceptionFault">
+                <wsdlsoap:fault name="InvalidConversationCredentialsExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="CoreExceptionFault">
+                <wsdlsoap:fault name="CoreExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="IllegalArgumentValueExceptionFault">
+                <wsdlsoap:fault name="IllegalArgumentValueExceptionFault" use="literal" />
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getRefreshInfo">
+            <wsdlsoap:operation soapAction="urn:getRefreshInfo" />
+            <wsdl:input name="getRefreshInfoRequest">
+                <wsdlsoap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="getRefreshInfoResponse">
+                <wsdlsoap:body use="literal" />
+            </wsdl:output>
+            <wsdl:fault name="InvalidUserContextExceptionFault">
+                <wsdlsoap:fault name="InvalidUserContextExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="StaleConversationCredentialsExceptionFault">
+                <wsdlsoap:fault name="StaleConversationCredentialsExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="InvalidConversationCredentialsExceptionFault">
+                <wsdlsoap:fault name="InvalidConversationCredentialsExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="CoreExceptionFault">
+                <wsdlsoap:fault name="CoreExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="IllegalArgumentValueExceptionFault">
+                <wsdlsoap:fault name="IllegalArgumentValueExceptionFault" use="literal" />
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getRefreshInfo1">
+            <wsdlsoap:operation soapAction="urn:getRefreshInfo1" />
+            <wsdl:input name="getRefreshInfo1Request">
+                <wsdlsoap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="getRefreshInfo1Response">
+                <wsdlsoap:body use="literal" />
+            </wsdl:output>
+            <wsdl:fault name="InvalidUserContextExceptionFault">
+                <wsdlsoap:fault name="InvalidUserContextExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="StaleConversationCredentialsExceptionFault">
+                <wsdlsoap:fault name="StaleConversationCredentialsExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="InvalidItemExceptionFault">
+                <wsdlsoap:fault name="InvalidItemExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="InvalidConversationCredentialsExceptionFault">
+                <wsdlsoap:fault name="InvalidConversationCredentialsExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="CoreExceptionFault">
+                <wsdlsoap:fault name="CoreExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="IllegalArgumentValueExceptionFault">
+                <wsdlsoap:fault name="IllegalArgumentValueExceptionFault" use="literal" />
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getRefreshStatus">
+            <wsdlsoap:operation soapAction="urn:getRefreshStatus" />
+            <wsdl:input name="getRefreshStatusRequest">
+                <wsdlsoap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="getRefreshStatusResponse">
+                <wsdlsoap:body use="literal" />
+            </wsdl:output>
+            <wsdl:fault name="InvalidUserContextExceptionFault">
+                <wsdlsoap:fault name="InvalidUserContextExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="StaleConversationCredentialsExceptionFault">
+                <wsdlsoap:fault name="StaleConversationCredentialsExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="InvalidConversationCredentialsExceptionFault">
+                <wsdlsoap:fault name="InvalidConversationCredentialsExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="CoreExceptionFault">
+                <wsdlsoap:fault name="CoreExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="IllegalArgumentValueExceptionFault">
+                <wsdlsoap:fault name="IllegalArgumentValueExceptionFault" use="literal" />
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="isItemRefreshing">
+            <wsdlsoap:operation soapAction="urn:isItemRefreshing" />
+            <wsdl:input name="isItemRefreshingRequest">
+                <wsdlsoap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="isItemRefreshingResponse">
+                <wsdlsoap:body use="literal" />
+            </wsdl:output>
+            <wsdl:fault name="InvalidUserContextExceptionFault">
+                <wsdlsoap:fault name="InvalidUserContextExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="StaleConversationCredentialsExceptionFault">
+                <wsdlsoap:fault name="StaleConversationCredentialsExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="InvalidItemExceptionFault">
+                <wsdlsoap:fault name="InvalidItemExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="InvalidConversationCredentialsExceptionFault">
+                <wsdlsoap:fault name="InvalidConversationCredentialsExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="CoreExceptionFault">
+                <wsdlsoap:fault name="CoreExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="IllegalArgumentValueExceptionFault">
+                <wsdlsoap:fault name="IllegalArgumentValueExceptionFault" use="literal" />
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="putMFARequest">
+            <wsdlsoap:operation soapAction="urn:putMFARequest" />
+            <wsdl:input name="putMFARequestRequest">
+                <wsdlsoap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="putMFARequestResponse">
+                <wsdlsoap:body use="literal" />
+            </wsdl:output>
+            <wsdl:fault name="InvalidUserContextExceptionFault">
+                <wsdlsoap:fault name="InvalidUserContextExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="StaleConversationCredentialsExceptionFault">
+                <wsdlsoap:fault name="StaleConversationCredentialsExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="InvalidItemExceptionFault">
+                <wsdlsoap:fault name="InvalidItemExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="MFARefreshExceptionFault">
+                <wsdlsoap:fault name="MFARefreshExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="InvalidConversationCredentialsExceptionFault">
+                <wsdlsoap:fault name="InvalidConversationCredentialsExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="CoreExceptionFault">
+                <wsdlsoap:fault name="CoreExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="IllegalArgumentValueExceptionFault">
+                <wsdlsoap:fault name="IllegalArgumentValueExceptionFault" use="literal" />
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="setNextRefreshTime">
+            <wsdlsoap:operation soapAction="urn:setNextRefreshTime" />
+            <wsdl:input name="setNextRefreshTimeRequest">
+                <wsdlsoap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="setNextRefreshTimeResponse">
+                <wsdlsoap:body use="literal" />
+            </wsdl:output>
+            <wsdl:fault name="InvalidUserContextExceptionFault">
+                <wsdlsoap:fault name="InvalidUserContextExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="StaleConversationCredentialsExceptionFault">
+                <wsdlsoap:fault name="StaleConversationCredentialsExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="InvalidItemExceptionFault">
+                <wsdlsoap:fault name="InvalidItemExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="InvalidConversationCredentialsExceptionFault">
+                <wsdlsoap:fault name="InvalidConversationCredentialsExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="CoreExceptionFault">
+                <wsdlsoap:fault name="CoreExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="IllegalArgumentValueExceptionFault">
+                <wsdlsoap:fault name="IllegalArgumentValueExceptionFault" use="literal" />
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="setNextRefreshTime1">
+            <wsdlsoap:operation soapAction="urn:setNextRefreshTime1" />
+            <wsdl:input name="setNextRefreshTime1Request">
+                <wsdlsoap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="setNextRefreshTime1Response">
+                <wsdlsoap:body use="literal" />
+            </wsdl:output>
+            <wsdl:fault name="InvalidUserContextExceptionFault">
+                <wsdlsoap:fault name="InvalidUserContextExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="StaleConversationCredentialsExceptionFault">
+                <wsdlsoap:fault name="StaleConversationCredentialsExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="InvalidItemExceptionFault">
+                <wsdlsoap:fault name="InvalidItemExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="InvalidConversationCredentialsExceptionFault">
+                <wsdlsoap:fault name="InvalidConversationCredentialsExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="CoreExceptionFault">
+                <wsdlsoap:fault name="CoreExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="IllegalArgumentValueExceptionFault">
+                <wsdlsoap:fault name="IllegalArgumentValueExceptionFault" use="literal" />
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="startRefresh2">
+            <wsdlsoap:operation soapAction="urn:startRefresh2" />
+            <wsdl:input name="startRefresh2Request">
+                <wsdlsoap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="startRefresh2Response">
+                <wsdlsoap:body use="literal" />
+            </wsdl:output>
+            <wsdl:fault name="InvalidUserContextExceptionFault">
+                <wsdlsoap:fault name="InvalidUserContextExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="StaleConversationCredentialsExceptionFault">
+                <wsdlsoap:fault name="StaleConversationCredentialsExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="InvalidConversationCredentialsExceptionFault">
+                <wsdlsoap:fault name="InvalidConversationCredentialsExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="CoreExceptionFault">
+                <wsdlsoap:fault name="CoreExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="IllegalArgumentValueExceptionFault">
+                <wsdlsoap:fault name="IllegalArgumentValueExceptionFault" use="literal" />
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="startRefresh3">
+            <wsdlsoap:operation soapAction="urn:startRefresh3" />
+            <wsdl:input name="startRefresh3Request">
+                <wsdlsoap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="startRefresh3Response">
+                <wsdlsoap:body use="literal" />
+            </wsdl:output>
+            <wsdl:fault name="InvalidUserContextExceptionFault">
+                <wsdlsoap:fault name="InvalidUserContextExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="StaleConversationCredentialsExceptionFault">
+                <wsdlsoap:fault name="StaleConversationCredentialsExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="InvalidConversationCredentialsExceptionFault">
+                <wsdlsoap:fault name="InvalidConversationCredentialsExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="CoreExceptionFault">
+                <wsdlsoap:fault name="CoreExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="IllegalArgumentValueExceptionFault">
+                <wsdlsoap:fault name="IllegalArgumentValueExceptionFault" use="literal" />
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="startRefresh4">
+            <wsdlsoap:operation soapAction="urn:startRefresh4" />
+            <wsdl:input name="startRefresh4Request">
+                <wsdlsoap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="startRefresh4Response">
+                <wsdlsoap:body use="literal" />
+            </wsdl:output>
+            <wsdl:fault name="InvalidUserContextExceptionFault">
+                <wsdlsoap:fault name="InvalidUserContextExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="StaleConversationCredentialsExceptionFault">
+                <wsdlsoap:fault name="StaleConversationCredentialsExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="InvalidItemExceptionFault">
+                <wsdlsoap:fault name="InvalidItemExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="InvalidConversationCredentialsExceptionFault">
+                <wsdlsoap:fault name="InvalidConversationCredentialsExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="CoreExceptionFault">
+                <wsdlsoap:fault name="CoreExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="IllegalArgumentValueExceptionFault">
+                <wsdlsoap:fault name="IllegalArgumentValueExceptionFault" use="literal" />
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="startRefresh5">
+            <wsdlsoap:operation soapAction="urn:startRefresh5" />
+            <wsdl:input name="startRefresh5Request">
+                <wsdlsoap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="startRefresh5Response">
+                <wsdlsoap:body use="literal" />
+            </wsdl:output>
+            <wsdl:fault name="InvalidUserContextExceptionFault">
+                <wsdlsoap:fault name="InvalidUserContextExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="StaleConversationCredentialsExceptionFault">
+                <wsdlsoap:fault name="StaleConversationCredentialsExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="InvalidItemExceptionFault">
+                <wsdlsoap:fault name="InvalidItemExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="InvalidConversationCredentialsExceptionFault">
+                <wsdlsoap:fault name="InvalidConversationCredentialsExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="CoreExceptionFault">
+                <wsdlsoap:fault name="CoreExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="IllegalArgumentValueExceptionFault">
+                <wsdlsoap:fault name="IllegalArgumentValueExceptionFault" use="literal" />
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="startRefresh7">
+            <wsdlsoap:operation soapAction="urn:startRefresh7" />
+            <wsdl:input name="startRefresh7Request">
+                <wsdlsoap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="startRefresh7Response">
+                <wsdlsoap:body use="literal" />
+            </wsdl:output>
+            <wsdl:fault name="InvalidUserContextExceptionFault">
+                <wsdlsoap:fault name="InvalidUserContextExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="StaleConversationCredentialsExceptionFault">
+                <wsdlsoap:fault name="StaleConversationCredentialsExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="InvalidItemExceptionFault">
+                <wsdlsoap:fault name="InvalidItemExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="InvalidRefreshModeExceptionFault">
+                <wsdlsoap:fault name="InvalidRefreshModeExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="InvalidConversationCredentialsExceptionFault">
+                <wsdlsoap:fault name="InvalidConversationCredentialsExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="CoreExceptionFault">
+                <wsdlsoap:fault name="CoreExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="IllegalArgumentValueExceptionFault">
+                <wsdlsoap:fault name="IllegalArgumentValueExceptionFault" use="literal" />
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="startRefresh6">
+            <wsdlsoap:operation soapAction="urn:startRefresh6" />
+            <wsdl:input name="startRefresh6Request">
+                <wsdlsoap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="startRefresh6Response">
+                <wsdlsoap:body use="literal" />
+            </wsdl:output>
+            <wsdl:fault name="InvalidUserContextExceptionFault">
+                <wsdlsoap:fault name="InvalidUserContextExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="StaleConversationCredentialsExceptionFault">
+                <wsdlsoap:fault name="StaleConversationCredentialsExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="InvalidItemExceptionFault">
+                <wsdlsoap:fault name="InvalidItemExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="IncompleteArgumentExceptionFault">
+                <wsdlsoap:fault name="IncompleteArgumentExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="InvalidConversationCredentialsExceptionFault">
+                <wsdlsoap:fault name="InvalidConversationCredentialsExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="CoreExceptionFault">
+                <wsdlsoap:fault name="CoreExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="IllegalArgumentValueExceptionFault">
+                <wsdlsoap:fault name="IllegalArgumentValueExceptionFault" use="literal" />
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="startRefresh">
+            <wsdlsoap:operation soapAction="urn:startRefresh" />
+            <wsdl:input name="startRefreshRequest">
+                <wsdlsoap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="startRefreshResponse">
+                <wsdlsoap:body use="literal" />
+            </wsdl:output>
+            <wsdl:fault name="InvalidUserContextExceptionFault">
+                <wsdlsoap:fault name="InvalidUserContextExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="StaleConversationCredentialsExceptionFault">
+                <wsdlsoap:fault name="StaleConversationCredentialsExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="InvalidItemExceptionFault">
+                <wsdlsoap:fault name="InvalidItemExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="InvalidConversationCredentialsExceptionFault">
+                <wsdlsoap:fault name="InvalidConversationCredentialsExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="CoreExceptionFault">
+                <wsdlsoap:fault name="CoreExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="IllegalArgumentValueExceptionFault">
+                <wsdlsoap:fault name="IllegalArgumentValueExceptionFault" use="literal" />
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="startRefresh1">
+            <wsdlsoap:operation soapAction="urn:startRefresh1" />
+            <wsdl:input name="startRefresh1Request">
+                <wsdlsoap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="startRefresh1Response">
+                <wsdlsoap:body use="literal" />
+            </wsdl:output>
+            <wsdl:fault name="InvalidUserContextExceptionFault">
+                <wsdlsoap:fault name="InvalidUserContextExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="StaleConversationCredentialsExceptionFault">
+                <wsdlsoap:fault name="StaleConversationCredentialsExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="InvalidItemExceptionFault">
+                <wsdlsoap:fault name="InvalidItemExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="InvalidConversationCredentialsExceptionFault">
+                <wsdlsoap:fault name="InvalidConversationCredentialsExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="CoreExceptionFault">
+                <wsdlsoap:fault name="CoreExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="IllegalArgumentValueExceptionFault">
+                <wsdlsoap:fault name="IllegalArgumentValueExceptionFault" use="literal" />
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="startRefreshingAllItems">
+            <wsdlsoap:operation soapAction="urn:startRefreshingAllItems" />
+            <wsdl:input name="startRefreshingAllItemsRequest">
+                <wsdlsoap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="startRefreshingAllItemsResponse">
+                <wsdlsoap:body use="literal" />
+            </wsdl:output>
+            <wsdl:fault name="InvalidUserContextExceptionFault">
+                <wsdlsoap:fault name="InvalidUserContextExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="StaleConversationCredentialsExceptionFault">
+                <wsdlsoap:fault name="StaleConversationCredentialsExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="InvalidConversationCredentialsExceptionFault">
+                <wsdlsoap:fault name="InvalidConversationCredentialsExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="CoreExceptionFault">
+                <wsdlsoap:fault name="CoreExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="IllegalArgumentValueExceptionFault">
+                <wsdlsoap:fault name="IllegalArgumentValueExceptionFault" use="literal" />
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="startRefreshingItem">
+            <wsdlsoap:operation soapAction="urn:startRefreshingItem" />
+            <wsdl:input name="startRefreshingItemRequest">
+                <wsdlsoap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="startRefreshingItemResponse">
+                <wsdlsoap:body use="literal" />
+            </wsdl:output>
+            <wsdl:fault name="InvalidUserContextExceptionFault">
+                <wsdlsoap:fault name="InvalidUserContextExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="RefreshCompletedExceptionFault">
+                <wsdlsoap:fault name="RefreshCompletedExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="StaleConversationCredentialsExceptionFault">
+                <wsdlsoap:fault name="StaleConversationCredentialsExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="InvalidItemExceptionFault">
+                <wsdlsoap:fault name="InvalidItemExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="RefreshRejectedExceptionFault">
+                <wsdlsoap:fault name="RefreshRejectedExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="InvalidConversationCredentialsExceptionFault">
+                <wsdlsoap:fault name="InvalidConversationCredentialsExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="CoreExceptionFault">
+                <wsdlsoap:fault name="CoreExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="IllegalArgumentValueExceptionFault">
+                <wsdlsoap:fault name="IllegalArgumentValueExceptionFault" use="literal" />
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="startRefreshingItem1">
+            <wsdlsoap:operation soapAction="urn:startRefreshingItem1" />
+            <wsdl:input name="startRefreshingItem1Request">
+                <wsdlsoap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="startRefreshingItem1Response">
+                <wsdlsoap:body use="literal" />
+            </wsdl:output>
+            <wsdl:fault name="InvalidUserContextExceptionFault">
+                <wsdlsoap:fault name="InvalidUserContextExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="RefreshCompletedExceptionFault">
+                <wsdlsoap:fault name="RefreshCompletedExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="StaleConversationCredentialsExceptionFault">
+                <wsdlsoap:fault name="StaleConversationCredentialsExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="InvalidItemExceptionFault">
+                <wsdlsoap:fault name="InvalidItemExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="RefreshRejectedExceptionFault">
+                <wsdlsoap:fault name="RefreshRejectedExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="InvalidConversationCredentialsExceptionFault">
+                <wsdlsoap:fault name="InvalidConversationCredentialsExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="CoreExceptionFault">
+                <wsdlsoap:fault name="CoreExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="IllegalArgumentValueExceptionFault">
+                <wsdlsoap:fault name="IllegalArgumentValueExceptionFault" use="literal" />
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="stopRefresh2">
+            <wsdlsoap:operation soapAction="urn:stopRefresh2" />
+            <wsdl:input name="stopRefresh2Request">
+                <wsdlsoap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="stopRefresh2Response">
+                <wsdlsoap:body use="literal" />
+            </wsdl:output>
+            <wsdl:fault name="InvalidUserContextExceptionFault">
+                <wsdlsoap:fault name="InvalidUserContextExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="StaleConversationCredentialsExceptionFault">
+                <wsdlsoap:fault name="StaleConversationCredentialsExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="InvalidConversationCredentialsExceptionFault">
+                <wsdlsoap:fault name="InvalidConversationCredentialsExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="CoreExceptionFault">
+                <wsdlsoap:fault name="CoreExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="IllegalArgumentValueExceptionFault">
+                <wsdlsoap:fault name="IllegalArgumentValueExceptionFault" use="literal" />
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="stopRefresh">
+            <wsdlsoap:operation soapAction="urn:stopRefresh" />
+            <wsdl:input name="stopRefreshRequest">
+                <wsdlsoap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="stopRefreshResponse">
+                <wsdlsoap:body use="literal" />
+            </wsdl:output>
+            <wsdl:fault name="InvalidUserContextExceptionFault">
+                <wsdlsoap:fault name="InvalidUserContextExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="StaleConversationCredentialsExceptionFault">
+                <wsdlsoap:fault name="StaleConversationCredentialsExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="InvalidItemExceptionFault">
+                <wsdlsoap:fault name="InvalidItemExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="InvalidConversationCredentialsExceptionFault">
+                <wsdlsoap:fault name="InvalidConversationCredentialsExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="CoreExceptionFault">
+                <wsdlsoap:fault name="CoreExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="IllegalArgumentValueExceptionFault">
+                <wsdlsoap:fault name="IllegalArgumentValueExceptionFault" use="literal" />
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="stopRefresh1">
+            <wsdlsoap:operation soapAction="urn:stopRefresh1" />
+            <wsdl:input name="stopRefresh1Request">
+                <wsdlsoap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="stopRefresh1Response">
+                <wsdlsoap:body use="literal" />
+            </wsdl:output>
+            <wsdl:fault name="InvalidUserContextExceptionFault">
+                <wsdlsoap:fault name="InvalidUserContextExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="StaleConversationCredentialsExceptionFault">
+                <wsdlsoap:fault name="StaleConversationCredentialsExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="InvalidItemExceptionFault">
+                <wsdlsoap:fault name="InvalidItemExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="InvalidConversationCredentialsExceptionFault">
+                <wsdlsoap:fault name="InvalidConversationCredentialsExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="CoreExceptionFault">
+                <wsdlsoap:fault name="CoreExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="IllegalArgumentValueExceptionFault">
+                <wsdlsoap:fault name="IllegalArgumentValueExceptionFault" use="literal" />
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="stopRefreshingAllItems">
+            <wsdlsoap:operation soapAction="urn:stopRefreshingAllItems" />
+            <wsdl:input name="stopRefreshingAllItemsRequest">
+                <wsdlsoap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="stopRefreshingAllItemsResponse">
+                <wsdlsoap:body use="literal" />
+            </wsdl:output>
+            <wsdl:fault name="InvalidUserContextExceptionFault">
+                <wsdlsoap:fault name="InvalidUserContextExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="StaleConversationCredentialsExceptionFault">
+                <wsdlsoap:fault name="StaleConversationCredentialsExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="InvalidConversationCredentialsExceptionFault">
+                <wsdlsoap:fault name="InvalidConversationCredentialsExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="CoreExceptionFault">
+                <wsdlsoap:fault name="CoreExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="IllegalArgumentValueExceptionFault">
+                <wsdlsoap:fault name="IllegalArgumentValueExceptionFault" use="literal" />
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="stopRefreshingItem">
+            <wsdlsoap:operation soapAction="urn:stopRefreshingItem" />
+            <wsdl:input name="stopRefreshingItemRequest">
+                <wsdlsoap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="stopRefreshingItemResponse">
+                <wsdlsoap:body use="literal" />
+            </wsdl:output>
+            <wsdl:fault name="InvalidUserContextExceptionFault">
+                <wsdlsoap:fault name="InvalidUserContextExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="StaleConversationCredentialsExceptionFault">
+                <wsdlsoap:fault name="StaleConversationCredentialsExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="InvalidItemExceptionFault">
+                <wsdlsoap:fault name="InvalidItemExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="InvalidConversationCredentialsExceptionFault">
+                <wsdlsoap:fault name="InvalidConversationCredentialsExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="CoreExceptionFault">
+                <wsdlsoap:fault name="CoreExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="IllegalArgumentValueExceptionFault">
+                <wsdlsoap:fault name="IllegalArgumentValueExceptionFault" use="literal" />
+            </wsdl:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="RefreshService">
+        <wsdl:port binding="impl:RefreshServiceSoapBinding" name="RefreshService">
+            <wsdlsoap:address location="http://localhost:8080/yodsoap/services/RefreshService" />
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>
+

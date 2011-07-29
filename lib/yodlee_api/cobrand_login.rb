@@ -24,7 +24,7 @@ module YodleeApi
            :cobrand_id => credentials.cobrand_id,
            :application_id => credentials.application_id,
            :locale => credentials.locale,
-           :tnc_version => 1,             
+           :tnc_version => credentials.tnc_version,             
            :cobrand_credentials => {:login_name => credentials.cobrand_login, :password => credentials.cobrand_password },
                                    :attributes! => { :cobrand_credentials => { "xsi:type" => "login:CobrandPasswordCredentials"  } }
           }
@@ -78,6 +78,8 @@ module YodleeApi
          wsdl.endpoint = File.join(endpoint, soap_service)
          wsdl.namespace = "http://cobrandlogin.login.core.soap.yodlee.com"
       end
+      
+      login
     end
     
     # extracts cobrand_context in hash format from login and renew_conversation responses

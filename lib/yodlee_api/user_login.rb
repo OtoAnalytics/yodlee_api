@@ -25,7 +25,7 @@ module YodleeApi
     end
     
     # Attempts authentication of a user to the Yodlee software platform and logs in the user if the authentication is successful.
-    def login()
+    def login
       @response = client.request :log, :login2 do
         soap.element_form_default = :unqualified     
         soap.namespaces["xmlns:login"] = 'http://login.ext.soap.yodlee.com'
@@ -70,6 +70,8 @@ module YodleeApi
          wsdl.endpoint = File.join(endpoint, soap_service)
          wsdl.namespace = "http://login.login.core.soap.yodlee.com"
       end
+      
+      login
     end
     
     # parses the response of login2 and extracts the user_context

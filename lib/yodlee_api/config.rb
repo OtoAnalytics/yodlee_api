@@ -3,10 +3,10 @@ module YodleeApi
     # Global config.
     attr_accessor :application_id, :endpoint, :cobrand_login, :cobrand_password, :cobrand_id
     attr_writer :tnc_version
-        
+    
     # returns the terms and conditions statement version
     def tnc_version
-      @tnc_version || 1
+      @tnc_version || 2
     end
     
     # for deep copying hashes

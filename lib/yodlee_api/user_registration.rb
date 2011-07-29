@@ -47,15 +47,15 @@ module YodleeApi
     end
     
     # Unregisters a user from the Yodlee software platfiorm.
-    def unregister
-      raise "Cannot unregister out without a user context." if user_context.nil?
+    def unregister(context)
+      raise "Cannot unregister out without a user context." if context.nil?
       
       @response = client.request :user, :unregister do
         soap.element_form_default = :unqualified     
         soap.namespaces["xmlns:login"] = 'http://login.ext.soap.yodlee.com'
 
         soap.body = {
-          :user_context => user_context   
+          :user_context => context   
         }
       end
 
@@ -74,6 +74,8 @@ module YodleeApi
          wsdl.endpoint = File.join(endpoint, soap_service)
          wsdl.namespace = "http://userregistration.usermanagement.core.soap.yodlee.com"
       end
+      
+      register
     end
     
     # parses the response of register3 and extracts the user_context
