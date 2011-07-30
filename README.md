@@ -168,7 +168,7 @@ item_manager.update_credentials_for_item(login_manager.user_context, item_manage
 
 ```ruby
 data_service = YodleeApi::DataService.new(login_manager.user_context)
-accounts = data_service.get_account_summary(item_manager.item_id)
+accounts = data_service.get_account_summaries
 
 # The account summaries returned will be arrays of hashes with the format
 =>[
@@ -178,7 +178,31 @@ accounts = data_service.get_account_summary(item_manager.item_id)
 
 ```
 
-15) Fetch the transactions for an account
+15) Create a transaction search request using an account id fetched in step 14, the only required parameter is :account_id, 
+however, you can customize the search request by passing in values for other parameters. See  `YodleeApi::TransactionSearchRequest::Parameters`
+for possible values.
+
+```ruby
+search_request = YodleeApi::TransactionSearchRequest.new(:account_id => 11076596)
+```
+
+16) Fetch transactions using the transaction search service
+
+```ruby
+search_service = YodleeApi::TransactionSearch.new(login_manager.user_context)
+search_service.fetch_transactions(search_request)
+```
+
+The transactions will be stored in a hash with the following format:
+
+```ruby
+search_service.transactions
+=>[
+    {:transaction_id=>"23902396", :description=>"CHECKCARD 0725 CURRY UP NOW (TRUCK 2) SOUTH SAN FRACA xxxxxxxxxxxxxxxxxxx0000", :category_name=>"Restaurants/Dining", :categorization_keyword=>"curry", :amount=>"14.0", :currency_code=>"USD"}, 
+    {:transaction_id=>"23902600", :description=>"USPS xxxxxxxxx 07/25 #xxxxx2102 PURCHASE USPS xxxxxx0000/U PALO ALTO CA", :category_name=>"Postage and Shipping", :categorization_keyword=>"usps", :amount=>"29.95", :currency_code=>"USD"}
+  ]
+
+```
 
 Dependencies:
 -------------

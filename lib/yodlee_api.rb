@@ -9,6 +9,8 @@ require "yodlee_api/item_management"
 require "yodlee_api/user_login"
 require "yodlee_api/refresh_service"
 require "yodlee_api/data_service"
+require "yodlee_api/transaction_search"
+require "yodlee_api/transaction_search_request"
 
 module YodleeApi
   extend Config

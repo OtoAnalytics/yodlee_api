@@ -15,24 +15,24 @@ module YodleeApi
     YodleeApi.deep_copy(@user_context)
   end
   
-  def get_item_summary(item_id)
-    response = client.request :dat, :get_item_summary_for_item do
+  def get_account_summaries
+    response = client.request :dat, :get_item_summaries do
       soap.element_form_default = :unqualified     
       soap.namespaces["xmlns:login"] = 'http://login.ext.soap.yodlee.com'
 
       soap.body = {
-       :user_context => user_context,
-       :item_id => item_id
+       :ctx => user_context,
       }
     end
 
     response_xml = response.to_xml
-    parse_item_summary(response_xml)
+    parse_item_summaries(response_xml)
     
   end
   
+  private
 
-  def parse_item_summary(response_xml)
+  def parse_item_summaries(response_xml)
     doc = Nokogiri::XML(response_xml)
     response_hash = doc.search('itemData/accounts/elements').map { |account| 
       { 
@@ -42,7 +42,6 @@ module YodleeApi
     }   
   end
   
-  private
   
   def initialize(ctxt)
     @soap_service = "DataService"
