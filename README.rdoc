@@ -15,6 +15,7 @@ Gemfile
 
 
 1) create a global config and put it somewhere like config/environment.rb
+
 ```ruby
  YodleeApi.configure do |config| 
    config.application_id = "APP_ID" 
@@ -26,6 +27,8 @@ Gemfile
    config.endpoint = "https://some/endpoint/here"
  end
  ```
+ 
+ 
 2) Create a client and log in to the CobrandLoginService
   client = YodleeApi::CobrandLogin.new
 
