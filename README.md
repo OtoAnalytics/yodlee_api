@@ -107,6 +107,7 @@ service.sites[2882]
   }
 ```
 
+
 7) Display the content services to a user and grab input for the appropriate login form. Implementation will vary.
 
 8) Create an array of credential fields for the content service provider the user has chosen
