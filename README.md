@@ -12,8 +12,8 @@ Installation:
 ------------
 
 ```ruby
-Gemfile
- gem 'yodlee_api', :git => "git@github.com:OtoAnalytics/yodlee_api.git"
+# Gemfile
+gem 'yodlee_api', :git => "git@github.com:OtoAnalytics/yodlee_api.git"
 ```
 QuickStart Guide:
 -----------------
@@ -21,16 +21,16 @@ QuickStart Guide:
 1) create a global config and put it somewhere like config/environment.rb
 
 ```ruby
- YodleeApi.configure do |config| 
-   config.application_id = "APP_ID" 
-   config.cobrand_id = "COBRAND_ID"
-   config.cobrand_login = "COBRAND_USERNAME"
-   config.cobrand_password = "COBRAND_PASSWORD"
-   config.locale = {:country => "US", :language => "en"} # optional
-   config.tnc_version = 1 # optional
-   config.endpoint = "https://some/endpoint/here"
- end
- ```
+YodleeApi.configure do |config| 
+  config.application_id = "APP_ID" 
+  config.cobrand_id = "COBRAND_ID"
+  config.cobrand_login = "COBRAND_USERNAME"
+  config.cobrand_password = "COBRAND_PASSWORD"
+  config.locale = {:country => "US", :language => "en"} # optional
+  config.tnc_version = 1 # optional
+  config.endpoint = "https://some/endpoint/here"
+end
+```
  
  
 2) Create a client and log in to the CobrandLoginService
@@ -53,7 +53,6 @@ credentials = YodleeApi::CobrandCredentials.new(
 
 endpoint = "https://some/endpoint/here"
 client = YodleeApi::CobrandLogin.new(endpoint, credentials)
-client.login
 ```
 
 3) Create user credentials (email is only required for registration)
@@ -71,8 +70,7 @@ registration_manager = YodleeApi::UserRegistration.new(client.cobrand_context, u
 4b) If you already have a user with those credentials, log in instead
 
 ```ruby  
-  login_manager = YodleeApi::UserLogin.new(client.cobrand_context, user_creds) 
-  login_manager.login
+login_manager = YodleeApi::UserLogin.new(client.cobrand_context, user_creds) 
 ```
 
 5) Create a content service request to get the list of supported sites and their login forms
@@ -114,11 +112,11 @@ service.sites[2882]
 8) Create an array of credential fields for the content service provider the user has chosen
 
 ```ruby  
-  credential_fields = [
-    YodleeApi::CredentialFields.new(:name => "LOGIN", :display_name => "Online ID",  ..., :value => "fooooobarr", ... ),
-    YodleeApi::CredentialFields.new(:name => "PASSWORD", :display_name => "Passcode",  ..., :value => "1234foobarr", ... ),
-    YodleeApi::CredentialFields.new(:name => "", :display_name => "Verify Passcode",  ..., :value => "1234foobarr", ... ) 
-  ]
+credential_fields = [
+  YodleeApi::CredentialFields.new(:name => "LOGIN", :display_name => "Online ID",  ..., :value => "fooooobarr", ... ),
+  YodleeApi::CredentialFields.new(:name => "PASSWORD", :display_name => "Passcode",  ..., :value => "1234foobarr", ... ),
+  YodleeApi::CredentialFields.new(:name => "", :display_name => "Verify Passcode",  ..., :value => "1234foobarr", ... ) 
+]
 ```
   
 9) Add an account for the user
@@ -152,6 +150,7 @@ end
 ```ruby
 info_hash = refresh_service.get_refresh_info
 status_code = info_hash["statusCode"].to_i
+
 if status_code == 801
   # success, proceed to step 14
 elsif status_code == 402
