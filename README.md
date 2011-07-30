@@ -171,8 +171,8 @@ Dependencies:
 
 ```ruby
 savon, '>= 0.9.6'
-nokogiri
-ruby 1.9.2 (hashes in 1.8.7 don't store element order and that will cause all sorts of havoc)
+nokogiri, '>= 1.4.0'
+ruby, '1.9.2' #(hashes in 1.8.7 don't store element order and that will cause all sorts of havoc)
 ```
 
 LICENSE:
