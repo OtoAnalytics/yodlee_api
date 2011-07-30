@@ -142,7 +142,7 @@ refresh_service.start_refresh(item_manager.item_id)
 ```ruby
 loop do
   break if refresh_service.is_item_refreshing(item_manager.item_id) == false
-  sleep(1)
+  sleep 1
 end
 
 ```
@@ -157,7 +157,6 @@ if status_code == 801
 elsif status_code == 402
   # invalid credentials, present login form to user to try again and proceed to step 13
 end
-  
 ```
 
 13) Update credentials if user passed in incorrect credentials and go back to step 10
@@ -168,14 +167,16 @@ item_manager.update_credentials_for_item(login_manager.user_context, item_manage
 
 14) Grab transaction data
 
-```ruby
-== Dependencies:
+Dependencies:
+-------------
 
- savon, '>= 0.9.6'
- nokogiri
- ruby 1.9.2 (hashes in 1.8.7 don't store element order and that will cause all sorts of havoc)
+```ruby
+savon, '>= 0.9.6'
+nokogiri
+ruby 1.9.2 (hashes in 1.8.7 don't store element order and that will cause all sorts of havoc)
 ```
 
-== LICENSE:
+LICENSE:
+--------
 
 Coming Soon.
