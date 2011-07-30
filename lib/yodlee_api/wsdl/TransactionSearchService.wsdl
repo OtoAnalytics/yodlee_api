@@ -1,0 +1,1436 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://transactionsearchservice.transactionsearch.core.soap.yodlee.com" xmlns:intf="http://transactionsearchservice.transactionsearch.core.soap.yodlee.com" xmlns:tns1="http://common.soap.yodlee.com" xmlns:tns10="http://dataservice.core.soap.yodlee.com" xmlns:tns11="http://sharedaccount.core.soap.yodlee.com" xmlns:tns12="http://manualtransaction.core.soap.yodlee.com" xmlns:tns13="http://client.ycache.system.util.soap.yodlee.com" xmlns:tns14="http://ycache.system.util.soap.yodlee.com" xmlns:tns15="http://permissioning.core.soap.yodlee.com" xmlns:tns16="http://searchmanagement.permissioning.core.soap.yodlee.com" xmlns:tns17="http://common.collections.soap.yodlee.com" xmlns:tns18="http://saml.ext.soap.yodlee.com" xmlns:tns19="http://settings.config.system.core.soap.yodlee.com" xmlns:tns2="http://collections.soap.yodlee.com" xmlns:tns20="http://ccw.ext.soap.yodlee.com" xmlns:tns3="http://login.ext.soap.yodlee.com" xmlns:tns4="http://usermanagement.core.soap.yodlee.com" xmlns:tns5="http://transactionsearch.core.soap.yodlee.com" xmlns:tns6="http://core.soap.yodlee.com" xmlns:tns7="http://exceptions.transactionsearch.core.soap.yodlee.com" xmlns:tns8="http://transactionsearch.core.collections.soap.yodlee.com" xmlns:tns9="http://transactionmanagement.core.soap.yodlee.com" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://transactionsearchservice.transactionsearch.core.soap.yodlee.com">
+    <!--WSDL created by Apache Axis version: 1.4Built on Apr 22, 2006 (06:55:48 PDT)-->
+    <wsdl:types>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="http://transactionsearchservice.transactionsearch.core.soap.yodlee.com">
+            <import namespace="http://searchmanagement.permissioning.core.soap.yodlee.com" />
+            <import namespace="http://settings.config.system.core.soap.yodlee.com" />
+            <import namespace="http://usermanagement.core.soap.yodlee.com" />
+            <import namespace="http://transactionsearch.core.collections.soap.yodlee.com" />
+            <import namespace="http://ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://core.soap.yodlee.com" />
+            <import namespace="http://ccw.ext.soap.yodlee.com" />
+            <import namespace="http://transactionmanagement.core.soap.yodlee.com" />
+            <import namespace="http://saml.ext.soap.yodlee.com" />
+            <import namespace="http://transactionsearch.core.soap.yodlee.com" />
+            <import namespace="http://login.ext.soap.yodlee.com" />
+            <import namespace="http://permissioning.core.soap.yodlee.com" />
+            <import namespace="http://exceptions.transactionsearch.core.soap.yodlee.com" />
+            <import namespace="http://manualtransaction.core.soap.yodlee.com" />
+            <import namespace="http://collections.soap.yodlee.com" />
+            <import namespace="http://sharedaccount.core.soap.yodlee.com" />
+            <import namespace="http://client.ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://common.collections.soap.yodlee.com" />
+            <import namespace="http://dataservice.core.soap.yodlee.com" />
+            <import namespace="http://common.soap.yodlee.com" />
+            <element name="clearUserTransactions">
+                <complexType>
+                    <sequence>
+                        <element name="userContext" type="tns1:UserContext" nillable="true" minOccurs="0" />
+                        <element name="transactionSearchIdentifier" type="tns5:TransactionSearchIdentifier" nillable="true" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="clearUserTransactionsResponse">
+                <complexType />
+            </element>
+            <element name="executeUserSearchRequest">
+                <complexType>
+                    <sequence>
+                        <element name="userContext" type="tns1:UserContext" nillable="true" minOccurs="0" />
+                        <element name="transactionSearchRequest" type="tns5:TransactionSearchRequest" nillable="true" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="executeUserSearchRequestResponse">
+                <complexType>
+                    <sequence>
+                        <element name="executeUserSearchRequestReturn" type="tns5:TransactionSearchExecInfo" nillable="true" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="getUserTransactions">
+                <complexType>
+                    <sequence>
+                        <element name="userContext" type="tns1:UserContext" nillable="true" minOccurs="0" />
+                        <element name="searchFetchRequest" type="tns5:TransactionSearchFetchRequest" nillable="true" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="getUserTransactionsResponse">
+                <complexType>
+                    <sequence>
+                        <element name="getUserTransactionsReturn" type="tns5:TransactionSearchResult" nillable="true" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+        </schema>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="http://common.soap.yodlee.com">
+            <import namespace="http://searchmanagement.permissioning.core.soap.yodlee.com" />
+            <import namespace="http://settings.config.system.core.soap.yodlee.com" />
+            <import namespace="http://usermanagement.core.soap.yodlee.com" />
+            <import namespace="http://transactionsearch.core.collections.soap.yodlee.com" />
+            <import namespace="http://ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://core.soap.yodlee.com" />
+            <import namespace="http://ccw.ext.soap.yodlee.com" />
+            <import namespace="http://transactionmanagement.core.soap.yodlee.com" />
+            <import namespace="http://saml.ext.soap.yodlee.com" />
+            <import namespace="http://transactionsearch.core.soap.yodlee.com" />
+            <import namespace="http://login.ext.soap.yodlee.com" />
+            <import namespace="http://permissioning.core.soap.yodlee.com" />
+            <import namespace="http://transactionsearchservice.transactionsearch.core.soap.yodlee.com" />
+            <import namespace="http://exceptions.transactionsearch.core.soap.yodlee.com" />
+            <import namespace="http://manualtransaction.core.soap.yodlee.com" />
+            <import namespace="http://collections.soap.yodlee.com" />
+            <import namespace="http://sharedaccount.core.soap.yodlee.com" />
+            <import namespace="http://client.ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://common.collections.soap.yodlee.com" />
+            <import namespace="http://dataservice.core.soap.yodlee.com" />
+            <complexType abstract="true" name="ICobrandContext">
+                <sequence />
+            </complexType>
+            <complexType abstract="true" name="CCobrandContext">
+                <complexContent>
+                    <extension base="tns1:ICobrandContext">
+                        <sequence />
+                    </extension>
+                </complexContent>
+            </complexType>
+            <complexType name="ConversationCredentials">
+                <sequence />
+            </complexType>
+            <simpleType name="CurrencyNotation">
+                <restriction base="xsd:string">
+                    <enumeration value="TEXT_NOTATION" />
+                    <enumeration value="SYMBOL_NOTATION" />
+                    <enumeration value="TEXT_SYMBOL_NOTATION" />
+                </restriction>
+            </simpleType>
+            <complexType name="NumberFormat">
+                <sequence>
+                    <element name="decimalSeparator" nillable="true" type="xsd:string" minOccurs="0" />
+                    <element name="groupingSeparator" nillable="true" type="xsd:string" minOccurs="0" />
+                    <element name="groupPattern" nillable="true" type="xsd:string" minOccurs="0" />
+                </sequence>
+            </complexType>
+            <complexType name="PreferenceInfo">
+                <sequence>
+                    <element name="currencyCode" nillable="true" type="xsd:string" minOccurs="0" />
+                    <element name="timeZone" nillable="true" type="xsd:string" minOccurs="0" />
+                    <element name="dateFormat" nillable="true" type="xsd:string" minOccurs="0" />
+                    <element name="currencyNotationType" nillable="true" type="tns1:CurrencyNotation" minOccurs="0" />
+                    <element name="numberFormat" nillable="true" type="tns1:NumberFormat" minOccurs="0" />
+                </sequence>
+            </complexType>
+            <complexType name="CobrandContext">
+                <complexContent>
+                    <extension base="tns1:CCobrandContext">
+                        <sequence>
+                            <element name="cobrandId" type="xsd:long" minOccurs="0" />
+                            <element name="channelId" type="xsd:long" minOccurs="0" />
+                            <element name="locale" nillable="true" type="tns2:Locale" minOccurs="0" />
+                            <element name="tncVersion" type="xsd:long" minOccurs="0" />
+                            <element name="applicationId" nillable="true" type="xsd:string" minOccurs="0" />
+                            <element name="cobrandConversationCredentials" nillable="true" type="tns1:ConversationCredentials" minOccurs="0" />
+                            <element name="validationHandler" nillable="true" type="xsd:string" minOccurs="0" />
+                            <element name="ipAddress" nillable="true" type="xsd:string" minOccurs="0" />
+                            <element name="preferenceInfo" nillable="true" type="tns1:PreferenceInfo" minOccurs="0" />
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <complexType name="UserCredentials">
+                <complexContent>
+                    <extension base="tns1:ConversationCredentials">
+                        <sequence />
+                    </extension>
+                </complexContent>
+            </complexType>
+            <complexType name="UserContext">
+                <complexContent>
+                    <extension base="tns1:CobrandContext">
+                        <sequence>
+                            <element name="conversationCredentials" nillable="true" type="tns1:ConversationCredentials" minOccurs="0" />
+                            <element name="valid" type="xsd:boolean" />
+                            <element name="isPasswordExpired" type="xsd:boolean" />
+                            <element name="oauthAccessCredentials" nillable="true" type="tns3:OAuthAccessCredentials" minOccurs="0" />
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <complexType name="CobrandCredentials">
+                <complexContent>
+                    <extension base="tns1:ConversationCredentials">
+                        <sequence />
+                    </extension>
+                </complexContent>
+            </complexType>
+            <simpleType name="UserType">
+                <restriction base="xsd:string">
+                    <enumeration value="NORMAL_USER" />
+                    <enumeration value="SUPPORT_USER" />
+                </restriction>
+            </simpleType>
+            <complexType name="SharedUserContext">
+                <complexContent>
+                    <extension base="tns1:UserContext">
+                        <sequence>
+                            <element name="grantorInfo" nillable="true" type="tns15:GrantorInfo" minOccurs="0" />
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <complexType name="NVPair">
+                <sequence>
+                    <element name="type" type="xsd:int" minOccurs="0" />
+                    <element name="name" nillable="true" type="xsd:string" minOccurs="0" />
+                    <element name="values" nillable="true" type="tns2:List" minOccurs="0" />
+                    <element name="status" type="xsd:int" minOccurs="0" />
+                </sequence>
+            </complexType>
+            <complexType name="AppSharedUserContext">
+                <complexContent>
+                    <extension base="tns1:SharedUserContext">
+                        <sequence>
+                            <element name="clientCacheContext" nillable="true" type="tns13:ClientCacheContext" minOccurs="0" />
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <complexType name="TempUserContext">
+                <complexContent>
+                    <extension base="tns1:UserContext">
+                        <sequence />
+                    </extension>
+                </complexContent>
+            </complexType>
+        </schema>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="http://collections.soap.yodlee.com">
+            <import namespace="http://searchmanagement.permissioning.core.soap.yodlee.com" />
+            <import namespace="http://settings.config.system.core.soap.yodlee.com" />
+            <import namespace="http://usermanagement.core.soap.yodlee.com" />
+            <import namespace="http://transactionsearch.core.collections.soap.yodlee.com" />
+            <import namespace="http://ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://core.soap.yodlee.com" />
+            <import namespace="http://ccw.ext.soap.yodlee.com" />
+            <import namespace="http://transactionmanagement.core.soap.yodlee.com" />
+            <import namespace="http://saml.ext.soap.yodlee.com" />
+            <import namespace="http://transactionsearch.core.soap.yodlee.com" />
+            <import namespace="http://login.ext.soap.yodlee.com" />
+            <import namespace="http://permissioning.core.soap.yodlee.com" />
+            <import namespace="http://transactionsearchservice.transactionsearch.core.soap.yodlee.com" />
+            <import namespace="http://exceptions.transactionsearch.core.soap.yodlee.com" />
+            <import namespace="http://manualtransaction.core.soap.yodlee.com" />
+            <import namespace="http://sharedaccount.core.soap.yodlee.com" />
+            <import namespace="http://client.ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://common.collections.soap.yodlee.com" />
+            <import namespace="http://dataservice.core.soap.yodlee.com" />
+            <import namespace="http://common.soap.yodlee.com" />
+            <complexType name="Locale">
+                <sequence>
+                    <element name="country" nillable="true" type="xsd:string" minOccurs="0" />
+                    <element name="language" nillable="true" type="xsd:string" minOccurs="0" />
+                    <element name="variant" nillable="true" type="xsd:string" minOccurs="0" />
+                </sequence>
+            </complexType>
+            <complexType name="ArrayOfString">
+                <sequence>
+                    <element name="elements" nillable="true" type="xsd:string" maxOccurs="unbounded" minOccurs="0" />
+                </sequence>
+            </complexType>
+            <complexType name="List">
+                <sequence>
+                    <element name="elements" nillable="true" type="xsd:anyType" maxOccurs="unbounded" minOccurs="0" />
+                </sequence>
+            </complexType>
+            <complexType name="ArrayOflong">
+                <sequence>
+                    <element name="elements" nillable="true" type="xsd:long" maxOccurs="unbounded" minOccurs="0" />
+                </sequence>
+            </complexType>
+            <complexType name="Entry">
+                <sequence>
+                    <element name="key" nillable="true" type="xsd:anyType" minOccurs="0" />
+                    <element name="value" nillable="true" type="xsd:anyType" minOccurs="0" />
+                </sequence>
+            </complexType>
+            <complexType name="Map">
+                <sequence>
+                    <element name="table" nillable="true" type="tns2:Entry" maxOccurs="unbounded" minOccurs="0" />
+                </sequence>
+            </complexType>
+        </schema>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="http://usermanagement.core.soap.yodlee.com">
+            <import namespace="http://searchmanagement.permissioning.core.soap.yodlee.com" />
+            <import namespace="http://settings.config.system.core.soap.yodlee.com" />
+            <import namespace="http://transactionsearch.core.collections.soap.yodlee.com" />
+            <import namespace="http://ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://core.soap.yodlee.com" />
+            <import namespace="http://ccw.ext.soap.yodlee.com" />
+            <import namespace="http://transactionmanagement.core.soap.yodlee.com" />
+            <import namespace="http://saml.ext.soap.yodlee.com" />
+            <import namespace="http://transactionsearch.core.soap.yodlee.com" />
+            <import namespace="http://login.ext.soap.yodlee.com" />
+            <import namespace="http://permissioning.core.soap.yodlee.com" />
+            <import namespace="http://transactionsearchservice.transactionsearch.core.soap.yodlee.com" />
+            <import namespace="http://exceptions.transactionsearch.core.soap.yodlee.com" />
+            <import namespace="http://manualtransaction.core.soap.yodlee.com" />
+            <import namespace="http://collections.soap.yodlee.com" />
+            <import namespace="http://sharedaccount.core.soap.yodlee.com" />
+            <import namespace="http://client.ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://common.collections.soap.yodlee.com" />
+            <import namespace="http://dataservice.core.soap.yodlee.com" />
+            <import namespace="http://common.soap.yodlee.com" />
+            <complexType name="ExternalUserCredentials">
+                <sequence>
+                    <element name="externalUserName" nillable="true" type="xsd:string" minOccurs="0" />
+                    <element name="externalUserPassword" nillable="true" type="xsd:string" minOccurs="0" />
+                </sequence>
+            </complexType>
+        </schema>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="http://login.ext.soap.yodlee.com">
+            <import namespace="http://searchmanagement.permissioning.core.soap.yodlee.com" />
+            <import namespace="http://settings.config.system.core.soap.yodlee.com" />
+            <import namespace="http://usermanagement.core.soap.yodlee.com" />
+            <import namespace="http://transactionsearch.core.collections.soap.yodlee.com" />
+            <import namespace="http://ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://core.soap.yodlee.com" />
+            <import namespace="http://ccw.ext.soap.yodlee.com" />
+            <import namespace="http://transactionmanagement.core.soap.yodlee.com" />
+            <import namespace="http://saml.ext.soap.yodlee.com" />
+            <import namespace="http://transactionsearch.core.soap.yodlee.com" />
+            <import namespace="http://permissioning.core.soap.yodlee.com" />
+            <import namespace="http://transactionsearchservice.transactionsearch.core.soap.yodlee.com" />
+            <import namespace="http://exceptions.transactionsearch.core.soap.yodlee.com" />
+            <import namespace="http://manualtransaction.core.soap.yodlee.com" />
+            <import namespace="http://collections.soap.yodlee.com" />
+            <import namespace="http://sharedaccount.core.soap.yodlee.com" />
+            <import namespace="http://client.ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://common.collections.soap.yodlee.com" />
+            <import namespace="http://dataservice.core.soap.yodlee.com" />
+            <import namespace="http://common.soap.yodlee.com" />
+            <complexType name="OAuthAccessCredentials">
+                <complexContent>
+                    <extension base="tns1:UserCredentials">
+                        <sequence>
+                            <element name="applicationIdentifier" nillable="true" type="xsd:string" minOccurs="0" />
+                            <element name="token" nillable="true" type="xsd:string" minOccurs="0" />
+                            <element name="tokenSecret" nillable="true" type="xsd:string" minOccurs="0" />
+                            <element name="signatureMethod" nillable="true" type="xsd:string" minOccurs="0" />
+                            <element name="signedToken" nillable="true" type="xsd:string" minOccurs="0" />
+                            <element name="memId" type="xsd:long" minOccurs="0" />
+                            <element name="externalUserCredentials" nillable="true" type="tns4:ExternalUserCredentials" minOccurs="0" />
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <complexType name="CobrandPasswordCredentials">
+                <complexContent>
+                    <extension base="tns1:CobrandCredentials">
+                        <sequence>
+                            <element name="loginName" nillable="true" type="xsd:string" minOccurs="0" />
+                            <element name="password" nillable="true" type="xsd:string" minOccurs="0" />
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <complexType name="YSSOCredentials">
+                <complexContent>
+                    <extension base="tns1:UserCredentials">
+                        <sequence>
+                            <element name="yssoLoginName" nillable="true" type="xsd:string" minOccurs="0" />
+                            <element name="yssoPassword" nillable="true" type="xsd:string" minOccurs="0" />
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <complexType name="TokenizedCredentials">
+                <complexContent>
+                    <extension base="tns1:UserCredentials">
+                        <sequence>
+                            <element name="token" nillable="true" type="xsd:string" minOccurs="0" />
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <complexType name="PasswordCredentials">
+                <complexContent>
+                    <extension base="tns1:UserCredentials">
+                        <sequence>
+                            <element name="loginName" nillable="true" type="xsd:string" minOccurs="0" />
+                            <element name="password" nillable="true" type="xsd:string" minOccurs="0" />
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <complexType name="SessionCredentials">
+                <complexContent>
+                    <extension base="tns1:ConversationCredentials">
+                        <sequence>
+                            <element name="sessionToken" nillable="true" type="xsd:string" minOccurs="0" />
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <complexType name="SharedLoginCredentials">
+                <complexContent>
+                    <extension base="tns3:SessionCredentials">
+                        <sequence>
+                            <element name="sharerToken" nillable="true" type="xsd:string" minOccurs="0" />
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <complexType name="ExternalAuthenticationCredentials">
+                <complexContent>
+                    <extension base="tns1:UserCredentials">
+                        <sequence />
+                    </extension>
+                </complexContent>
+            </complexType>
+            <complexType name="SMSCredentials">
+                <complexContent>
+                    <extension base="tns1:UserCredentials">
+                        <sequence>
+                            <element name="smsNumber" nillable="true" type="xsd:string" minOccurs="0" />
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <complexType name="UncertifiedSessionCredentials">
+                <complexContent>
+                    <extension base="tns1:ConversationCredentials">
+                        <sequence>
+                            <element name="sessionToken" nillable="true" type="xsd:string" minOccurs="0" />
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <complexType name="PWSSessionCredentials">
+                <complexContent>
+                    <extension base="tns1:ConversationCredentials">
+                        <sequence>
+                            <element name="sessionToken" nillable="true" type="xsd:string" minOccurs="0" />
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <complexType name="PWSCredentials">
+                <complexContent>
+                    <extension base="tns1:UserCredentials">
+                        <sequence>
+                            <element name="loginName" nillable="true" type="xsd:string" minOccurs="0" />
+                            <element name="password" nillable="true" type="xsd:string" minOccurs="0" />
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+        </schema>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="http://transactionsearch.core.soap.yodlee.com">
+            <import namespace="http://searchmanagement.permissioning.core.soap.yodlee.com" />
+            <import namespace="http://settings.config.system.core.soap.yodlee.com" />
+            <import namespace="http://usermanagement.core.soap.yodlee.com" />
+            <import namespace="http://transactionsearch.core.collections.soap.yodlee.com" />
+            <import namespace="http://ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://core.soap.yodlee.com" />
+            <import namespace="http://ccw.ext.soap.yodlee.com" />
+            <import namespace="http://transactionmanagement.core.soap.yodlee.com" />
+            <import namespace="http://saml.ext.soap.yodlee.com" />
+            <import namespace="http://login.ext.soap.yodlee.com" />
+            <import namespace="http://permissioning.core.soap.yodlee.com" />
+            <import namespace="http://transactionsearchservice.transactionsearch.core.soap.yodlee.com" />
+            <import namespace="http://exceptions.transactionsearch.core.soap.yodlee.com" />
+            <import namespace="http://manualtransaction.core.soap.yodlee.com" />
+            <import namespace="http://collections.soap.yodlee.com" />
+            <import namespace="http://sharedaccount.core.soap.yodlee.com" />
+            <import namespace="http://client.ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://common.collections.soap.yodlee.com" />
+            <import namespace="http://dataservice.core.soap.yodlee.com" />
+            <import namespace="http://common.soap.yodlee.com" />
+            <complexType name="TransactionSearchIdentifier">
+                <sequence>
+                    <element name="identifier" nillable="true" type="xsd:string" minOccurs="0" />
+                    <element name="identifiers" nillable="true" type="tns2:ArrayOfString" minOccurs="0" />
+                </sequence>
+            </complexType>
+            <complexType name="DateRange">
+                <sequence>
+                    <element name="fromDate" nillable="true" type="xsd:dateTime" minOccurs="0" />
+                    <element name="toDate" nillable="true" type="xsd:dateTime" minOccurs="0" />
+                    <element name="convertedFromDate" nillable="true" type="xsd:dateTime" minOccurs="0" />
+                    <element name="convertedToDate" nillable="true" type="xsd:dateTime" minOccurs="0" />
+                </sequence>
+            </complexType>
+            <complexType name="TransactionCategory">
+                <sequence>
+                    <element name="categoryId" nillable="true" type="xsd:long" minOccurs="0" />
+                    <element name="categoryName" nillable="true" type="xsd:string" minOccurs="0" />
+                    <element name="categoryType" nillable="true" type="xsd:string" minOccurs="0" />
+                    <element name="categoryTypeId" nillable="true" type="xsd:long" minOccurs="0" />
+                    <element name="localizedCategoryName" nillable="true" type="xsd:string" minOccurs="0" />
+                    <element name="localizedCategoryType" nillable="true" type="xsd:string" minOccurs="0" />
+                    <element name="categoryLevelId" nillable="true" type="xsd:long" minOccurs="0" />
+                    <element name="parentTransactionCategory" nillable="true" type="tns5:TransactionCategory" minOccurs="0" />
+                    <element name="childCategories" nillable="true" type="tns2:List" minOccurs="0" />
+                </sequence>
+            </complexType>
+            <complexType name="ItemAccountId">
+                <sequence>
+                    <element name="identifier" type="xsd:long" minOccurs="0" />
+                </sequence>
+            </complexType>
+            <complexType name="AmountRange">
+                <sequence>
+                    <element name="lowerLimit" nillable="true" type="xsd:double" minOccurs="0" />
+                    <element name="upperLimit" nillable="true" type="xsd:double" minOccurs="0" />
+                </sequence>
+            </complexType>
+            <complexType name="TransactionStatus">
+                <sequence>
+                    <element name="description" nillable="true" type="xsd:string" minOccurs="0" />
+                    <element name="statusId" type="xsd:long" minOccurs="0" />
+                    <element name="localizedDescription" nillable="true" type="xsd:string" minOccurs="0" />
+                </sequence>
+            </complexType>
+            <complexType name="TransactionClass">
+                <sequence>
+                    <element name="isBusinessExpense" nillable="true" type="xsd:long" minOccurs="0" />
+                    <element name="isTaxDeductible" nillable="true" type="xsd:long" minOccurs="0" />
+                    <element name="isMedicalExpense" nillable="true" type="xsd:long" minOccurs="0" />
+                    <element name="isReimbursable" nillable="true" type="xsd:long" minOccurs="0" />
+                </sequence>
+            </complexType>
+            <complexType name="CurrencyDescription">
+                <sequence>
+                    <element name="currencyId" nillable="true" type="xsd:long" minOccurs="0" />
+                    <element name="currencyType" nillable="true" type="xsd:string" minOccurs="0" />
+                </sequence>
+            </complexType>
+            <complexType name="TransactionSearchFilter">
+                <sequence>
+                    <element name="postDateRange" nillable="true" type="tns5:DateRange" minOccurs="0" />
+                    <element name="transactionCategory" nillable="true" type="tns5:TransactionCategory" minOccurs="0" />
+                    <element name="transactionCategories" nillable="true" type="tns8:ArrayOfTransactionCategory" minOccurs="0" />
+                    <element name="itemAccountId" nillable="true" type="tns5:ItemAccountId" minOccurs="0" />
+                    <element name="groupedItemAccountId" nillable="true" type="tns8:ArrayOfItemAccountId" minOccurs="0" />
+                    <element name="transactionAmountRange" nillable="true" type="tns5:AmountRange" minOccurs="0" />
+                    <element name="transactionStatus" nillable="true" type="tns5:TransactionStatus" minOccurs="0" />
+                    <element name="transactionTypeId" nillable="true" type="xsd:long" minOccurs="0" />
+                    <element name="sortByContainer" type="xsd:boolean" />
+                    <element name="sortByItemAccountId" type="xsd:boolean" />
+                    <element name="transactionId" nillable="true" type="tns2:ArrayOflong" minOccurs="0" />
+                    <element name="transactionClass" nillable="true" type="tns5:TransactionClass" minOccurs="0" />
+                    <element name="transactionAmount" nillable="true" type="xsd:double" minOccurs="0" />
+                    <element name="currencyDescription" nillable="true" type="tns5:CurrencyDescription" minOccurs="0" />
+                    <element name="transactionSplitType" nillable="true" type="tns9:TransactionSplitType" minOccurs="0" />
+                </sequence>
+            </complexType>
+            <complexType name="TransactionSearchResultRange">
+                <sequence>
+                    <element name="startNumber" type="xsd:long" minOccurs="0" />
+                    <element name="endNumber" type="xsd:long" minOccurs="0" />
+                </sequence>
+            </complexType>
+            <simpleType name="TransactionSearchClients">
+                <restriction base="xsd:string">
+                    <enumeration value="EXPORT_SERVICE_CLIENT" />
+                    <enumeration value="DEFAULT_SERVICE_CLIENT" />
+                </restriction>
+            </simpleType>
+            <simpleType name="TransactionSortCriteria">
+                <restriction base="xsd:string">
+                    <enumeration value="CONTAINER_ASC" />
+                    <enumeration value="CONTAINER_DESC" />
+                    <enumeration value="ACCOUNT_ASC" />
+                    <enumeration value="ACCOUNT_DESC" />
+                    <enumeration value="POST_DATE_ASC" />
+                    <enumeration value="POST_DATE_DESC" />
+                    <enumeration value="TRANSACTION_DATE_ASC" />
+                    <enumeration value="TRANSACTION_DATE_DESC" />
+                    <enumeration value="TRANSACTION_AMOUNT_ASC" />
+                    <enumeration value="TRANSACTION_AMOUNT_DESC" />
+                    <enumeration value="TRANSACTION_CATEGORY_ASC" />
+                    <enumeration value="TRANSACTION_CATEGORY_DESC" />
+                    <enumeration value="TRANSACTION_DESCRIPTION_ASC" />
+                    <enumeration value="TRANSACTION_DESCRIPTION_DESC" />
+                </restriction>
+            </simpleType>
+            <complexType name="TransactionSearchRequest">
+                <sequence>
+                    <element name="userInput" nillable="true" type="xsd:string" minOccurs="0" />
+                    <element name="searchFilter" nillable="true" type="tns5:TransactionSearchFilter" minOccurs="0" />
+                    <element name="resultRange" nillable="true" type="tns5:TransactionSearchResultRange" minOccurs="0" />
+                    <element name="ignoreUserInput" type="xsd:boolean" />
+                    <element name="containerType" nillable="true" type="xsd:string" minOccurs="0" />
+                    <element name="ignoreManualTransactions" type="xsd:boolean" />
+                    <element name="ignorePaymentTransactions" type="xsd:boolean" />
+                    <element name="ignoreFTTransactions" type="xsd:boolean" />
+                    <element name="ignorePendingTransactions" type="xsd:boolean" />
+                    <element name="computeRunningBalance" type="xsd:boolean" />
+                    <element name="computeProjectedBalance" type="xsd:boolean" />
+                    <element name="fetchFutureTransactions" type="xsd:boolean" />
+                    <element name="currentBalance" nillable="true" type="xsd:double" minOccurs="0" />
+                    <element name="availableBalance" nillable="true" type="xsd:double" minOccurs="0" />
+                    <element name="includeAggregatedTransactions" type="xsd:boolean" />
+                    <element name="calculateTransactionBalance" type="xsd:boolean" />
+                    <element name="ignoreTransferCategoryTransactions" type="xsd:boolean" />
+                    <element name="isSharedAccountTransactionReq" type="xsd:boolean" />
+                    <element name="searchClients" nillable="true" type="tns5:TransactionSearchClients" minOccurs="0" />
+                    <element name="higherFetchLimit" type="xsd:long" minOccurs="0" />
+                    <element name="lowerFetchLimit" type="xsd:long" minOccurs="0" />
+                    <element name="firstCall" type="xsd:boolean" />
+                    <element name="isAvailable" type="xsd:boolean" />
+                    <element name="ignoreBankTransactions" type="xsd:boolean" />
+                    <element name="ignoreCardTransactions" type="xsd:boolean" />
+                    <element name="ignoreLoanTransactions" type="xsd:boolean" />
+                    <element name="ignoreInsuranceTransactions" type="xsd:boolean" />
+                    <element name="ignoreInvestmentTransactions" type="xsd:boolean" />
+                    <element name="resultSortCriteria" nillable="true" type="tns8:ArrayOfTransactionSortCriteria" minOccurs="0" />
+                    <element name="forSpendingReports" type="xsd:boolean" />
+                    <element name="includeTransactionTypesForSpendingReports" nillable="true" type="tns2:ArrayOfString" minOccurs="0" />
+                    <element name="enableProjectedTransactionPartitioning" type="xsd:boolean" />
+                </sequence>
+            </complexType>
+            <complexType name="TransactionViewKey">
+                <sequence>
+                    <element name="transactionId" type="xsd:long" minOccurs="0" />
+                    <element name="containerType" nillable="true" type="xsd:string" minOccurs="0" />
+                    <element name="transactionCount" type="xsd:long" minOccurs="0" />
+                    <element name="rowNumber" type="xsd:long" minOccurs="0" />
+                    <element name="paymentTransactionId" nillable="true" type="xsd:string" minOccurs="0" />
+                    <element name="splitType" nillable="true" type="xsd:string" minOccurs="0" />
+                    <element name="parentId" nillable="true" type="xsd:long" minOccurs="0" />
+                    <element name="isParentMatch" type="xsd:boolean" />
+                    <element name="isSystemGeneratedSplit" type="xsd:boolean" />
+                </sequence>
+            </complexType>
+            <complexType name="TransactionDescription">
+                <sequence>
+                    <element name="description" nillable="true" type="xsd:string" minOccurs="0" />
+                    <element name="userDescription" nillable="true" type="xsd:string" minOccurs="0" />
+                    <element name="viewPref" type="xsd:boolean" />
+                    <element name="isOlbUserDescription" type="xsd:boolean" />
+                    <element name="simpleDescViewPref" nillable="true" type="xsd:long" minOccurs="0" />
+                    <element name="simpleDescription" nillable="true" type="xsd:string" minOccurs="0" />
+                    <element name="transactionTypeDesc" nillable="true" type="xsd:string" minOccurs="0" />
+                    <element name="merchantName" nillable="true" type="xsd:string" minOccurs="0" />
+                </sequence>
+            </complexType>
+            <complexType name="CheckNumber">
+                <sequence>
+                    <element name="checkNumber" nillable="true" type="xsd:string" minOccurs="0" />
+                </sequence>
+            </complexType>
+            <complexType name="TransactionMemo">
+                <sequence>
+                    <element name="memo" nillable="true" type="xsd:string" minOccurs="0" />
+                </sequence>
+            </complexType>
+            <complexType name="TransactionAccountView">
+                <sequence>
+                    <element name="accountNickName" nillable="true" type="xsd:string" minOccurs="0" />
+                    <element name="itemAccountId" type="xsd:long" minOccurs="0" />
+                    <element name="accountName" nillable="true" type="xsd:string" minOccurs="0" />
+                    <element name="decryptionStatus" type="xsd:boolean" />
+                    <element name="sumInfoId" type="xsd:long" minOccurs="0" />
+                    <element name="isAccountName" type="xsd:long" minOccurs="0" />
+                    <element name="siteName" nillable="true" type="xsd:string" minOccurs="0" />
+                    <element name="accessLevel" nillable="true" type="tns11:AccessLevel" minOccurs="0" />
+                    <element name="accountDisplayName" nillable="true" type="tns6:AccountDisplayName" minOccurs="0" />
+                    <element name="itemAccountStatusId" type="xsd:long" minOccurs="0" />
+                </sequence>
+            </complexType>
+            <complexType name="InvestmentTransactionView">
+                <sequence>
+                    <element name="cusipNumber" nillable="true" type="xsd:string" minOccurs="0" />
+                    <element name="symbol" nillable="true" type="xsd:string" minOccurs="0" />
+                    <element name="lotHandling" nillable="true" type="tns12:LotHandlingData" minOccurs="0" />
+                    <element name="holdingType" nillable="true" type="tns12:HoldingTypeData" minOccurs="0" />
+                    <element name="netCost" type="xsd:double" minOccurs="0" />
+                </sequence>
+            </complexType>
+            <complexType name="TransactionView">
+                <sequence>
+                    <element name="viewKey" nillable="true" type="tns5:TransactionViewKey" minOccurs="0" />
+                    <element name="description" nillable="true" type="tns5:TransactionDescription" minOccurs="0" />
+                    <element name="checkNumber" nillable="true" type="tns5:CheckNumber" minOccurs="0" />
+                    <element name="memo" nillable="true" type="tns5:TransactionMemo" minOccurs="0" />
+                    <element name="postDate" nillable="true" type="xsd:dateTime" minOccurs="0" />
+                    <element name="transactionPostingOrder" nillable="true" type="xsd:long" minOccurs="0" />
+                    <element name="transactionDate" nillable="true" type="xsd:dateTime" minOccurs="0" />
+                    <element name="category" nillable="true" type="tns5:TransactionCategory" minOccurs="0" />
+                    <element name="amount" nillable="true" type="tns10:YMoney" minOccurs="0" />
+                    <element name="status" nillable="true" type="tns5:TransactionStatus" minOccurs="0" />
+                    <element name="account" nillable="true" type="tns5:TransactionAccountView" minOccurs="0" />
+                    <element name="isTaxable" type="xsd:boolean" />
+                    <element name="isMedical" type="xsd:boolean" />
+                    <element name="isBusiness" type="xsd:boolean" />
+                    <element name="isReimbursable" type="xsd:boolean" />
+                    <element name="isPersonal" type="xsd:boolean" />
+                    <element name="transactionType" nillable="true" type="xsd:string" minOccurs="0" />
+                    <element name="transactionTypeId" type="xsd:long" minOccurs="0" />
+                    <element name="localizedTransactionType" nillable="true" type="xsd:string" minOccurs="0" />
+                    <element name="price" nillable="true" type="tns10:YMoney" minOccurs="0" />
+                    <element name="quantity" nillable="true" type="xsd:double" minOccurs="0" />
+                    <element name="categorizationKeyword" nillable="true" type="xsd:string" minOccurs="0" />
+                    <element name="runningBalance" type="xsd:double" minOccurs="0" />
+                    <element name="transactionSearchResultType" nillable="true" type="xsd:string" minOccurs="0" />
+                    <element name="accountName" nillable="true" type="xsd:string" minOccurs="0" />
+                    <element name="siteName" nillable="true" type="xsd:string" minOccurs="0" />
+                    <element name="rewardsAmount" nillable="true" type="xsd:string" minOccurs="0" />
+                    <element name="classUpdationSource" nillable="true" type="xsd:string" minOccurs="0" />
+                    <element name="investmentTransactionView" nillable="true" type="tns5:InvestmentTransactionView" minOccurs="0" />
+                    <element name="transactionBaseType" nillable="true" type="xsd:string" minOccurs="0" />
+                    <element name="transactionBaseTypeId" type="xsd:long" minOccurs="0" />
+                    <element name="localizedTransactionBaseType" nillable="true" type="xsd:string" minOccurs="0" />
+                    <element name="accessLevelRequired" type="xsd:long" minOccurs="0" />
+                    <element name="transactionView" nillable="true" type="tns8:ArrayOfTransactionView" minOccurs="0" />
+                    <element name="sharedByMemId" nillable="true" type="xsd:long" minOccurs="0" />
+                    <element name="siteTransactionId" nillable="true" type="xsd:string" minOccurs="0" />
+                    <element name="link" nillable="true" type="xsd:string" minOccurs="0" />
+                </sequence>
+            </complexType>
+            <complexType name="TransactionSearchResult">
+                <sequence>
+                    <element name="transactions" nillable="true" type="tns8:ArrayOfTransactionView" minOccurs="0" />
+                </sequence>
+            </complexType>
+            <complexType name="TransactionSearchExecInfo">
+                <sequence>
+                    <element name="searchIdentifier" nillable="true" type="tns5:TransactionSearchIdentifier" minOccurs="0" />
+                    <element name="numberOfHits" nillable="true" type="xsd:long" minOccurs="0" />
+                    <element name="searchResult" nillable="true" type="tns5:TransactionSearchResult" minOccurs="0" />
+                    <element name="numberOfHitsForProjected" nillable="true" type="xsd:long" minOccurs="0" />
+                    <element name="countOfAllTransaction" nillable="true" type="xsd:long" minOccurs="0" />
+                </sequence>
+            </complexType>
+            <complexType name="TransactionSearchFetchRequest">
+                <sequence>
+                    <element name="searchIdentifier" nillable="true" type="tns5:TransactionSearchIdentifier" minOccurs="0" />
+                    <element name="searchResultRange" nillable="true" type="tns5:TransactionSearchResultRange" minOccurs="0" />
+                </sequence>
+            </complexType>
+        </schema>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="http://core.soap.yodlee.com">
+            <import namespace="http://searchmanagement.permissioning.core.soap.yodlee.com" />
+            <import namespace="http://settings.config.system.core.soap.yodlee.com" />
+            <import namespace="http://usermanagement.core.soap.yodlee.com" />
+            <import namespace="http://transactionsearch.core.collections.soap.yodlee.com" />
+            <import namespace="http://ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://ccw.ext.soap.yodlee.com" />
+            <import namespace="http://transactionmanagement.core.soap.yodlee.com" />
+            <import namespace="http://saml.ext.soap.yodlee.com" />
+            <import namespace="http://transactionsearch.core.soap.yodlee.com" />
+            <import namespace="http://login.ext.soap.yodlee.com" />
+            <import namespace="http://permissioning.core.soap.yodlee.com" />
+            <import namespace="http://transactionsearchservice.transactionsearch.core.soap.yodlee.com" />
+            <import namespace="http://exceptions.transactionsearch.core.soap.yodlee.com" />
+            <import namespace="http://manualtransaction.core.soap.yodlee.com" />
+            <import namespace="http://collections.soap.yodlee.com" />
+            <import namespace="http://sharedaccount.core.soap.yodlee.com" />
+            <import namespace="http://client.ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://common.collections.soap.yodlee.com" />
+            <import namespace="http://dataservice.core.soap.yodlee.com" />
+            <import namespace="http://common.soap.yodlee.com" />
+            <complexType name="AccountDisplayName">
+                <sequence>
+                    <element name="accountNames" nillable="true" type="tns2:Map" minOccurs="0" />
+                    <element name="htmlFormattedAccountName" nillable="true" type="tns2:Map" minOccurs="0" />
+                    <element name="SPANCLASS" nillable="true" type="xsd:string" minOccurs="0" />
+                </sequence>
+            </complexType>
+            <element  name="CoreExceptionFault">
+                <complexType>
+                    <sequence>
+                        <element name="faultText" nillable="true" type="xsd:string" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element  name="InvalidConversationCredentialsExceptionFault">
+                <complexType>
+                    <sequence>
+                        <element name="faultText" nillable="true" type="xsd:string" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element  name="IllegalArgumentValueExceptionFault">
+                <complexType>
+                    <sequence>
+                        <element name="faultText" nillable="true" type="xsd:string" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element  name="InvalidUserContextExceptionFault">
+                <complexType>
+                    <sequence>
+                        <element name="faultText" nillable="true" type="xsd:string" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element  name="StaleConversationCredentialsExceptionFault">
+                <complexType>
+                    <sequence>
+                        <element name="faultText" nillable="true" type="xsd:string" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+        </schema>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="http://exceptions.transactionsearch.core.soap.yodlee.com">
+            <import namespace="http://searchmanagement.permissioning.core.soap.yodlee.com" />
+            <import namespace="http://settings.config.system.core.soap.yodlee.com" />
+            <import namespace="http://usermanagement.core.soap.yodlee.com" />
+            <import namespace="http://transactionsearch.core.collections.soap.yodlee.com" />
+            <import namespace="http://ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://core.soap.yodlee.com" />
+            <import namespace="http://ccw.ext.soap.yodlee.com" />
+            <import namespace="http://transactionmanagement.core.soap.yodlee.com" />
+            <import namespace="http://saml.ext.soap.yodlee.com" />
+            <import namespace="http://transactionsearch.core.soap.yodlee.com" />
+            <import namespace="http://login.ext.soap.yodlee.com" />
+            <import namespace="http://permissioning.core.soap.yodlee.com" />
+            <import namespace="http://transactionsearchservice.transactionsearch.core.soap.yodlee.com" />
+            <import namespace="http://manualtransaction.core.soap.yodlee.com" />
+            <import namespace="http://collections.soap.yodlee.com" />
+            <import namespace="http://sharedaccount.core.soap.yodlee.com" />
+            <import namespace="http://client.ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://common.collections.soap.yodlee.com" />
+            <import namespace="http://dataservice.core.soap.yodlee.com" />
+            <import namespace="http://common.soap.yodlee.com" />
+            <element  name="InvalidSearchIdentifierExceptionFault">
+                <complexType>
+                    <sequence>
+                        <element name="faultText" nillable="true" type="xsd:string" minOccurs="0" />
+                    </sequence>
+                </complexType>
+            </element>
+        </schema>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="http://transactionsearch.core.collections.soap.yodlee.com">
+            <import namespace="http://searchmanagement.permissioning.core.soap.yodlee.com" />
+            <import namespace="http://settings.config.system.core.soap.yodlee.com" />
+            <import namespace="http://usermanagement.core.soap.yodlee.com" />
+            <import namespace="http://ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://core.soap.yodlee.com" />
+            <import namespace="http://ccw.ext.soap.yodlee.com" />
+            <import namespace="http://transactionmanagement.core.soap.yodlee.com" />
+            <import namespace="http://saml.ext.soap.yodlee.com" />
+            <import namespace="http://transactionsearch.core.soap.yodlee.com" />
+            <import namespace="http://login.ext.soap.yodlee.com" />
+            <import namespace="http://permissioning.core.soap.yodlee.com" />
+            <import namespace="http://transactionsearchservice.transactionsearch.core.soap.yodlee.com" />
+            <import namespace="http://exceptions.transactionsearch.core.soap.yodlee.com" />
+            <import namespace="http://manualtransaction.core.soap.yodlee.com" />
+            <import namespace="http://collections.soap.yodlee.com" />
+            <import namespace="http://sharedaccount.core.soap.yodlee.com" />
+            <import namespace="http://client.ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://common.collections.soap.yodlee.com" />
+            <import namespace="http://dataservice.core.soap.yodlee.com" />
+            <import namespace="http://common.soap.yodlee.com" />
+            <complexType name="ArrayOfTransactionCategory">
+                <sequence>
+                    <element name="elements" nillable="true" type="tns5:TransactionCategory" maxOccurs="unbounded" minOccurs="0" />
+                </sequence>
+            </complexType>
+            <complexType name="ArrayOfItemAccountId">
+                <sequence>
+                    <element name="elements" nillable="true" type="tns5:ItemAccountId" maxOccurs="unbounded" minOccurs="0" />
+                </sequence>
+            </complexType>
+            <complexType name="ArrayOfTransactionSortCriteria">
+                <sequence>
+                    <element name="elements" nillable="true" type="tns5:TransactionSortCriteria" maxOccurs="unbounded" minOccurs="0" />
+                </sequence>
+            </complexType>
+            <complexType name="ArrayOfTransactionView">
+                <sequence>
+                    <element name="elements" nillable="true" type="tns5:TransactionView" maxOccurs="unbounded" minOccurs="0" />
+                </sequence>
+            </complexType>
+        </schema>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="http://transactionmanagement.core.soap.yodlee.com">
+            <import namespace="http://searchmanagement.permissioning.core.soap.yodlee.com" />
+            <import namespace="http://settings.config.system.core.soap.yodlee.com" />
+            <import namespace="http://usermanagement.core.soap.yodlee.com" />
+            <import namespace="http://transactionsearch.core.collections.soap.yodlee.com" />
+            <import namespace="http://ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://core.soap.yodlee.com" />
+            <import namespace="http://ccw.ext.soap.yodlee.com" />
+            <import namespace="http://saml.ext.soap.yodlee.com" />
+            <import namespace="http://transactionsearch.core.soap.yodlee.com" />
+            <import namespace="http://login.ext.soap.yodlee.com" />
+            <import namespace="http://permissioning.core.soap.yodlee.com" />
+            <import namespace="http://transactionsearchservice.transactionsearch.core.soap.yodlee.com" />
+            <import namespace="http://exceptions.transactionsearch.core.soap.yodlee.com" />
+            <import namespace="http://manualtransaction.core.soap.yodlee.com" />
+            <import namespace="http://collections.soap.yodlee.com" />
+            <import namespace="http://sharedaccount.core.soap.yodlee.com" />
+            <import namespace="http://client.ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://common.collections.soap.yodlee.com" />
+            <import namespace="http://dataservice.core.soap.yodlee.com" />
+            <import namespace="http://common.soap.yodlee.com" />
+            <simpleType name="TransactionSplitType">
+                <restriction base="xsd:string">
+                    <enumeration value="PARENT_TRANSACTION" />
+                    <enumeration value="SPLIT_TRANSACTION" />
+                    <enumeration value="ALL_TRANSACTION" />
+                    <enumeration value="PARENT_SPLIT_TRANSACTION" />
+                </restriction>
+            </simpleType>
+        </schema>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="http://dataservice.core.soap.yodlee.com">
+            <import namespace="http://searchmanagement.permissioning.core.soap.yodlee.com" />
+            <import namespace="http://settings.config.system.core.soap.yodlee.com" />
+            <import namespace="http://usermanagement.core.soap.yodlee.com" />
+            <import namespace="http://transactionsearch.core.collections.soap.yodlee.com" />
+            <import namespace="http://ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://core.soap.yodlee.com" />
+            <import namespace="http://ccw.ext.soap.yodlee.com" />
+            <import namespace="http://transactionmanagement.core.soap.yodlee.com" />
+            <import namespace="http://saml.ext.soap.yodlee.com" />
+            <import namespace="http://transactionsearch.core.soap.yodlee.com" />
+            <import namespace="http://login.ext.soap.yodlee.com" />
+            <import namespace="http://permissioning.core.soap.yodlee.com" />
+            <import namespace="http://transactionsearchservice.transactionsearch.core.soap.yodlee.com" />
+            <import namespace="http://exceptions.transactionsearch.core.soap.yodlee.com" />
+            <import namespace="http://manualtransaction.core.soap.yodlee.com" />
+            <import namespace="http://collections.soap.yodlee.com" />
+            <import namespace="http://sharedaccount.core.soap.yodlee.com" />
+            <import namespace="http://client.ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://common.collections.soap.yodlee.com" />
+            <import namespace="http://common.soap.yodlee.com" />
+            <complexType name="YMoney">
+                <sequence>
+                    <element name="amount" nillable="true" type="xsd:double" minOccurs="0" />
+                    <element name="currencyCode" nillable="true" type="xsd:string" minOccurs="0" />
+                </sequence>
+            </complexType>
+        </schema>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="http://sharedaccount.core.soap.yodlee.com">
+            <import namespace="http://searchmanagement.permissioning.core.soap.yodlee.com" />
+            <import namespace="http://settings.config.system.core.soap.yodlee.com" />
+            <import namespace="http://usermanagement.core.soap.yodlee.com" />
+            <import namespace="http://transactionsearch.core.collections.soap.yodlee.com" />
+            <import namespace="http://ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://core.soap.yodlee.com" />
+            <import namespace="http://ccw.ext.soap.yodlee.com" />
+            <import namespace="http://transactionmanagement.core.soap.yodlee.com" />
+            <import namespace="http://saml.ext.soap.yodlee.com" />
+            <import namespace="http://transactionsearch.core.soap.yodlee.com" />
+            <import namespace="http://login.ext.soap.yodlee.com" />
+            <import namespace="http://permissioning.core.soap.yodlee.com" />
+            <import namespace="http://transactionsearchservice.transactionsearch.core.soap.yodlee.com" />
+            <import namespace="http://exceptions.transactionsearch.core.soap.yodlee.com" />
+            <import namespace="http://manualtransaction.core.soap.yodlee.com" />
+            <import namespace="http://collections.soap.yodlee.com" />
+            <import namespace="http://client.ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://common.collections.soap.yodlee.com" />
+            <import namespace="http://dataservice.core.soap.yodlee.com" />
+            <import namespace="http://common.soap.yodlee.com" />
+            <simpleType name="AccessLevel">
+                <restriction base="xsd:string">
+                    <enumeration value="VIEW" />
+                    <enumeration value="VIEW_ALERT" />
+                    <enumeration value="FULL" />
+                </restriction>
+            </simpleType>
+        </schema>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="http://manualtransaction.core.soap.yodlee.com">
+            <import namespace="http://searchmanagement.permissioning.core.soap.yodlee.com" />
+            <import namespace="http://settings.config.system.core.soap.yodlee.com" />
+            <import namespace="http://usermanagement.core.soap.yodlee.com" />
+            <import namespace="http://transactionsearch.core.collections.soap.yodlee.com" />
+            <import namespace="http://ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://core.soap.yodlee.com" />
+            <import namespace="http://ccw.ext.soap.yodlee.com" />
+            <import namespace="http://transactionmanagement.core.soap.yodlee.com" />
+            <import namespace="http://saml.ext.soap.yodlee.com" />
+            <import namespace="http://transactionsearch.core.soap.yodlee.com" />
+            <import namespace="http://login.ext.soap.yodlee.com" />
+            <import namespace="http://permissioning.core.soap.yodlee.com" />
+            <import namespace="http://transactionsearchservice.transactionsearch.core.soap.yodlee.com" />
+            <import namespace="http://exceptions.transactionsearch.core.soap.yodlee.com" />
+            <import namespace="http://collections.soap.yodlee.com" />
+            <import namespace="http://sharedaccount.core.soap.yodlee.com" />
+            <import namespace="http://client.ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://common.collections.soap.yodlee.com" />
+            <import namespace="http://dataservice.core.soap.yodlee.com" />
+            <import namespace="http://common.soap.yodlee.com" />
+            <complexType name="LotHandlingData">
+                <sequence>
+                    <element name="lotHandlingId" type="xsd:long" minOccurs="0" />
+                    <element name="lotHandlingType" nillable="true" type="xsd:string" minOccurs="0" />
+                    <element name="localizedLotHandlingType" nillable="true" type="xsd:string" minOccurs="0" />
+                </sequence>
+            </complexType>
+            <complexType name="HoldingTypeData">
+                <sequence>
+                    <element name="holdingTypeId" type="xsd:long" minOccurs="0" />
+                    <element name="holdingType" nillable="true" type="xsd:string" minOccurs="0" />
+                    <element name="localizedHoldingType" nillable="true" type="xsd:string" minOccurs="0" />
+                </sequence>
+            </complexType>
+        </schema>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="http://ycache.system.util.soap.yodlee.com">
+            <import namespace="http://searchmanagement.permissioning.core.soap.yodlee.com" />
+            <import namespace="http://settings.config.system.core.soap.yodlee.com" />
+            <import namespace="http://usermanagement.core.soap.yodlee.com" />
+            <import namespace="http://transactionsearch.core.collections.soap.yodlee.com" />
+            <import namespace="http://core.soap.yodlee.com" />
+            <import namespace="http://ccw.ext.soap.yodlee.com" />
+            <import namespace="http://transactionmanagement.core.soap.yodlee.com" />
+            <import namespace="http://saml.ext.soap.yodlee.com" />
+            <import namespace="http://transactionsearch.core.soap.yodlee.com" />
+            <import namespace="http://login.ext.soap.yodlee.com" />
+            <import namespace="http://permissioning.core.soap.yodlee.com" />
+            <import namespace="http://transactionsearchservice.transactionsearch.core.soap.yodlee.com" />
+            <import namespace="http://exceptions.transactionsearch.core.soap.yodlee.com" />
+            <import namespace="http://manualtransaction.core.soap.yodlee.com" />
+            <import namespace="http://collections.soap.yodlee.com" />
+            <import namespace="http://sharedaccount.core.soap.yodlee.com" />
+            <import namespace="http://client.ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://common.collections.soap.yodlee.com" />
+            <import namespace="http://dataservice.core.soap.yodlee.com" />
+            <import namespace="http://common.soap.yodlee.com" />
+            <complexType abstract="true" name="Cacheable">
+                <sequence />
+            </complexType>
+        </schema>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="http://client.ycache.system.util.soap.yodlee.com">
+            <import namespace="http://searchmanagement.permissioning.core.soap.yodlee.com" />
+            <import namespace="http://settings.config.system.core.soap.yodlee.com" />
+            <import namespace="http://usermanagement.core.soap.yodlee.com" />
+            <import namespace="http://transactionsearch.core.collections.soap.yodlee.com" />
+            <import namespace="http://ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://core.soap.yodlee.com" />
+            <import namespace="http://ccw.ext.soap.yodlee.com" />
+            <import namespace="http://transactionmanagement.core.soap.yodlee.com" />
+            <import namespace="http://saml.ext.soap.yodlee.com" />
+            <import namespace="http://transactionsearch.core.soap.yodlee.com" />
+            <import namespace="http://login.ext.soap.yodlee.com" />
+            <import namespace="http://permissioning.core.soap.yodlee.com" />
+            <import namespace="http://transactionsearchservice.transactionsearch.core.soap.yodlee.com" />
+            <import namespace="http://exceptions.transactionsearch.core.soap.yodlee.com" />
+            <import namespace="http://manualtransaction.core.soap.yodlee.com" />
+            <import namespace="http://collections.soap.yodlee.com" />
+            <import namespace="http://sharedaccount.core.soap.yodlee.com" />
+            <import namespace="http://common.collections.soap.yodlee.com" />
+            <import namespace="http://dataservice.core.soap.yodlee.com" />
+            <import namespace="http://common.soap.yodlee.com" />
+            <complexType name="MessageCatalogInfo">
+                <sequence>
+                    <element name="catalogs" nillable="true" type="tns2:Map" minOccurs="0" />
+                    <element name="formats" nillable="true" type="tns2:Map" minOccurs="0" />
+                    <element name="resourceRegistry" nillable="true" type="tns2:Map" minOccurs="0" />
+                    <element name="messageCache" nillable="true" type="tns2:Map" minOccurs="0" />
+                    <element name="messageLookup" nillable="true" type="tns2:Map" minOccurs="0" />
+                </sequence>
+            </complexType>
+            <complexType abstract="true" name="ClientCache">
+                <complexContent>
+                    <extension base="tns14:Cacheable">
+                        <sequence>
+                            <element name="appCobParamsMap" nillable="true" type="tns2:Map" minOccurs="0" />
+                            <element name="returnNull" type="xsd:boolean" />
+                            <element name="messageCatalogInfo" nillable="true" type="tns13:MessageCatalogInfo" minOccurs="0" />
+                            <element name="isAppCobParamLoaded" type="xsd:boolean" />
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <complexType name="ClientCobrandCache">
+                <complexContent>
+                    <extension base="tns13:ClientCache">
+                        <sequence />
+                    </extension>
+                </complexContent>
+            </complexType>
+            <complexType name="ClientGenericCache">
+                <complexContent>
+                    <extension base="tns13:ClientCache">
+                        <sequence />
+                    </extension>
+                </complexContent>
+            </complexType>
+            <complexType name="ClientCacheContext">
+                <sequence>
+                    <element name="clientCobrandCache" nillable="true" type="tns13:ClientCobrandCache" minOccurs="0" />
+                    <element name="clientGenericCache" nillable="true" type="tns13:ClientGenericCache" minOccurs="0" />
+                    <element name="clientChannelCache" nillable="true" type="tns13:ClientCobrandCache" minOccurs="0" />
+                </sequence>
+            </complexType>
+        </schema>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="http://permissioning.core.soap.yodlee.com">
+            <import namespace="http://searchmanagement.permissioning.core.soap.yodlee.com" />
+            <import namespace="http://settings.config.system.core.soap.yodlee.com" />
+            <import namespace="http://usermanagement.core.soap.yodlee.com" />
+            <import namespace="http://transactionsearch.core.collections.soap.yodlee.com" />
+            <import namespace="http://ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://core.soap.yodlee.com" />
+            <import namespace="http://ccw.ext.soap.yodlee.com" />
+            <import namespace="http://transactionmanagement.core.soap.yodlee.com" />
+            <import namespace="http://saml.ext.soap.yodlee.com" />
+            <import namespace="http://transactionsearch.core.soap.yodlee.com" />
+            <import namespace="http://login.ext.soap.yodlee.com" />
+            <import namespace="http://transactionsearchservice.transactionsearch.core.soap.yodlee.com" />
+            <import namespace="http://exceptions.transactionsearch.core.soap.yodlee.com" />
+            <import namespace="http://manualtransaction.core.soap.yodlee.com" />
+            <import namespace="http://collections.soap.yodlee.com" />
+            <import namespace="http://sharedaccount.core.soap.yodlee.com" />
+            <import namespace="http://client.ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://common.collections.soap.yodlee.com" />
+            <import namespace="http://dataservice.core.soap.yodlee.com" />
+            <import namespace="http://common.soap.yodlee.com" />
+            <complexType name="GrantorInfo">
+                <sequence>
+                    <element name="grantorToken" nillable="true" type="xsd:string" minOccurs="0" />
+                    <element name="namespaceId" type="xsd:long" minOccurs="0" />
+                    <element name="userType" nillable="true" type="tns1:UserType" minOccurs="0" />
+                </sequence>
+            </complexType>
+            <complexType name="ExtendedGrantorInfo">
+                <complexContent>
+                    <extension base="tns15:GrantorInfo">
+                        <sequence>
+                            <element name="obo" type="xsd:boolean" />
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <complexType name="GrantorInfoWithData">
+                <complexContent>
+                    <extension base="tns15:GrantorInfo">
+                        <sequence>
+                            <element name="profileFields" nillable="true" type="tns2:List" minOccurs="0" />
+                            <element name="netWorth" nillable="true" type="xsd:anyType" minOccurs="0" />
+                            <element name="aggregateData" nillable="true" type="tns2:Map" minOccurs="0" />
+                            <element name="accountStatus" type="xsd:long" minOccurs="0" />
+                            <element name="advisorList" nillable="true" type="tns2:List" minOccurs="0" />
+                            <element name="lastAccessTime" nillable="true" type="xsd:long" minOccurs="0" />
+                            <element name="userName" nillable="true" type="xsd:string" minOccurs="0" />
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+        </schema>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="http://common.collections.soap.yodlee.com">
+            <import namespace="http://searchmanagement.permissioning.core.soap.yodlee.com" />
+            <import namespace="http://settings.config.system.core.soap.yodlee.com" />
+            <import namespace="http://usermanagement.core.soap.yodlee.com" />
+            <import namespace="http://transactionsearch.core.collections.soap.yodlee.com" />
+            <import namespace="http://ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://core.soap.yodlee.com" />
+            <import namespace="http://ccw.ext.soap.yodlee.com" />
+            <import namespace="http://transactionmanagement.core.soap.yodlee.com" />
+            <import namespace="http://saml.ext.soap.yodlee.com" />
+            <import namespace="http://transactionsearch.core.soap.yodlee.com" />
+            <import namespace="http://login.ext.soap.yodlee.com" />
+            <import namespace="http://permissioning.core.soap.yodlee.com" />
+            <import namespace="http://transactionsearchservice.transactionsearch.core.soap.yodlee.com" />
+            <import namespace="http://exceptions.transactionsearch.core.soap.yodlee.com" />
+            <import namespace="http://manualtransaction.core.soap.yodlee.com" />
+            <import namespace="http://collections.soap.yodlee.com" />
+            <import namespace="http://sharedaccount.core.soap.yodlee.com" />
+            <import namespace="http://client.ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://dataservice.core.soap.yodlee.com" />
+            <import namespace="http://common.soap.yodlee.com" />
+            <complexType name="ArrayOfNVPair">
+                <sequence>
+                    <element name="elements" nillable="true" type="tns1:NVPair" maxOccurs="unbounded" minOccurs="0" />
+                </sequence>
+            </complexType>
+        </schema>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="http://searchmanagement.permissioning.core.soap.yodlee.com">
+            <import namespace="http://settings.config.system.core.soap.yodlee.com" />
+            <import namespace="http://usermanagement.core.soap.yodlee.com" />
+            <import namespace="http://transactionsearch.core.collections.soap.yodlee.com" />
+            <import namespace="http://ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://core.soap.yodlee.com" />
+            <import namespace="http://ccw.ext.soap.yodlee.com" />
+            <import namespace="http://transactionmanagement.core.soap.yodlee.com" />
+            <import namespace="http://saml.ext.soap.yodlee.com" />
+            <import namespace="http://transactionsearch.core.soap.yodlee.com" />
+            <import namespace="http://login.ext.soap.yodlee.com" />
+            <import namespace="http://permissioning.core.soap.yodlee.com" />
+            <import namespace="http://transactionsearchservice.transactionsearch.core.soap.yodlee.com" />
+            <import namespace="http://exceptions.transactionsearch.core.soap.yodlee.com" />
+            <import namespace="http://manualtransaction.core.soap.yodlee.com" />
+            <import namespace="http://collections.soap.yodlee.com" />
+            <import namespace="http://sharedaccount.core.soap.yodlee.com" />
+            <import namespace="http://client.ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://common.collections.soap.yodlee.com" />
+            <import namespace="http://dataservice.core.soap.yodlee.com" />
+            <import namespace="http://common.soap.yodlee.com" />
+            <complexType name="GrantorSearchInfo">
+                <complexContent>
+                    <extension base="tns15:GrantorInfo">
+                        <sequence>
+                            <element name="profileFields" nillable="true" type="tns17:ArrayOfNVPair" minOccurs="0" />
+                            <element name="searchInfo" nillable="true" type="tns17:ArrayOfNVPair" minOccurs="0" />
+                            <element name="date" nillable="true" type="xsd:dateTime" minOccurs="0" />
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+        </schema>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="http://saml.ext.soap.yodlee.com">
+            <import namespace="http://searchmanagement.permissioning.core.soap.yodlee.com" />
+            <import namespace="http://settings.config.system.core.soap.yodlee.com" />
+            <import namespace="http://usermanagement.core.soap.yodlee.com" />
+            <import namespace="http://transactionsearch.core.collections.soap.yodlee.com" />
+            <import namespace="http://ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://core.soap.yodlee.com" />
+            <import namespace="http://ccw.ext.soap.yodlee.com" />
+            <import namespace="http://transactionmanagement.core.soap.yodlee.com" />
+            <import namespace="http://transactionsearch.core.soap.yodlee.com" />
+            <import namespace="http://login.ext.soap.yodlee.com" />
+            <import namespace="http://permissioning.core.soap.yodlee.com" />
+            <import namespace="http://transactionsearchservice.transactionsearch.core.soap.yodlee.com" />
+            <import namespace="http://exceptions.transactionsearch.core.soap.yodlee.com" />
+            <import namespace="http://manualtransaction.core.soap.yodlee.com" />
+            <import namespace="http://collections.soap.yodlee.com" />
+            <import namespace="http://sharedaccount.core.soap.yodlee.com" />
+            <import namespace="http://client.ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://common.collections.soap.yodlee.com" />
+            <import namespace="http://dataservice.core.soap.yodlee.com" />
+            <import namespace="http://common.soap.yodlee.com" />
+            <complexType name="SAMLCredentials">
+                <complexContent>
+                    <extension base="tns3:ExternalAuthenticationCredentials">
+                        <sequence>
+                            <element name="samlResponse" nillable="true" type="xsd:string" minOccurs="0" />
+                            <element name="issuerId" nillable="true" type="xsd:string" minOccurs="0" />
+                            <element name="artifactProfile" type="xsd:boolean" />
+                            <element name="sourceID" nillable="true" type="xsd:string" minOccurs="0" />
+                            <element name="decrypted" type="xsd:boolean" />
+                            <element name="source" nillable="true" type="xsd:string" minOccurs="0" />
+                            <element name="validateAssertionID" type="xsd:boolean" />
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+        </schema>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="http://settings.config.system.core.soap.yodlee.com">
+            <import namespace="http://searchmanagement.permissioning.core.soap.yodlee.com" />
+            <import namespace="http://usermanagement.core.soap.yodlee.com" />
+            <import namespace="http://transactionsearch.core.collections.soap.yodlee.com" />
+            <import namespace="http://ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://core.soap.yodlee.com" />
+            <import namespace="http://ccw.ext.soap.yodlee.com" />
+            <import namespace="http://transactionmanagement.core.soap.yodlee.com" />
+            <import namespace="http://saml.ext.soap.yodlee.com" />
+            <import namespace="http://transactionsearch.core.soap.yodlee.com" />
+            <import namespace="http://login.ext.soap.yodlee.com" />
+            <import namespace="http://permissioning.core.soap.yodlee.com" />
+            <import namespace="http://transactionsearchservice.transactionsearch.core.soap.yodlee.com" />
+            <import namespace="http://exceptions.transactionsearch.core.soap.yodlee.com" />
+            <import namespace="http://manualtransaction.core.soap.yodlee.com" />
+            <import namespace="http://collections.soap.yodlee.com" />
+            <import namespace="http://sharedaccount.core.soap.yodlee.com" />
+            <import namespace="http://client.ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://common.collections.soap.yodlee.com" />
+            <import namespace="http://dataservice.core.soap.yodlee.com" />
+            <import namespace="http://common.soap.yodlee.com" />
+            <complexType name="ConfigValue">
+                <complexContent>
+                    <extension base="tns1:NVPair">
+                        <sequence>
+                            <element name="groupId" type="xsd:int" minOccurs="0" />
+                            <element name="isGroup" type="xsd:boolean" />
+                            <element name="groupModuleName" nillable="true" type="xsd:string" minOccurs="0" />
+                            <element name="moduleName" nillable="true" type="xsd:string" minOccurs="0" />
+                            <element name="valueOrder" nillable="true" type="tns2:List" minOccurs="0" />
+                            <element name="isDefault" type="xsd:boolean" />
+                            <element name="description" nillable="true" type="xsd:string" minOccurs="0" />
+                            <element name="isBasic" type="xsd:int" minOccurs="0" />
+                            <element name="requiresRestart" type="xsd:int" minOccurs="0" />
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+        </schema>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="http://ccw.ext.soap.yodlee.com">
+            <import namespace="http://searchmanagement.permissioning.core.soap.yodlee.com" />
+            <import namespace="http://settings.config.system.core.soap.yodlee.com" />
+            <import namespace="http://usermanagement.core.soap.yodlee.com" />
+            <import namespace="http://transactionsearch.core.collections.soap.yodlee.com" />
+            <import namespace="http://ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://core.soap.yodlee.com" />
+            <import namespace="http://transactionmanagement.core.soap.yodlee.com" />
+            <import namespace="http://saml.ext.soap.yodlee.com" />
+            <import namespace="http://transactionsearch.core.soap.yodlee.com" />
+            <import namespace="http://login.ext.soap.yodlee.com" />
+            <import namespace="http://permissioning.core.soap.yodlee.com" />
+            <import namespace="http://transactionsearchservice.transactionsearch.core.soap.yodlee.com" />
+            <import namespace="http://exceptions.transactionsearch.core.soap.yodlee.com" />
+            <import namespace="http://manualtransaction.core.soap.yodlee.com" />
+            <import namespace="http://collections.soap.yodlee.com" />
+            <import namespace="http://sharedaccount.core.soap.yodlee.com" />
+            <import namespace="http://client.ycache.system.util.soap.yodlee.com" />
+            <import namespace="http://common.collections.soap.yodlee.com" />
+            <import namespace="http://dataservice.core.soap.yodlee.com" />
+            <import namespace="http://common.soap.yodlee.com" />
+            <complexType name="CCWCredentials">
+                <complexContent>
+                    <extension base="tns3:ExternalAuthenticationCredentials">
+                        <sequence>
+                            <element name="ccwToken" nillable="true" type="xsd:string" minOccurs="0" />
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+        </schema>
+    </wsdl:types>
+    <wsdl:message name="InvalidSearchIdentifierExceptionFaultMessage">
+        <wsdl:part element="tns7:InvalidSearchIdentifierExceptionFault" name="fault" />
+    </wsdl:message>
+    <wsdl:message name="clearUserTransactionsResponse">
+        <wsdl:part element="impl:clearUserTransactionsResponse" name="parameters" />
+    </wsdl:message>
+    <wsdl:message name="executeUserSearchRequestRequest">
+        <wsdl:part element="impl:executeUserSearchRequest" name="parameters" />
+    </wsdl:message>
+    <wsdl:message name="StaleConversationCredentialsExceptionFaultMessage">
+        <wsdl:part element="tns6:StaleConversationCredentialsExceptionFault" name="fault" />
+    </wsdl:message>
+    <wsdl:message name="InvalidUserContextExceptionFaultMessage">
+        <wsdl:part element="tns6:InvalidUserContextExceptionFault" name="fault" />
+    </wsdl:message>
+    <wsdl:message name="clearUserTransactionsRequest">
+        <wsdl:part element="impl:clearUserTransactions" name="parameters" />
+    </wsdl:message>
+    <wsdl:message name="getUserTransactionsRequest">
+        <wsdl:part element="impl:getUserTransactions" name="parameters" />
+    </wsdl:message>
+    <wsdl:message name="InvalidConversationCredentialsExceptionFaultMessage">
+        <wsdl:part element="tns6:InvalidConversationCredentialsExceptionFault" name="fault" />
+    </wsdl:message>
+    <wsdl:message name="CoreExceptionFaultMessage">
+        <wsdl:part element="tns6:CoreExceptionFault" name="fault" />
+    </wsdl:message>
+    <wsdl:message name="executeUserSearchRequestResponse">
+        <wsdl:part element="impl:executeUserSearchRequestResponse" name="parameters" />
+    </wsdl:message>
+    <wsdl:message name="IllegalArgumentValueExceptionFaultMessage">
+        <wsdl:part element="tns6:IllegalArgumentValueExceptionFault" name="fault" />
+    </wsdl:message>
+    <wsdl:message name="getUserTransactionsResponse">
+        <wsdl:part element="impl:getUserTransactionsResponse" name="parameters" />
+    </wsdl:message>
+    <wsdl:portType name="TransactionSearchService">
+        <wsdl:operation name="clearUserTransactions">
+            <wsdl:input message="impl:clearUserTransactionsRequest" name="clearUserTransactionsRequest" />
+            <wsdl:output message="impl:clearUserTransactionsResponse" name="clearUserTransactionsResponse" />
+            <wsdl:fault message="impl:InvalidUserContextExceptionFaultMessage" name="InvalidUserContextExceptionFault" />
+            <wsdl:fault message="impl:InvalidSearchIdentifierExceptionFaultMessage" name="InvalidSearchIdentifierExceptionFault" />
+            <wsdl:fault message="impl:StaleConversationCredentialsExceptionFaultMessage" name="StaleConversationCredentialsExceptionFault" />
+            <wsdl:fault message="impl:InvalidConversationCredentialsExceptionFaultMessage" name="InvalidConversationCredentialsExceptionFault" />
+            <wsdl:fault message="impl:CoreExceptionFaultMessage" name="CoreExceptionFault" />
+            <wsdl:fault message="impl:IllegalArgumentValueExceptionFaultMessage" name="IllegalArgumentValueExceptionFault" />
+        </wsdl:operation>
+        <wsdl:operation name="executeUserSearchRequest">
+            <wsdl:input message="impl:executeUserSearchRequestRequest" name="executeUserSearchRequestRequest" />
+            <wsdl:output message="impl:executeUserSearchRequestResponse" name="executeUserSearchRequestResponse" />
+            <wsdl:fault message="impl:InvalidUserContextExceptionFaultMessage" name="InvalidUserContextExceptionFault" />
+            <wsdl:fault message="impl:StaleConversationCredentialsExceptionFaultMessage" name="StaleConversationCredentialsExceptionFault" />
+            <wsdl:fault message="impl:InvalidConversationCredentialsExceptionFaultMessage" name="InvalidConversationCredentialsExceptionFault" />
+            <wsdl:fault message="impl:CoreExceptionFaultMessage" name="CoreExceptionFault" />
+            <wsdl:fault message="impl:IllegalArgumentValueExceptionFaultMessage" name="IllegalArgumentValueExceptionFault" />
+        </wsdl:operation>
+        <wsdl:operation name="getUserTransactions">
+            <wsdl:input message="impl:getUserTransactionsRequest" name="getUserTransactionsRequest" />
+            <wsdl:output message="impl:getUserTransactionsResponse" name="getUserTransactionsResponse" />
+            <wsdl:fault message="impl:InvalidUserContextExceptionFaultMessage" name="InvalidUserContextExceptionFault" />
+            <wsdl:fault message="impl:InvalidSearchIdentifierExceptionFaultMessage" name="InvalidSearchIdentifierExceptionFault" />
+            <wsdl:fault message="impl:StaleConversationCredentialsExceptionFaultMessage" name="StaleConversationCredentialsExceptionFault" />
+            <wsdl:fault message="impl:InvalidConversationCredentialsExceptionFaultMessage" name="InvalidConversationCredentialsExceptionFault" />
+            <wsdl:fault message="impl:CoreExceptionFaultMessage" name="CoreExceptionFault" />
+            <wsdl:fault message="impl:IllegalArgumentValueExceptionFaultMessage" name="IllegalArgumentValueExceptionFault" />
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="TransactionSearchServiceSoapBinding" type="impl:TransactionSearchService">
+        <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+        <wsdl:operation name="clearUserTransactions">
+            <wsdlsoap:operation soapAction="urn:clearUserTransactions" />
+            <wsdl:input name="clearUserTransactionsRequest">
+                <wsdlsoap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="clearUserTransactionsResponse">
+                <wsdlsoap:body use="literal" />
+            </wsdl:output>
+            <wsdl:fault name="InvalidUserContextExceptionFault">
+                <wsdlsoap:fault name="InvalidUserContextExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="InvalidSearchIdentifierExceptionFault">
+                <wsdlsoap:fault name="InvalidSearchIdentifierExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="StaleConversationCredentialsExceptionFault">
+                <wsdlsoap:fault name="StaleConversationCredentialsExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="InvalidConversationCredentialsExceptionFault">
+                <wsdlsoap:fault name="InvalidConversationCredentialsExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="CoreExceptionFault">
+                <wsdlsoap:fault name="CoreExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="IllegalArgumentValueExceptionFault">
+                <wsdlsoap:fault name="IllegalArgumentValueExceptionFault" use="literal" />
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="executeUserSearchRequest">
+            <wsdlsoap:operation soapAction="urn:executeUserSearchRequest" />
+            <wsdl:input name="executeUserSearchRequestRequest">
+                <wsdlsoap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="executeUserSearchRequestResponse">
+                <wsdlsoap:body use="literal" />
+            </wsdl:output>
+            <wsdl:fault name="InvalidUserContextExceptionFault">
+                <wsdlsoap:fault name="InvalidUserContextExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="StaleConversationCredentialsExceptionFault">
+                <wsdlsoap:fault name="StaleConversationCredentialsExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="InvalidConversationCredentialsExceptionFault">
+                <wsdlsoap:fault name="InvalidConversationCredentialsExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="CoreExceptionFault">
+                <wsdlsoap:fault name="CoreExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="IllegalArgumentValueExceptionFault">
+                <wsdlsoap:fault name="IllegalArgumentValueExceptionFault" use="literal" />
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getUserTransactions">
+            <wsdlsoap:operation soapAction="urn:getUserTransactions" />
+            <wsdl:input name="getUserTransactionsRequest">
+                <wsdlsoap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="getUserTransactionsResponse">
+                <wsdlsoap:body use="literal" />
+            </wsdl:output>
+            <wsdl:fault name="InvalidUserContextExceptionFault">
+                <wsdlsoap:fault name="InvalidUserContextExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="InvalidSearchIdentifierExceptionFault">
+                <wsdlsoap:fault name="InvalidSearchIdentifierExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="StaleConversationCredentialsExceptionFault">
+                <wsdlsoap:fault name="StaleConversationCredentialsExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="InvalidConversationCredentialsExceptionFault">
+                <wsdlsoap:fault name="InvalidConversationCredentialsExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="CoreExceptionFault">
+                <wsdlsoap:fault name="CoreExceptionFault" use="literal" />
+            </wsdl:fault>
+            <wsdl:fault name="IllegalArgumentValueExceptionFault">
+                <wsdlsoap:fault name="IllegalArgumentValueExceptionFault" use="literal" />
+            </wsdl:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="TransactionSearchServiceService">
+        <wsdl:port binding="impl:TransactionSearchServiceSoapBinding" name="TransactionSearchService">
+            <wsdlsoap:address location="http://localhost:8080/yodsoap/services/TransactionSearchService" />
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>
+

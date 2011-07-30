@@ -140,18 +140,18 @@ refresh_service.start_refresh(item_manager.item_id)
 ```ruby
 loop do
   break if refresh_service.is_item_refreshing(item_manager.item_id) == false
-  sleep 1
+  sleep 2
 end
 
 ```
 
-12) Get the refresh info and proceed if status code is 801
+12) Get the refresh info and proceed if status code is 0
 
 ```ruby
 info_hash = refresh_service.get_refresh_info
 status_code = info_hash["statusCode"].to_i
 
-if status_code == 801
+if status_code == 0
   # success, proceed to step 14
 elsif status_code == 402
   # invalid credentials, present login form to user to try again and proceed to step 13
@@ -164,7 +164,21 @@ end
 item_manager.update_credentials_for_item(login_manager.user_context, item_manager.item_id, credential_fields)
 ```
 
-14) Grab transaction data
+14) Grab the account summaries
+
+```ruby
+data_service = YodleeApi::DataService.new(login_manager.user_context)
+accounts = data_service.get_account_summary(item_manager.item_id)
+
+# The account summaries returned will be arrays of hashes with the format
+=>[
+    {:account_id=>"11076596", :account_name=>"MyAccess Checking-0123"},
+    {:account_id=>"11076597", :account_name=>"MyAccess Savings-4567"}
+  ] 
+
+```
+
+15) Fetch the transactions for an account
 
 Dependencies:
 -------------
