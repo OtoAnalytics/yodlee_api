@@ -134,20 +134,47 @@ item_manager.add_account_for_content_service(login_manager.user_context, 2931, c
 
 ```ruby
 refresh_service = YodleeApi::RefreshService.new(login_manager.user_context)
+refresh_service.start_refresh(item_manager.item_id)
 ```
 
-12) Update credentials if user passed in incorrect credentials and go back to step 10
-  item_manager.update_credentials_for_item(login_manager.user_context, item_manager.item_id, credential_fields)
+11) Poll the refresh service until item is done refreshing
 
+```ruby
+loop do
+  break if refresh_service.is_item_refreshing(item_manager.item_id) == false
+  sleep(1)
+end
 
-13) Grab transaction data
+```
 
+12) Get the refresh info and proceed if status code is 801
+
+```ruby
+info_hash = refresh_service.get_refresh_info
+status_code = info_hash["statusCode"].to_i
+if status_code == 801
+  # success, proceed to step 14
+elsif status_code == 402
+  # invalid credentials, present login form to user to try again and proceed to step 13
+end
+  
+```
+
+13) Update credentials if user passed in incorrect credentials and go back to step 10
+ 
+```ruby 
+item_manager.update_credentials_for_item(login_manager.user_context, item_manager.item_id, credential_fields)
+```
+
+14) Grab transaction data
+
+```ruby
 == Dependencies:
 
  savon, '>= 0.9.6'
  nokogiri
  ruby 1.9.2 (hashes in 1.8.7 don't store element order and that will cause all sorts of havoc)
-
+```
 
 == LICENSE:
 
