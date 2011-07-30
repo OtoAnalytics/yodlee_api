@@ -30,7 +30,7 @@ module YodleeApi
          :refresh_mode => "NORMAL_REFRESH_MODE"
        }
       }
-    end; nil
+    end
 
     response_xml = response.to_xml
     doc = Nokogiri::XML(response_xml)
@@ -48,7 +48,7 @@ module YodleeApi
        :user_context => user_context,
        :mem_item_id => item_id
       }
-    end; nil
+    end
 
     response_xml = response.to_xml
     doc = Nokogiri::XML(response_xml)
@@ -76,45 +76,22 @@ module YodleeApi
      end
 
      response_xml = response.to_xml
+     parse_refresh_info_return(response_xml)
   end
   
   
-  def parse_refresh_info_return(xml_response)
+  def parse_refresh_info_return(response_xml)
     doc = Nokogiri::XML(response_xml)
-    elements = doc.search('getRefreshInfo1Return/elements').map {|e| e.elements.inject({}) { |h, c| h[c.name.to_sym] = c.elements.size > 1 ? c.elements.map { |c| {c.name => c.text} } : c.text ; h }
-    
-    
-    # <getRefreshInfo1Return>
-    #                <elements>
-    #                   <itemId>11628812</itemId>
-    #                   <statusCode>402</statusCode>
-    #                   <refreshType>2</refreshType>
-    #                   <refreshRequestTime>0</refreshRequestTime>
-    #                   <lastUpdatedTime>0</lastUpdatedTime>
-    #                   <lastUpdateAttemptTime>1311973157</lastUpdateAttemptTime>
-    #                   <itemAccessStatus>ACCESS_NOT_VERIFIED</itemAccessStatus>
-    #                   <userActionRequiredType>CHANGE_CREDENTIALS</userActionRequiredType>
-    #                   <userActionRequiredCode>402</userActionRequiredCode>
-    #                   <userActionRequiredSince>2011-07-29T13:26:47.000-07:00</userActionRequiredSince>
-    #                   <lastDataUpdateAttempt>
-    #                      <date>2011-07-29T13:59:17.000-07:00</date>
-    #                      <status>LOGIN_FAILURE</status>
-    #                      <statusCode>402</statusCode>
-    #                      <type>USER_REQUESTED</type>
-    #                   </lastDataUpdateAttempt>
-    #                   <lastUserRequestedDataUpdateAttempt>
-    #                      <date>2011-07-29T13:59:17.000-07:00</date>
-    #                      <status>LOGIN_FAILURE</status>
-    #                      <statusCode>402</statusCode>
-    #                      <type>USER_REQUESTED</type>
-    #                   </lastUserRequestedDataUpdateAttempt>
-    #                   <itemCreateDate>2011-07-29T13:26:44.000-07:00</itemCreateDate>
-    #                   <nextUpdateTime>1934077866</nextUpdateTime>
-    #                   <responseCodeType>USER_ERROR</responseCodeType>
-    #                   <retryCount>2</retryCount>
-    #                   <refreshMode>NORMAL</refreshMode>
-    #                </elements>
-    #             </getRefreshInfo1Return>
+    response_hash = doc.search('getRefreshInfo1Return/elements').map { |field| 
+      field.elements.inject({}) { |h, c| 
+        if c.elements.size > 1
+          h[c.name] = c.elements.inject({}) {|a, b| a[b.name] = b.text ;  a }
+        else
+          h[c.name] = c.text 
+        end
+        h 
+      } 
+    }.first
   end
   
   private
