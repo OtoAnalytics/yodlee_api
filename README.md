@@ -76,13 +76,15 @@ login_manager = YodleeApi::UserLogin.new(client.cobrand_context, user_creds)
 5) Create a content service request to get the list of supported sites and their login forms
 
 ```ruby
-service = YodleeApi::ContentServices.new(:cobrand_context => client.cobrand_context, :container_types => "bank")
+services = YodleeApi::ContentServices.new(client.cobrand_context)
  
-# you can also specify an array of container_types, see YodleeApi::ContentServices::SupportedContainerTypes for a list of valid types
-services = YodleeApi::ContentServices.new(:cobrand_context => client.cobrand_context, :container_types => ["bank", "credits"])
 
-# Fetch the sites list
-service.get_content_services
+# Fetch the sites list for a container type
+service.get_sites("bank")
+
+# you can also specify an array of container_types, see YodleeApi::ContentServices::SupportedContainerTypes for a list of valid types
+service.get_content_services(["bank", "credits"])
+
 ```
 
 6) Access the sites list. The sites will be stored an array of hashes with keys :content_service_id, :site_name, :organization_name and :login_form

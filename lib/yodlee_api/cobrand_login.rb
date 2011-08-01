@@ -71,7 +71,7 @@ module YodleeApi
       
       Savon.configure do |config| 
         config.env_namespace= :soapenv 
-        config.log = false            # disable logging  
+        # config.log = false            # disable logging  
       end
       
       @client = Savon::Client.new do

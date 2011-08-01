@@ -10,10 +10,13 @@ module YodleeApi
   
     attr_accessor :container_types
     attr_writer :endpoint
-    attr_reader :client, :sites, :cobrand_context, :container_types, :soap_service, :response
+    attr_reader :client, :sites, :cobrand_context, :soap_service, :response
     
     # list of supported container types, see Yodlee 10.2 API docs for ContainerTypes
-    SupportedContainerTypes = ["bank", "credits"]
+    SupportedContainerTypes = 
+      %w[bank credits travel auction bank bills bill_payment cable_satellite calendar rentals charts chats 
+        consumer_guide credits deal hotel_reservations insurance stocks jobs loans mail messageboards minutes 
+        miscellaneous mortgage news orders other_assets other_liabilities reservations miles telephone utilities]
     # gets the endpoint, defaults to globally defined endpoint
     def endpoint
       @endpoint || YodleeApi.endpoint
@@ -27,7 +30,7 @@ module YodleeApi
     
     
     # Returns a Map of content services keyed by the container types.
-    def get_content_services
+    def get_sites(container_types)
       @response = client.request :con, :get_content_services_by_container_type5 do
         soap.element_form_default = :unqualified     
         soap.namespaces["xmlns:login"] = 'http://login.ext.soap.yodlee.com'
@@ -37,7 +40,7 @@ module YodleeApi
          :container_types => {
            :elements => container_types
          },
-         :req_specifier => 16
+         :req_specifier => 16 # grab login forms
         }
       end; nil
       
@@ -48,14 +51,9 @@ module YodleeApi
     
     private
     
-    Arguments = [:cobrand_context, :container_types]
 
-    def initialize args
-      args.each do |k, v|
-        raise ArgumentError, "Invalid Parameters specified: #{k}, valid parameters are #{Arguments}" unless Arguments.include? k
-        instance_variable_set("@#{k}", v) unless v.nil?
-      end
-      
+    def initialize(ctxt)
+      @cobrand_context = ctxt
       @soap_service = "ContentServiceTraversalService"
       @sites = []
 
@@ -73,7 +71,7 @@ module YodleeApi
             :content_service_id => c.elements[0].text, 
             :site_name => c.elements[2].text, 
             :organization_name => c.elements[4].text,
-            :login_form  => c.search('loginForm/componentList/elements').map { |field| 
+            :login_form  => c.search('loginForm/componentList/elements', 'loginForm/componentList/elements/fieldInfoList/elements').map { |field| 
               field.elements.inject({}) { |h, c| 
                 if ['validValues', 'displayValidValues'].include?(c.name)
                   h[c.name.to_sym] = c.elements.map { |c| c.text }
