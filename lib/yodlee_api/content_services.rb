@@ -42,9 +42,9 @@ module YodleeApi
          },
          :req_specifier => 16 # grab login forms
         }
-      end; nil
+      end
       
-      @sites = @response.to_xml; true
+      @sites = @response.to_xml
       response_xml = @response.to_xml
       parse_response(response_xml)
     end
@@ -67,7 +67,8 @@ module YodleeApi
     # parses the get_content_services_by_container_type5 response, extracting site name and content_service_id 
     def parse_response(response_xml)
         doc = Nokogiri::XML(response_xml)
-        @sites = doc.search('getContentServicesByContainerType5Return/table/value/elements').map {|c| {
+        @sites = doc.search('getContentServicesByContainerType5Return/table/value/elements').find_all { |s| s.at("country").text == "US" }.map { |c| {
+        # @sites = doc.search('getContentServicesByContainerType5Return/table/value/elements').map {|c| {
             :content_service_id => c.elements[0].text, 
             :site_name => c.elements[2].text, 
             :organization_name => c.elements[4].text,

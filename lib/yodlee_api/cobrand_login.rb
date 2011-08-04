@@ -110,7 +110,7 @@ module YodleeApi
             :group_pattern => context[:preference_info][:number_format][:group_pattern]
           }
         }
-      }
+      }; true
             
     end
     
